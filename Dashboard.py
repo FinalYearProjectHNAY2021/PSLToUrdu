@@ -34,7 +34,7 @@ class Ui_MainWindow(object):
         # self.SideBarLabel.setStyleSheet("image: url(:/newPrefix/Side Bar.jpg);")
         self.topbar.setText("")
         self.topbar.setObjectName("topbar")
-        #Hasnain
+        #Hasnaindidthis
         print(w,h)
 
         self.Box1 = QtWidgets.QLabel(self.centralwidget)
