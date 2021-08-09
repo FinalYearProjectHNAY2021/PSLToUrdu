@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Icon ionic-ios-notifications-outline.png</file>
+  </qresource>
+</RCC>

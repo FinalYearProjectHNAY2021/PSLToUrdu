@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="MenuBackground">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1024</width>
+      <height>768</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+#MenuBackground{
+background-image: url(:/newPrefix/MenuBackground.jpg);
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="LogoLabel">
+    <property name="geometry">
+     <rect>
+      <x>276</x>
+      <y>34</y>
+      <width>474</width>
+      <height>474</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/PSL TO URDU logo-02.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="DashBoardBtn">
+    <property name="geometry">
+     <rect>
+      <x>231</x>
+      <y>450</y>
+      <width>123</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#DashBoardBtn{
+image: url(:/newPrefix/Group 303.png);
+background-color: transparent;
+
+
+
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PSLtoUrduBtn">
+    <property name="geometry">
+     <rect>
+      <x>383</x>
+      <y>444</y>
+      <width>126</width>
+      <height>86</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#PSLtoUrduBtn{
+image: url(:/newPrefix/Group 304.png);
+background-color: transparent;
+
+
+
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AudiotoUrduBtn">
+    <property name="geometry">
+     <rect>
+      <x>537</x>
+      <y>450</y>
+      <width>153</width>
+      <height>78</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#AudiotoUrduBtn{
+	image: url(:/newPrefix/Group 305.png);
+background-color: transparent;
+
+
+
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ProfileBtn">
+    <property name="geometry">
+     <rect>
+      <x>717</x>
+      <y>455</y>
+      <width>80</width>
+      <height>72</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#ProfileBtn{
+background-color: transparent;
+	image: url(:/newPrefix/Group 306.png);
+
+
+
+
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="LogoutBtn">
+    <property name="geometry">
+     <rect>
+      <x>825</x>
+      <y>640</y>
+      <width>158</width>
+      <height>46</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#LogoutBtn{
+font: 20px &quot;Montserrat&quot;;
+color:rgb(16, 106, 56);
+	background-color: rgb(40, 232, 144);
+border-radius: 5px;
+
+opacity: 1;
+}</string>
+    </property>
+    <property name="text">
+     <string>LOGOUT</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BackBtn">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>640</y>
+      <width>158</width>
+      <height>46</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#BackBtn{
+font: 20px &quot;Montserrat&quot;;
+color:rgb(16, 106, 56);
+	background-color: rgb(40, 232, 144);
+border-radius: 5px;
+
+opacity: 1;
+}</string>
+    </property>
+    <property name="text">
+     <string>BACK</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="MenuBackground.qrc"/>
+  <include location="MenuProfileIcon.qrc"/>
+  <include location="MenuAudiotoUrduIcon.qrc"/>
+  <include location="MenuIconPsltoUrdu.qrc"/>
+  <include location="MenuIconDashboard.qrc"/>
+  <include location="PSLLogo.qrc"/>
+ </resources>
+ <connections/>
+</ui>

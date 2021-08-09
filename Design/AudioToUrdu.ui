@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="AudioToUrdu">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1024</width>
+      <height>768</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/newPrefix/AudioToUrdu.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="DashboardIcon">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>262</y>
+      <width>54</width>
+      <height>30</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Image: url(:/newPrefix/Group 308.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PsltoUrduIcon">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>331</y>
+      <width>56</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Image: url(:/newPrefix/Group 309.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="AudiotoUrduIcon">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>404</y>
+      <width>68</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Image: url(:/newPrefix/Group 310.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ProfileIcon">
+    <property name="geometry">
+     <rect>
+      <x>24</x>
+      <y>478</y>
+      <width>40</width>
+      <height>33</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Image: url(:/newPrefix/Group 311.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NotiIcon">
+    <property name="geometry">
+     <rect>
+      <x>764</x>
+      <y>27</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MsgIcon">
+    <property name="geometry">
+     <rect>
+      <x>812</x>
+      <y>27</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Image: url(:/newPrefix/Icon feather-message-square.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="UsernnameLabel">
+    <property name="geometry">
+     <rect>
+      <x>863</x>
+      <y>30</y>
+      <width>72</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#UsernnameLabel {
+color: rgb(255, 255, 255);
+font: 11px &quot;Montserrat&quot;;
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>USERNAME</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="profilepushButton">
+    <property name="geometry">
+     <rect>
+      <x>947</x>
+      <y>15</y>
+      <width>44</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#profilepushButton{
+image: url(:/newPrefix/Path 206.png);
+border: 1px solid #00A65A;
+border-radius: 22px;
+background-color: Transparent;
+
+	image: url(:/newPrefix/Path 206.png);
+
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="DayandDateLabel">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>37</y>
+      <width>123</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#DayandDateLabel{
+font: 16px &quot;Montserrat&quot;;
+text-align: left;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Thursday, 25.10</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Timelabel">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>52</y>
+      <width>115</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Timelabel{
+text-align: left;
+letter-spacing: NaNpx;
+color: #FFFFFF;
+opacity: 1;
+font: 28px &quot;Montserrat&quot;;
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>5:48 PM</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="AudiotoUrdulabel">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>155</y>
+      <width>187</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#AudiotoUrdulabel{
+text-align: left;
+font: 22px &quot;Montserrat&quot;;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
+}
+
+
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>AUDIO TO URDU</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Audiolabel">
+    <property name="geometry">
+     <rect>
+      <x>148</x>
+      <y>217</y>
+      <width>38</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Audiolabel{
+color: rgb(255, 255, 255);
+font: 11px &quot;Montserrat&quot;;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>AUDIO</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="AudiIcon">
+    <property name="geometry">
+     <rect>
+      <x>194</x>
+      <y>217</y>
+      <width>14</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Icon material-audiotrack.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AudiopushButton">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>380</y>
+      <width>92</width>
+      <height>105</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#AudiopushButton{
+image: url(:/newPrefix/Icon open-audio-spectrum.png);
+background-color:transparent
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TextIcon">
+    <property name="geometry">
+     <rect>
+      <x>535</x>
+      <y>210</y>
+      <width>14</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Icon open-text.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="TextLabel">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>210</y>
+      <width>31</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#TextLabel{
+color: rgb(255, 255, 255);
+font: 11px &quot;Montserrat&quot;;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>TEXT</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>240</y>
+      <width>471</width>
+      <height>381</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#textEdit{
+background-color:Transparent;
+color: rgb(255, 255, 255);
+	font: 11pt &quot;Montserrat&quot;;
+
+
+
+}</string>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1024</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="AudioToUrdu.qrc"/>
+  <include location="TextIcon.qrc"/>
+  <include location="AudioBtnIcon.qrc"/>
+  <include location="AudioIcon.qrc"/>
+  <include location="MesIcon.qrc"/>
+  <include location="ProfileImg.qrc"/>
+  <include location="NotiIcon.qrc"/>
+  <include location="ProfileIcon.qrc"/>
+  <include location="AudiotoUrduIcon.qrc"/>
+  <include location="PsltoUrduIcon.qrc"/>
+  <include location="dasboardIcon.qrc"/>
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Icon open-text.png</file>
+  </qresource>
+</RCC>

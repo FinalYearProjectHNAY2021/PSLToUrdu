@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Splash Screen.png</file>
+  </qresource>
+</RCC>

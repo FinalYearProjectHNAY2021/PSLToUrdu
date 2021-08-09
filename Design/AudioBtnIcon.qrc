@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Icon open-audio-spectrum.png</file>
+  </qresource>
+</RCC>

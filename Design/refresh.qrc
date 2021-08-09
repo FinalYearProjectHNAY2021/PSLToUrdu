@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Icon material-refresh.png</file>
+  </qresource>
+</RCC>

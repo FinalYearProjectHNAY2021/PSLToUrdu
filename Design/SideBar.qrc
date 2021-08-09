@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Side Bar.jpg</file>
+  </qresource>
+</RCC>

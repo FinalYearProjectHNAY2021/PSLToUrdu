@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Icon feather-message-square.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Register Screen.jpg</file>
+  </qresource>
+</RCC>

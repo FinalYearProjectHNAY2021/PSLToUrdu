@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Dashboard.jpg</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>PSL TO URDU logo-02.png</file>
+  </qresource>
+</RCC>

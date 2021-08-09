@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>Ellipse 33.png</file>
+  </qresource>
+</RCC>

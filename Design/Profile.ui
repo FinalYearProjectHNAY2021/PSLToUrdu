@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1023</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="profile">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1024</width>
+      <height>768</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/newPrefix/Profile.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="dasboardicon">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>262</y>
+      <width>54</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Group 308.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="psltorduicon">
+    <property name="geometry">
+     <rect>
+      <x>17</x>
+      <y>330</y>
+      <width>56</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Group 309.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="audiotoUrduicon">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>403</y>
+      <width>68</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Group 310.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="profileicon">
+    <property name="geometry">
+     <rect>
+      <x>24</x>
+      <y>477</y>
+      <width>40</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Group 311.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="day">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>37</y>
+      <width>123</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#day{
+font: 16px &quot;Montserrat&quot;;
+text-align: left;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Thursday, 25.10 </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="timelabel">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>52</y>
+      <width>115</width>
+      <height>52</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#timelabel{
+text-align: left;
+letter-spacing: NaNpx;
+color: #FFFFFF;
+opacity: 1;
+font: 28px &quot;Montserrat&quot;;
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>5:48 PM</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="profilelabel">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>150</y>
+      <width>98</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#profilelabel{
+text-align: left;
+font: 22px &quot;Montserrat&quot;;
+letter-spacing: 0px;
+color: #FFFFFF;
+opacity: 1;
+
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>PROFILE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="NotiLabel">
+    <property name="geometry">
+     <rect>
+      <x>764</x>
+      <y>27</y>
+      <width>16</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="MsgLabel">
+    <property name="geometry">
+     <rect>
+      <x>812</x>
+      <y>27</y>
+      <width>16</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Icon feather-message-square.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="UsernameLabel">
+    <property name="geometry">
+     <rect>
+      <x>863</x>
+      <y>30</y>
+      <width>72</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#UsernameLabel{
+font: 11px &quot;Montserrat&quot;;
+color: #FFFFFF;
+opacity: 1;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>USERNAME</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ProfilepushButton">
+    <property name="geometry">
+     <rect>
+      <x>947</x>
+      <y>15</y>
+      <width>44</width>
+      <height>44</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#ProfilepushButton{
+	image: url(:/newPrefix/Path 206.png);
+border: 1px solid #00A65A;
+border-radius: 22px;
+background-color: Transparent;
+
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="profileImgLabel">
+    <property name="geometry">
+     <rect>
+      <x>451</x>
+      <y>137</y>
+      <width>203</width>
+      <height>203</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/Ellipse 33.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="personalDetailBtn">
+    <property name="geometry">
+     <rect>
+      <x>159</x>
+      <y>384</y>
+      <width>389</width>
+      <height>46</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#personalDetailBtn{
+font: 20px &quot;Montserrat&quot;;
+color:rgb(16, 106, 56);
+	background-color: rgb(40, 232, 144);
+border-radius: 5px;
+
+opacity: 1;
+}</string>
+    </property>
+    <property name="text">
+     <string>PERSONAL DETAILS</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="profileSettingsBtn">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>384</y>
+      <width>389</width>
+      <height>46</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#profileSettingsBtn{
+font: 20px &quot;Montserrat&quot;;
+color:rgb(16, 106, 56);
+	background-color: rgb(40, 232, 144);
+border-radius: 5px;
+
+opacity: 1;
+}</string>
+    </property>
+    <property name="text">
+     <string>PROFILE SETTING</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="privacyPolicyBtn">
+    <property name="geometry">
+     <rect>
+      <x>367</x>
+      <y>467</y>
+      <width>389</width>
+      <height>46</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#privacyPolicyBtn{
+font: 20px &quot;Montserrat&quot;;
+color:rgb(16, 106, 56);
+	background-color: rgb(40, 232, 144);
+border-radius: 5px;
+
+opacity: 1;
+}</string>
+    </property>
+    <property name="text">
+     <string>PRIVACY &amp; POLICY</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1023</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="profileBackground.qrc"/>
+  <include location="ProfileLargePic.qrc"/>
+  <include location="ProfileImg.qrc"/>
+  <include location="MesIcon.qrc"/>
+  <include location="NotiIcon.qrc"/>
+  <include location="ProfileIcon.qrc"/>
+  <include location="AudiotoUrduIcon.qrc"/>
+  <include location="PsltoUrduIcon.qrc"/>
+  <include location="dasboardIcon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
