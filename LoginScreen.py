@@ -8,8 +8,6 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-import pymongo
-from pymongo import MongoClient
 
 
 class Ui_MainWindow1(object):
