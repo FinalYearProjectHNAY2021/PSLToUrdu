@@ -7,7 +7,8 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtGui import QPixmap
+from PyQt6.QtCore import QSize
+from PyQt6.QtGui import QPixmap, QIcon
 
 
 class Ui_MainWindow(object):
@@ -108,6 +109,8 @@ class Ui_MainWindow(object):
         self.UsernameLabel.setObjectName("UsernameLabel")
         self.ProfilepushButton = QtWidgets.QPushButton(self.centralwidget)
         self.ProfilepushButton.setGeometry(QtCore.QRect(947, 15, 44, 44))
+        self.ProfilepushButton.setIconSize(QSize(40, 40))
+        self.ProfilepushButton.setIcon(QIcon("./Images/Path 206.png"))
         self.ProfilepushButton.setStyleSheet("#ProfilepushButton{\n"
 "    image: url(:/Design/newPrefix/Path 206.png);\n"
 "border: 1px solid #00A65A;\n"
