@@ -8,9 +8,18 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
+from LoginScreen import Ui_MainWindow1
 
 
 class Ui_MainWindow_RegisterScreen(object):
+
+    # method fro opening new window
+    def LoginScreen(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow1()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -168,6 +177,8 @@ class Ui_MainWindow_RegisterScreen(object):
                                                   "\n"
                                                   "}")
         self.AlreadyAUserpushButton.setObjectName("AlreadyAUserpushButton")
+        self.AlreadyAUserpushButton.clicked.connect(self.LoginScreen)
+        self.AlreadyAUserpushButton.clicked.connect(MainWindow.close)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
