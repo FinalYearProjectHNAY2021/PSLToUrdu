@@ -19,6 +19,7 @@ class Ui_MainWindow(object):
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        #Hasnain
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
