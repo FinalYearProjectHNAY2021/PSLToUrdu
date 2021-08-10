@@ -14,6 +14,7 @@ from LoginScreen import Ui_MainWindow1
 
 class Ui_MainWindow(object):
 
+    # method fro opening new window
     def LoginScreen(self):
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow1()
@@ -51,7 +52,9 @@ class Ui_MainWindow(object):
 "background-color: #106A38;\n"
 "}")
         self.LoginBtn.setObjectName("LoginBtn")
+        # button click method for screen change
         self.LoginBtn.clicked.connect(self.LoginScreen)
+        self.LoginBtn.clicked.connect(MainWindow.close)
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
         self.CreateAnAccount.setGeometry(QtCore.QRect(99, 623, 134, 18))
         self.CreateAnAccount.setStyleSheet("#CreateAnAccount{\n"
