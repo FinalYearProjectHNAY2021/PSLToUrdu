@@ -9,6 +9,7 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
+from clickableFunc import clickable
 
 
 class Ui_MainWindow_Dashboard(object):
@@ -33,8 +34,8 @@ class Ui_MainWindow_Dashboard(object):
         self.MainScreen.setText("")
         self.MainScreen.setObjectName("MainScreen")
         self.SideBarLabel = QtWidgets.QLabel(self.centralwidget)
-        self.SideBarLabel.clicked.connect(self.Menu)
-        self.SideBarLabel.clicked.connect(MainWindow.close)
+        clickable(self.SideBarLabel).connect(self.Menu)
+        clickable(self.SideBarLabel).connect(MainWindow.close)
 
 
         self.SideBarLabel.setGeometry(QtCore.QRect(-10, -15, 96, 795))
