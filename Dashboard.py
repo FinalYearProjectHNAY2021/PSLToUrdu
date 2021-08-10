@@ -55,6 +55,7 @@ class Ui_MainWindow(object):
 "\n"
 "\n"
 "}")
+        # Asad
         self.UsernameLabel.setObjectName("UsernameLabel")
         self.MsgLabel = QtWidgets.QLabel(self.centralwidget)
         self.MsgLabel.setGeometry(QtCore.QRect(812, 27, 16, 20))
