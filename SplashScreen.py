@@ -8,10 +8,18 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-import LoginScreen
+from LoginScreen import Ui_MainWindow1
+
 
 
 class Ui_MainWindow(object):
+
+    def LoginScreen(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow1()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(984, 768)
@@ -26,7 +34,6 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(95, 576, 178, 44))
-        #self.LoginBtn.clicked.connect(self.LoginScreen)
         self.LoginBtn.setStyleSheet("#LoginBtn{\n"
 "border-radius: 5px;\n"
 "box-shadow: 0px 3px 6px #000000;\n"
@@ -43,6 +50,7 @@ class Ui_MainWindow(object):
 "background-color: #106A38;\n"
 "}")
         self.LoginBtn.setObjectName("LoginBtn")
+        self.LoginBtn.clicked.connect(self.LoginScreen)
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
         self.CreateAnAccount.setGeometry(QtCore.QRect(99, 623, 134, 18))
         self.CreateAnAccount.setStyleSheet("#CreateAnAccount{\n"
