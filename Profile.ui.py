@@ -109,7 +109,7 @@ class Ui_MainWindow(object):
         self.UsernameLabel.setObjectName("UsernameLabel")
         self.ProfilepushButton = QtWidgets.QPushButton(self.centralwidget)
         self.ProfilepushButton.setGeometry(QtCore.QRect(947, 15, 44, 44))
-        self.ProfilepushButton.setIconSize(QSize(40, 40))
+        self.ProfilepushButton.setIconSize(QSize(50, 40))
         self.ProfilepushButton.setIcon(QIcon("./Images/Path 206.png"))
         self.ProfilepushButton.setStyleSheet("#ProfilepushButton{\n"
 "    image: url(:/Design/newPrefix/Path 206.png);\n"
