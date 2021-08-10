@@ -10,7 +10,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_RegisterScreen(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -199,7 +199,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_RegisterScreen()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())

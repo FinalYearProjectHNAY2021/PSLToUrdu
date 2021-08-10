@@ -9,7 +9,7 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 from LoginScreen import Ui_MainWindow1
-
+from RegisterScreen import Ui_MainWindow_RegisterScreen
 
 
 class Ui_MainWindow(object):
@@ -20,7 +20,15 @@ class Ui_MainWindow(object):
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        #Hasnain noor
+
+        # Hasnain noor
+
+        # method fro opening new window
+    def RegisterScreen(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_RegisterScreen()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -37,40 +45,44 @@ class Ui_MainWindow(object):
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(95, 576, 178, 44))
         self.LoginBtn.setStyleSheet("#LoginBtn{\n"
-"border-radius: 5px;\n"
-"box-shadow: 0px 3px 6px #000000;\n"
-"border: 2px solid #39B54A;\n"
-"opacity: 1;\n"
-"font-family: Montserrat;\n"
-"font-size: 21px;\n"
-"font-weight: 800;\n"
-"color: #106A38;\n"
-"}\n"
-"\n"
-"QPushButton#LoginBtn:hover{\n"
-"color: #FFFFFF ;\n"
-"background-color: #106A38;\n"
-"}")
+                                    "border-radius: 5px;\n"
+                                    "box-shadow: 0px 3px 6px #000000;\n"
+                                    "border: 2px solid #39B54A;\n"
+                                    "opacity: 1;\n"
+                                    "font-family: Montserrat;\n"
+                                    "font-size: 21px;\n"
+                                    "font-weight: 800;\n"
+                                    "color: #106A38;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton#LoginBtn:hover{\n"
+                                    "color: #FFFFFF ;\n"
+                                    "background-color: #106A38;\n"
+                                    "}")
         self.LoginBtn.setObjectName("LoginBtn")
         # button click method for screen change
         self.LoginBtn.clicked.connect(self.LoginScreen)
         self.LoginBtn.clicked.connect(MainWindow.close)
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
         self.CreateAnAccount.setGeometry(QtCore.QRect(99, 623, 134, 18))
+
         self.CreateAnAccount.setStyleSheet("#CreateAnAccount{\n"
-"color: var(--unnamed-color-3cb44a);\n"
-"font: normal normal bold 14px Montserrat;\n"
-"color: #3CB44A;\n"
-"opacity: 1;\n"
-"background-color: Transparent;\n"
-" background-repeat: no-repeat;\n"
-" border: none;\n"
-" cursor: pointer;\n"
-" overflow: hidden;\n"
-" outline: none;\n"
-"\n"
-"}")
+                                           "color: var(--unnamed-color-3cb44a);\n"
+                                           "font: normal normal bold 14px Montserrat;\n"
+                                           "color: #3CB44A;\n"
+                                           "opacity: 1;\n"
+                                           "background-color: Transparent;\n"
+                                           " background-repeat: no-repeat;\n"
+                                           " border: none;\n"
+                                           " cursor: pointer;\n"
+                                           " overflow: hidden;\n"
+                                           " outline: none;\n"
+                                           "\n"
+                                           "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
+        self.CreateAnAccount.clicked.connect(self.RegisterScreen)
+        self.CreateAnAccount.clicked.connect(MainWindow.close)
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(255, 623, 18, 18))
         self.label_2.setPixmap(QPixmap("./Images/Icon awesome-arrow-alt-circle-right.png"))
@@ -79,19 +91,19 @@ class Ui_MainWindow(object):
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit.setGeometry(QtCore.QRect(91, 315, 457, 189))
         self.plainTextEdit.setStyleSheet("#plainTextEdit{\n"
-"background-color: Transparent;\n"
-" background-repeat: no-repeat;\n"
-" border: none;\n"
-" cursor: pointer;\n"
-" overflow: hidden;\n"
-" outline: none;\n"
-"text-align: left;\n"
-"font: normal normal normal 20px/27px Segoe UI;\n"
-"letter-spacing: 0px;\n"
-"color: #707070;\n"
-"opacity: 1;\n"
-"\n"
-"}")
+                                         "background-color: Transparent;\n"
+                                         " background-repeat: no-repeat;\n"
+                                         " border: none;\n"
+                                         " cursor: pointer;\n"
+                                         " overflow: hidden;\n"
+                                         " outline: none;\n"
+                                         "text-align: left;\n"
+                                         "font: normal normal normal 20px/27px Segoe UI;\n"
+                                         "letter-spacing: 0px;\n"
+                                         "color: #707070;\n"
+                                         "opacity: 1;\n"
+                                         "\n"
+                                         "}")
         self.plainTextEdit.setObjectName("plainTextEdit")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -110,11 +122,13 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.LoginBtn.setText(_translate("MainWindow", "Login"))
         self.CreateAnAccount.setText(_translate("MainWindow", "Create an account"))
-        self.plainTextEdit.setPlainText(_translate("MainWindow", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. "))
+        self.plainTextEdit.setPlainText(_translate("MainWindow",
+                                                   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. "))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
