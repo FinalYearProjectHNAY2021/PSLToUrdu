@@ -8,9 +8,15 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
+# from RegisterScreen import Ui_MainWindow_RegisterScreen
 
 
 class Ui_MainWindow1(object):
+
+    # def RegisterScreen(self):
+    #     self.window2 = QtWidgets
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -37,6 +43,8 @@ class Ui_MainWindow1(object):
 "color: #ffffff;\n"
 "}")
         self.RegisterBtn.setObjectName("RegisterBtn")
+
+
         self.GoToMainBtn = QtWidgets.QPushButton(self.centralwidget)
         self.GoToMainBtn.setGeometry(QtCore.QRect(726, 22, 81, 19))
         self.GoToMainBtn.setStyleSheet("#GoToMainBtn{\n"
@@ -138,6 +146,8 @@ class Ui_MainWindow1(object):
 "\n"
 "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
+
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(267, 612, 18, 18))
         self.label.setPixmap(QPixmap("./Images/Icon awesome-arrow-alt-circle-right.png"))

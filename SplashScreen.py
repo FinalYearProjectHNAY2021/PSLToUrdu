@@ -22,7 +22,6 @@ class Ui_MainWindow(object):
         self.window2.show()
 
         # Hasnain noor
-
         # method fro opening new window
     def RegisterScreen(self):
         self.window2 = QtWidgets.QMainWindow()

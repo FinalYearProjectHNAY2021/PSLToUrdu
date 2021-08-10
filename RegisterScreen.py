@@ -14,6 +14,7 @@ from LoginScreen import Ui_MainWindow1
 class Ui_MainWindow_RegisterScreen(object):
 
     # method fro opening new window
+
     def LoginScreen(self):
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow1()
