@@ -8,16 +8,26 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-# from RegisterScreen import *
+from RegisterScreen import Ui_MainWindow_RegisterScreen
+from SplashScreen import Ui_MainWindow
+
+
 
 
 class Ui_MainWindow1(object):
 
-    # def RegisterScreen(self):
-    #     self.window2 = QtWidgets.QMainWindow()
-    #     self.ui = Ui_MainWindow_RegisterScreen()
-    #     self.ui.setupUi(self.window2)
-    #     self.window2.show()
+    def RegisterScreen(self):
+        self.window3 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_RegisterScreen()
+        self.ui.setupUi(self.window3())
+        self.window3.show()
+
+    def splashScreen(self):
+        self.windowSplash = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow
+        self.ui.setupUi(self.windowSplash())
+        self.windowSplash.show()
+
 
 
     def setupUi(self, MainWindow):
@@ -46,6 +56,8 @@ class Ui_MainWindow1(object):
 "color: #ffffff;\n"
 "}")
         self.RegisterBtn.setObjectName("RegisterBtn")
+        self.RegisterBtn.clicked.connect(self.RegisterScreen)
+        self.RegisterBtn.clicked.connect(MainWindow.close)
 
 
         self.GoToMainBtn = QtWidgets.QPushButton(self.centralwidget)
@@ -56,6 +68,8 @@ class Ui_MainWindow1(object):
 "    font: 15px \"Montserrat\";\n"
 "}")
         self.GoToMainBtn.setObjectName("GoToMainBtn")
+        self.GoToMainBtn.clicked.connect(self.splashScreen)
+        self.GoToMainBtn.clicked.connect(MainWindow.close)
         self.UserLabel = QtWidgets.QLabel(self.centralwidget)
         self.UserLabel.setGeometry(QtCore.QRect(61, 343, 100, 22))
         self.UserLabel.setStyleSheet("#UserLabel{\n"
@@ -149,8 +163,8 @@ class Ui_MainWindow1(object):
 "\n"
 "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
-        # self.CreateAnAccount.clicked.connect(self.RegisterScreen)
-        # self.CreateAnAccount.clicked.connect(MainWindow.close)
+        self.CreateAnAccount.clicked.connect(self.RegisterScreen)
+        self.CreateAnAccount.clicked.connect(MainWindow.close)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(267, 612, 18, 18))

@@ -8,8 +8,8 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-from LoginScreen import Ui_MainWindow1
-from RegisterScreen import Ui_MainWindow_RegisterScreen
+from LoginScreen import *
+from RegisterScreen import *
 
 
 class Ui_MainWindow(object):
@@ -24,10 +24,10 @@ class Ui_MainWindow(object):
         # Hasnain noor
         # method fro opening new window
     def RegisterScreen(self):
-        self.window2 = QtWidgets.QMainWindow()
+        self.window3 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_RegisterScreen()
-        self.ui.setupUi(self.window2)
-        self.window2.show()
+        self.ui.setupUi(self.window3)
+        self.window3.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")

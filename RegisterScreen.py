@@ -8,18 +8,13 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-from LoginScreen import Ui_MainWindow1
+
 
 
 class Ui_MainWindow_RegisterScreen(object):
 
     # method fro opening new window
 
-    def LoginScreen(self):
-        self.window2 = QtWidgets.QMainWindow()
-        self.ui = Ui_MainWindow1()
-        self.ui.setupUi(self.window2)
-        self.window2.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
