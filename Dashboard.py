@@ -11,7 +11,16 @@ from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_Dashboard(object):
+
+        # method fro opening menu screen
+    def Menu(self):
+        from Menu import Ui_MainWindow_Menu
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Menu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -24,6 +33,10 @@ class Ui_MainWindow(object):
         self.MainScreen.setText("")
         self.MainScreen.setObjectName("MainScreen")
         self.SideBarLabel = QtWidgets.QLabel(self.centralwidget)
+        self.SideBarLabel.clicked.connect(self.Menu)
+        self.SideBarLabel.clicked.connect(MainWindow.close)
+
+
         self.SideBarLabel.setGeometry(QtCore.QRect(-10, -15, 96, 795))
         self.SideBarLabel.setPixmap(QPixmap("./Images/Side Bar.jpg"))
         # self.SideBarLabel.setStyleSheet("image: url(:/newPrefix/Side Bar.jpg);")
@@ -349,7 +362,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_Dashboard()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())

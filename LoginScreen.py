@@ -28,6 +28,14 @@ class Ui_MainWindow1(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
+    # method fro opening dashboard screen
+    def Dashboard(self):
+        from Dashboard import Ui_MainWindow_Dashboard
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Dashboard()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -122,6 +130,9 @@ class Ui_MainWindow1(object):
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(107, 560, 178, 44))
         # self.LoginBtn.clicked.connect(self.dataconnection)
+        self.LoginBtn.clicked.connect(self.Dashboard)
+        self.LoginBtn.clicked.connect(MainWindow.close)
+
         self.LoginBtn.setStyleSheet("#LoginBtn{\n"
         
 

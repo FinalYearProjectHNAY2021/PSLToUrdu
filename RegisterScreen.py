@@ -11,8 +11,6 @@ from PyQt6.QtGui import QPixmap
 
 from LoginScreen import Ui_MainWindow1
 from SplashScreen import *
-
-
 class Ui_MainWindow_RegisterScreen(object):
 
 
