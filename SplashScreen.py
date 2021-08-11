@@ -8,14 +8,19 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-from LoginScreen import *
-from RegisterScreen import *
+
+# from RegisterScreen import Ui_MainWindow_RegisterScreen
+
+
+# def login():
+#     from LoginScreen import Ui_MainWindow1
 
 
 class Ui_MainWindow(object):
 
     # method fro opening new window
     def LoginScreen(self):
+        from LoginScreen import Ui_MainWindow1
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
@@ -24,6 +29,7 @@ class Ui_MainWindow(object):
         # Hasnain noor
         # method fro opening new window
     def RegisterScreen(self):
+        from RegisterScreen import Ui_MainWindow_RegisterScreen
         self.window3 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_RegisterScreen()
         self.ui.setupUi(self.window3)
@@ -60,6 +66,7 @@ class Ui_MainWindow(object):
                                     "}")
         self.LoginBtn.setObjectName("LoginBtn")
         # button click method for screen change
+
         self.LoginBtn.clicked.connect(self.LoginScreen)
         self.LoginBtn.clicked.connect(MainWindow.close)
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
