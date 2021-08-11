@@ -194,6 +194,7 @@ class Ui_MainWindow1(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.RegisterBtn.setText(_translate("MainWindow", "Register"))
 
+
         self.RegisterBtn.clicked.connect(self.RegisterScreen)
         self.RegisterBtn.clicked.connect(MainWindow.close)
 
