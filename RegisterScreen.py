@@ -9,12 +9,26 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 
+from LoginScreen import Ui_MainWindow1
+from SplashScreen import *
 
 
 class Ui_MainWindow_RegisterScreen(object):
 
-    # method fro opening new window
 
+    # method fro opening login screen
+    def LoginScreen(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow1()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+    # method fro opening splash screen
+    def SplashScreen(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -52,6 +66,9 @@ class Ui_MainWindow_RegisterScreen(object):
                                        "\n"
                                        "}")
         self.GotoMainBtn.setObjectName("GotoMainBtn")
+        self.GotoMainBtn.clicked.connect(self.SplashScreen)
+        self.GotoMainBtn.clicked.connect(MainWindow.close)
+
         self.FirstNameLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.FirstNameLineEdit.setGeometry(QtCore.QRect(64, 272, 282, 41))
         self.FirstNameLineEdit.setStyleSheet("#FirstNameLineEdit{\n"
@@ -191,6 +208,9 @@ class Ui_MainWindow_RegisterScreen(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.LoginBtnTop.setText(_translate("MainWindow", "Login"))
+        self.LoginBtnTop.clicked.connect(self.LoginScreen)
+        self.LoginBtnTop.clicked.connect(MainWindow.close)
+
         self.GotoMainBtn.setText(_translate("MainWindow", "Go to Main"))
         self.FirstNameLineEdit.setText(_translate("MainWindow", "   First name"))
         self.LastNamelineEdit.setText(_translate("MainWindow", "   Last name"))
