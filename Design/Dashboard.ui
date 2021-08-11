@@ -30,22 +30,6 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="SideBarLabel">
-    <property name="geometry">
-     <rect>
-      <x>-10</x>
-      <y>-15</y>
-      <width>96</width>
-      <height>795</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">image: url(:/newPrefix/Side Bar.jpg);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="ProfilepushButton">
     <property name="geometry">
      <rect>
@@ -641,6 +625,77 @@ background-color: rgb(40, 232, 144);
      <string/>
     </property>
    </widget>
+   <widget class="QPushButton" name="Sidebarpushbutton">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-15</y>
+      <width>96</width>
+      <height>795</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Sidebarpushbutton{
+border-radius: 2px;
+background-color: rgb(0, 166, 90);
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Logolabel">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>40</y>
+      <width>62</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#Logolabel{
+
+image: url(:/newPrefix/PSL TO URDU logo-02.png);
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>MainScreen</zorder>
+   <zorder>ProfilepushButton</zorder>
+   <zorder>UsernameLabel</zorder>
+   <zorder>MsgLabel</zorder>
+   <zorder>NotiLabel</zorder>
+   <zorder>DayandDate</zorder>
+   <zorder>Timelabel</zorder>
+   <zorder>DashboarLabel</zorder>
+   <zorder>NumSIgnLanLabel</zorder>
+   <zorder>NumAudLanLabel</zorder>
+   <zorder>AvgSignLanLabel</zorder>
+   <zorder>NumLabel</zorder>
+   <zorder>NumLabel_2</zorder>
+   <zorder>GraphLabel</zorder>
+   <zorder>ScrollBtn</zorder>
+   <zorder>ScrollBtn_2</zorder>
+   <zorder>DayLabel</zorder>
+   <zorder>DayLabel_2</zorder>
+   <zorder>LineLabel</zorder>
+   <zorder>ActiveUserCountlabel</zorder>
+   <zorder>ActiveUserlabel</zorder>
+   <zorder>label</zorder>
+   <zorder>SeeAllBtn</zorder>
+   <zorder>line</zorder>
+   <zorder>scrollAreaActiveUser</zorder>
+   <zorder>Sidebarpushbutton</zorder>
+   <zorder>label_2</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>Logolabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -656,6 +711,7 @@ background-color: rgb(40, 232, 144);
  </widget>
  <resources>
   <include location="DashboardGui.qrc"/>
+  <include location="PSLLogo.qrc"/>
   <include location="ProfileIcon.qrc"/>
   <include location="AudiotoUrduIcon.qrc"/>
   <include location="PsltoUrduIcon.qrc"/>
