@@ -25,7 +25,6 @@ class Ui_MainWindow(object):
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        #Asad
         # Hasnain noor
         # method fro opening new window
     def RegisterScreen(self):
