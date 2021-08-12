@@ -2,4 +2,7 @@
   <qresource prefix="newPrefix">
     <file>Group 308.png</file>
   </qresource>
+  <qresource prefix="newPrefix">
+    <file>PSL TO URDU logo-02.png</file>
+  </qresource>
 </RCC>

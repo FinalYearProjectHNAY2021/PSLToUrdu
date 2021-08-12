@@ -408,6 +408,66 @@ opacity: 1;
      <string>PSL TO URDU</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="SideBar">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-15</y>
+      <width>96</width>
+      <height>795</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#SideBar{
+
+border-radius: 2px;
+background-color: rgb(0, 166, 90);
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="LogoLabel">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>41</y>
+      <width>62</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/PSL TO URDU logo-02.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>ProfileScreen</zorder>
+   <zorder>NotiLabel</zorder>
+   <zorder>MsgIcon</zorder>
+   <zorder>UserNameLabel</zorder>
+   <zorder>ProfilepushButton</zorder>
+   <zorder>Cameralabel</zorder>
+   <zorder>texLabel</zorder>
+   <zorder>AudioLabel</zorder>
+   <zorder>CameraIcon</zorder>
+   <zorder>TextLabel</zorder>
+   <zorder>AudioIcon</zorder>
+   <zorder>AudiopushButton</zorder>
+   <zorder>DayandDateLabel</zorder>
+   <zorder>TimeLabel</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>SideBar</zorder>
+   <zorder>DashboardIcon</zorder>
+   <zorder>ProfileIcon</zorder>
+   <zorder>PslToUrduIcon</zorder>
+   <zorder>PsltoUrdulabel</zorder>
+   <zorder>AudioToUrduIcon</zorder>
+   <zorder>LogoLabel</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -426,6 +486,7 @@ opacity: 1;
   <include location="AudioBtnIcon.qrc"/>
   <include location="AudioIcon.qrc"/>
   <include location="TextIcon.qrc"/>
+  <include location="PSltourdulogo.qrc"/>
   <include location="CameraIcon.qrc"/>
   <include location="ProfileImg.qrc"/>
   <include location="MesIcon.qrc"/>
