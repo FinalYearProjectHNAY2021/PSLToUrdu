@@ -20,6 +20,14 @@ class Ui_MainWindow_Menu(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
+        # method fro opening login screen
+    def LoginScreen(self):
+        from LoginScreen import Ui_MainWindow1
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow1()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -115,6 +123,9 @@ class Ui_MainWindow_Menu(object):
                                      "opacity: 1;\n"
                                      "}")
         self.LogoutBtn.setObjectName("LogoutBtn")
+        self.LogoutBtn.clicked.connect(self.LoginScreen)
+        self.LogoutBtn.clicked.connect(MainWindow.close)
+
         self.BackBtn = QtWidgets.QPushButton(self.centralwidget)
         self.BackBtn.setGeometry(QtCore.QRect(40, 640, 158, 46))
         self.BackBtn.setStyleSheet("#BackBtn{\n"
