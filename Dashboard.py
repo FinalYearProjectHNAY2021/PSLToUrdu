@@ -10,7 +10,6 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
 
-
 class Ui_MainWindow_Dashboard(object):
 
     # method for opening menu screen

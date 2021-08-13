@@ -7,9 +7,20 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import QSize
+from PyQt6.QtGui import QPixmap, QIcon
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_PSLtoUrdu(object):
+
+    # method for opening menu screen
+    def Menu(self):
+        from Menu import Ui_MainWindow_Menu
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Menu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 764)
@@ -18,37 +29,44 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.ProfileScreen = QtWidgets.QLabel(self.centralwidget)
         self.ProfileScreen.setGeometry(QtCore.QRect(0, 0, 1024, 768))
-        self.ProfileScreen.setStyleSheet("background-image: url(:/newPrefix/PSLToUrdu.png);")
+        self.ProfileScreen.setPixmap(QPixmap("./Images/PSL To Urdu.png"))
+        # self.ProfileScreen.setStyleSheet("background-image: url(:/newPrefix/PSLToUrdu.png);")
         self.ProfileScreen.setText("")
         self.ProfileScreen.setObjectName("ProfileScreen")
         self.DashboardIcon = QtWidgets.QLabel(self.centralwidget)
         self.DashboardIcon.setGeometry(QtCore.QRect(17, 262, 54, 30))
-        self.DashboardIcon.setStyleSheet("image: url(:/newPrefix/Group 308.png);")
+        self.DashboardIcon.setPixmap(QPixmap("./Images/Group 308.png"))
+        # self.DashboardIcon.setStyleSheet("image: url(:/newPrefix/Group 308.png);")
         self.DashboardIcon.setText("")
         self.DashboardIcon.setObjectName("DashboardIcon")
         self.PslToUrduIcon = QtWidgets.QLabel(self.centralwidget)
         self.PslToUrduIcon.setGeometry(QtCore.QRect(17, 330, 56, 35))
-        self.PslToUrduIcon.setStyleSheet("image: url(:/newPrefix/Group 309.png);")
+        self.PslToUrduIcon.setPixmap(QPixmap("./Images/Group 309.png"))
+        # self.PslToUrduIcon.setStyleSheet("image: url(:/newPrefix/Group 309.png);")
         self.PslToUrduIcon.setText("")
         self.PslToUrduIcon.setObjectName("PslToUrduIcon")
         self.AudioToUrduIcon = QtWidgets.QLabel(self.centralwidget)
         self.AudioToUrduIcon.setGeometry(QtCore.QRect(10, 404, 68, 36))
-        self.AudioToUrduIcon.setStyleSheet("Image: url(:/newPrefix/Group 310.png)")
+        self.AudioToUrduIcon.setPixmap(QPixmap("./Images/Group 310.png"))
+        # self.AudioToUrduIcon.setStyleSheet("Image: url(:/newPrefix/Group 310.png)")
         self.AudioToUrduIcon.setText("")
         self.AudioToUrduIcon.setObjectName("AudioToUrduIcon")
         self.ProfileIcon = QtWidgets.QLabel(self.centralwidget)
         self.ProfileIcon.setGeometry(QtCore.QRect(24, 478, 40, 33))
-        self.ProfileIcon.setStyleSheet("Image:url(:/newPrefix/Group 311.png)")
+        self.ProfileIcon.setPixmap(QPixmap("./Images/Group 311.png"))
+        # self.ProfileIcon.setStyleSheet("Image:url(:/newPrefix/Group 311.png)")
         self.ProfileIcon.setText("")
         self.ProfileIcon.setObjectName("ProfileIcon")
         self.NotiLabel = QtWidgets.QLabel(self.centralwidget)
         self.NotiLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
-        self.NotiLabel.setStyleSheet("Image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png)")
+        self.NotiLabel.setPixmap(QPixmap("./Images/Icon ionic-ios-notifications-outline.png"))
+        # self.NotiLabel.setStyleSheet("Image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png)")
         self.NotiLabel.setText("")
         self.NotiLabel.setObjectName("NotiLabel")
         self.MsgIcon = QtWidgets.QLabel(self.centralwidget)
         self.MsgIcon.setGeometry(QtCore.QRect(800, 30, 47, 13))
-        self.MsgIcon.setStyleSheet("Image:url(:/newPrefix/Icon feather-message-square.png)")
+        self.MsgIcon.setPixmap(QPixmap("./Images/Icon feather-message-square.png"))
+        # self.MsgIcon.setStyleSheet("Image:url(:/newPrefix/Icon feather-message-square.png)")
         self.MsgIcon.setText("")
         self.MsgIcon.setObjectName("MsgIcon")
         self.UserNameLabel = QtWidgets.QLabel(self.centralwidget)
@@ -73,6 +91,9 @@ class Ui_MainWindow(object):
 "}")
         self.ProfilepushButton.setText("")
         self.ProfilepushButton.setObjectName("ProfilepushButton")
+        self.ProfilepushButton.setIconSize(QSize(35, 35))
+        self.ProfilepushButton.setIcon(QIcon("./Images/Path 206.png"))
+
         self.Cameralabel = QtWidgets.QLabel(self.centralwidget)
         self.Cameralabel.setGeometry(QtCore.QRect(159, 215, 49, 13))
         self.Cameralabel.setStyleSheet("#Cameralabel{\n"
@@ -102,17 +123,20 @@ class Ui_MainWindow(object):
         self.AudioLabel.setObjectName("AudioLabel")
         self.CameraIcon = QtWidgets.QLabel(self.centralwidget)
         self.CameraIcon.setGeometry(QtCore.QRect(215, 215, 15, 15))
-        self.CameraIcon.setStyleSheet("Image: url(:/newPrefix/Icon awesome-camera.png)")
+        self.CameraIcon.setPixmap(QPixmap("./Images/Icon awesome-camera.png"))
+        # self.CameraIcon.setStyleSheet("Image: url(:/newPrefix/Icon awesome-camera.png)")
         self.CameraIcon.setText("")
         self.CameraIcon.setObjectName("CameraIcon")
         self.TextLabel = QtWidgets.QLabel(self.centralwidget)
         self.TextLabel.setGeometry(QtCore.QRect(732, 215, 15, 15))
-        self.TextLabel.setStyleSheet("image: url(:/newPrefix/Icon open-text.png);")
+        self.TextLabel.setPixmap(QPixmap("./Images/Icon open-text.png"))
+        # self.TextLabel.setStyleSheet("image: url(:/newPrefix/Icon open-text.png);")
         self.TextLabel.setText("")
         self.TextLabel.setObjectName("TextLabel")
         self.AudioIcon = QtWidgets.QLabel(self.centralwidget)
         self.AudioIcon.setGeometry(QtCore.QRect(744, 470, 15, 15))
-        self.AudioIcon.setStyleSheet("image: url(:/newPrefix/Icon material-audiotrack.png);")
+        self.AudioIcon.setPixmap(QPixmap("./Images/Icon material-audiotrack.png"))
+        # self.AudioIcon.setStyleSheet("image: url(:/newPrefix/Icon material-audiotrack.png);")
         self.AudioIcon.setText("")
         self.AudioIcon.setObjectName("AudioIcon")
         self.AudiopushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -125,6 +149,9 @@ class Ui_MainWindow(object):
 "}")
         self.AudiopushButton.setText("")
         self.AudiopushButton.setObjectName("AudiopushButton")
+        self.AudiopushButton.setIconSize(QSize(100, 100))
+        self.AudiopushButton.setIcon(QIcon("./Images/Icon open-audio-spectrum.png"))
+
         self.DayandDateLabel = QtWidgets.QLabel(self.centralwidget)
         self.DayandDateLabel.setGeometry(QtCore.QRect(159, 37, 123, 19))
         self.DayandDateLabel.setStyleSheet("#DayandDateLabel{\n"
@@ -186,9 +213,15 @@ class Ui_MainWindow(object):
 "}")
         self.SideBar.setText("")
         self.SideBar.setObjectName("SideBar")
+
+        self.SideBar.clicked.connect(self.Menu)
+        self.SideBar.clicked.connect(MainWindow.close)
+
+
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 48))
-        self.LogoLabel.setStyleSheet("image: url(:/newPrefix/PSL TO URDU logo-02.png);")
+        self.LogoLabel.setPixmap(QPixmap("./Images/PSL TO URDU logo-02.png"))
+        # self.LogoLabel.setStyleSheet("image: url(:/newPrefix/PSL TO URDU logo-02.png);")
         self.LogoLabel.setText("")
         self.LogoLabel.setObjectName("LogoLabel")
         self.ProfileScreen.raise_()
@@ -246,7 +279,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_PSLtoUrdu()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())

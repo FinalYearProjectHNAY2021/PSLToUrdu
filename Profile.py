@@ -7,9 +7,21 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import QSize
+from PyQt6.QtGui import QPixmap, QIcon
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_Profile(object):
+
+
+    # method for opening menu screen
+    def Menu(self):
+        from Menu import Ui_MainWindow_Menu
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Menu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1023, 768)
@@ -17,27 +29,32 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.profile = QtWidgets.QLabel(self.centralwidget)
         self.profile.setGeometry(QtCore.QRect(0, 0, 1024, 768))
-        self.profile.setStyleSheet("background-image: url(:/newPrefix/Profile.png);")
+        self.profile.setPixmap(QPixmap("./Images/Profile.png"))
+        # self.profile.setStyleSheet("background-image: url(:/newPrefix/Profile.png);")
         self.profile.setText("")
         self.profile.setObjectName("profile")
         self.dasboardicon = QtWidgets.QLabel(self.centralwidget)
         self.dasboardicon.setGeometry(QtCore.QRect(17, 262, 54, 29))
-        self.dasboardicon.setStyleSheet("image: url(:/newPrefix/Group 308.png);")
+        self.dasboardicon.setPixmap(QPixmap("./Images/Group 308.png"))
+        # self.dasboardicon.setStyleSheet("image: url(:/newPrefix/Group 308.png);")
         self.dasboardicon.setText("")
         self.dasboardicon.setObjectName("dasboardicon")
         self.psltorduicon = QtWidgets.QLabel(self.centralwidget)
         self.psltorduicon.setGeometry(QtCore.QRect(17, 330, 56, 35))
-        self.psltorduicon.setStyleSheet("image: url(:/newPrefix/Group 309.png);")
+        self.psltorduicon.setPixmap(QPixmap("./Images/Group 309.png"))
+        # self.psltorduicon.setStyleSheet("image: url(:/newPrefix/Group 309.png);")
         self.psltorduicon.setText("")
         self.psltorduicon.setObjectName("psltorduicon")
         self.audiotoUrduicon = QtWidgets.QLabel(self.centralwidget)
         self.audiotoUrduicon.setGeometry(QtCore.QRect(10, 403, 68, 35))
-        self.audiotoUrduicon.setStyleSheet("image: url(:/newPrefix/Group 310.png);")
+        self.audiotoUrduicon.setPixmap(QPixmap("./Images/Group 310.png"))
+        # self.audiotoUrduicon.setStyleSheet("image: url(:/newPrefix/Group 310.png);")
         self.audiotoUrduicon.setText("")
         self.audiotoUrduicon.setObjectName("audiotoUrduicon")
         self.profileicon = QtWidgets.QLabel(self.centralwidget)
         self.profileicon.setGeometry(QtCore.QRect(24, 477, 40, 32))
-        self.profileicon.setStyleSheet("image: url(:/newPrefix/Group 311.png);")
+        self.profileicon.setPixmap(QPixmap("./Images/Group 311.png"))
+        # self.profileicon.setStyleSheet("image: url(:/newPrefix/Group 311.png);")
         self.profileicon.setText("")
         self.profileicon.setObjectName("profileicon")
         self.day = QtWidgets.QLabel(self.centralwidget)
@@ -79,12 +96,14 @@ class Ui_MainWindow(object):
         self.profilelabel.setObjectName("profilelabel")
         self.NotiLabel = QtWidgets.QLabel(self.centralwidget)
         self.NotiLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
-        self.NotiLabel.setStyleSheet("image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);")
+        self.NotiLabel.setPixmap(QPixmap("./Images/Icon ionic-ios-notifications-outline.png"))
+        # self.NotiLabel.setStyleSheet("image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);")
         self.NotiLabel.setText("")
         self.NotiLabel.setObjectName("NotiLabel")
         self.MsgLabel = QtWidgets.QLabel(self.centralwidget)
         self.MsgLabel.setGeometry(QtCore.QRect(812, 27, 16, 20))
-        self.MsgLabel.setStyleSheet("image: url(:/newPrefix/Icon feather-message-square.png);")
+        self.MsgLabel.setPixmap(QPixmap("./Images/Icon feather-message-square.png"))
+        # self.MsgLabel.setStyleSheet("image: url(:/newPrefix/Icon feather-message-square.png);")
         self.MsgLabel.setText("")
         self.MsgLabel.setObjectName("MsgLabel")
         self.UsernameLabel = QtWidgets.QLabel(self.centralwidget)
@@ -112,9 +131,13 @@ class Ui_MainWindow(object):
 "}")
         self.ProfilepushButton.setText("")
         self.ProfilepushButton.setObjectName("ProfilepushButton")
+        self.ProfilepushButton.setIconSize(QSize(35, 35))
+        self.ProfilepushButton.setIcon(QIcon("./Images/Path 206.png"))
+
         self.profileImgLabel = QtWidgets.QLabel(self.centralwidget)
         self.profileImgLabel.setGeometry(QtCore.QRect(451, 137, 203, 203))
-        self.profileImgLabel.setStyleSheet("image: url(:/newPrefix/Ellipse 33.png);")
+        self.profileImgLabel.setPixmap(QPixmap("./Images/Ellipse 33.png"))
+        # self.profileImgLabel.setStyleSheet("image: url(:/newPrefix/Ellipse 33.png);")
         self.profileImgLabel.setText("")
         self.profileImgLabel.setObjectName("profileImgLabel")
         self.personalDetailBtn = QtWidgets.QPushButton(self.centralwidget)
@@ -161,6 +184,9 @@ class Ui_MainWindow(object):
 "}")
         self.Sidebar.setText("")
         self.Sidebar.setObjectName("Sidebar")
+        self.Sidebar.clicked.connect(self.Menu)
+        self.Sidebar.clicked.connect(MainWindow.close)
+
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 47))
         self.LogoLabel.setText("")
@@ -211,7 +237,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_Profile()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())

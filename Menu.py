@@ -28,6 +28,31 @@ class Ui_MainWindow_Menu(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
+        # method fro opening PSLtoUrdu screen
+    def PSLtoUrdu(self):
+        from PSLtoUrdu import Ui_MainWindow_PSLtoUrdu
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_PSLtoUrdu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+
+        # method fro opening AudioUrdu screen
+    def AudioToUrdu(self):
+        from AudioToUrdu import Ui_MainWindow_AudiotoUrdu
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_AudiotoUrdu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+        # method fro opening Profile screen
+    def Profile(self):
+        from Profile import Ui_MainWindow_Profile
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Profile()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -66,6 +91,10 @@ class Ui_MainWindow_Menu(object):
                                         "")
         self.DashBoardBtn.setText("")
         self.DashBoardBtn.setObjectName("DashBoardBtn")
+
+        self.DashBoardBtn.clicked.connect(self.Dashboard)
+        self.DashBoardBtn.clicked.connect(MainWindow.close)
+
         self.PSLtoUrduBtn = QtWidgets.QPushButton(self.centralwidget)
         self.PSLtoUrduBtn.setGeometry(QtCore.QRect(383, 444, 126, 86))
         self.PSLtoUrduBtn.setIconSize(QSize(200, 200))
@@ -81,6 +110,9 @@ class Ui_MainWindow_Menu(object):
                                         "")
         self.PSLtoUrduBtn.setText("")
         self.PSLtoUrduBtn.setObjectName("PSLtoUrduBtn")
+        self.PSLtoUrduBtn.clicked.connect(self.PSLtoUrdu)
+        self.PSLtoUrduBtn.clicked.connect(MainWindow.close)
+
         self.AudiotoUrduBtn = QtWidgets.QPushButton(self.centralwidget)
         self.AudiotoUrduBtn.setGeometry(QtCore.QRect(537, 450, 153, 78))
         self.AudiotoUrduBtn.setIconSize(QSize(200, 200))
@@ -96,6 +128,9 @@ class Ui_MainWindow_Menu(object):
                                           "")
         self.AudiotoUrduBtn.setText("")
         self.AudiotoUrduBtn.setObjectName("AudiotoUrduBtn")
+        self.AudiotoUrduBtn.clicked.connect(self.AudioToUrdu)
+        self.AudiotoUrduBtn.clicked.connect(MainWindow.close)
+
         self.ProfileBtn = QtWidgets.QPushButton(self.centralwidget)
         self.ProfileBtn.setGeometry(QtCore.QRect(717, 455, 80, 72))
         self.ProfileBtn.setIconSize(QSize(200, 200))
@@ -111,6 +146,9 @@ class Ui_MainWindow_Menu(object):
                                       "")
         self.ProfileBtn.setText("")
         self.ProfileBtn.setObjectName("ProfileBtn")
+        self.ProfileBtn.clicked.connect(self.Profile)
+        self.ProfileBtn.clicked.connect(MainWindow.close)
+
         self.LogoutBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LogoutBtn.setGeometry(QtCore.QRect(825, 640, 158, 46))
 

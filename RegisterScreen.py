@@ -169,6 +169,9 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "\n"
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
+        self.RegisterpushButton.clicked.connect(self.LoginScreen)
+        self.RegisterpushButton.clicked.connect(MainWindow.close)
+
         self.AlreadyAUserpushButton = QtWidgets.QPushButton(self.centralwidget)
         self.AlreadyAUserpushButton.setGeometry(QtCore.QRect(137, 660, 117, 18))
         self.AlreadyAUserpushButton.setStyleSheet("#AlreadyAUserpushButton{\n"
