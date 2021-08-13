@@ -11,6 +11,15 @@ from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
 
 class Ui_MainWindow_Menu(object):
+
+    # method fro opening dashboard screen
+    def Dashboard(self):
+        from Dashboard import Ui_MainWindow_Dashboard
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Dashboard()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -117,6 +126,9 @@ class Ui_MainWindow_Menu(object):
                                    "opacity: 1;\n"
                                    "}")
         self.BackBtn.setObjectName("BackBtn")
+        self.BackBtn.clicked.connect(self.Dashboard)
+        self.BackBtn.clicked.connect(MainWindow.close)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
@@ -141,7 +153,7 @@ if __name__ == "__main__":
 
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_Menu()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
