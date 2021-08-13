@@ -126,6 +126,7 @@ class Ui_MainWindow1(object):
 "opacity: 1;\n"
 "\n"
 "}")
+
         self.PasswordLineEdit.setObjectName("PasswordLineEdit")
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(107, 560, 178, 44))

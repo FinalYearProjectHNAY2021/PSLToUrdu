@@ -11,7 +11,16 @@ from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_Dashboard(object):
+
+    # method for opening menu screen
+    def Menu(self):
+        from Menu import Ui_MainWindow_Menu
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Menu()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -316,15 +325,18 @@ class Ui_MainWindow(object):
         self.Sidebarpushbutton.setText("")
         self.Sidebarpushbutton.setObjectName("Sidebarpushbutton")
 
+        self.Sidebarpushbutton.clicked.connect(self.Menu)
+        self.Sidebarpushbutton.clicked.connect(MainWindow.close)
+
         self.Logolabel = QtWidgets.QLabel(self.centralwidget)
-        self.Logolabel.setGeometry(QtCore.QRect(14, 40, 62, 48))
-
-
-        self.Logolabel.setStyleSheet("#Logolabel{\n"
-        "\n"
-        "image: url(:/newPrefix/PSL TO URDU logo-02.png);\n"
-        "\n"
-        "}")
+        self.Logolabel.setGeometry(QtCore.QRect(14, 30, 62, 48))
+        #
+        #
+        # self.Logolabel.setStyleSheet("#Logolabel{\n"
+        # "\n"
+        # "image: url(:/newPrefix/PSL TO URDU logo-02.png);\n"
+        # "\n"
+        # "}")
         self.Logolabel.setPixmap(QPixmap("./Images/PSL TO URDU logo-02.png"))
         self.Logolabel.setText("")
         self.Logolabel.setObjectName("Logolabel")
