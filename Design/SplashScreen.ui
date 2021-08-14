@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>984</width>
+    <width>993</width>
     <height>768</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -145,7 +151,7 @@ opacity: 1;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>984</width>
+     <width>993</width>
      <height>21</height>
     </rect>
    </property>

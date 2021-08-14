@@ -8,9 +8,10 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-
 from LoginScreen import Ui_MainWindow1
 from SplashScreen import *
+from pymongo import MongoClient
+
 class Ui_MainWindow_RegisterScreen(object):
 
 
@@ -29,6 +30,7 @@ class Ui_MainWindow_RegisterScreen(object):
         self.window2.show()
 
     def setupUi(self, MainWindow):
+        global Password, Password, Email, Password, Password, Email
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -169,6 +171,22 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "\n"
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        table = mydb.userRegistration
+        FirstName = self.FirstNameLineEdit.text()
+        LastName = self.LastNamelineEdit.text()
+        Email = self.EmaillineEdit.text()
+        UserName = self.UserNamelineEdit.text()
+        Password = self.PasswordlineEdit.text()
+        data = {
+                'FirstName' : str(FirstName),
+                'LastName' : str(LastName),
+                'Email' : str(Email),
+                'UserName' : str(UserName),
+                'Password' : str(Password),
+            }
+        table.insert_one(data)
         self.RegisterpushButton.clicked.connect(self.LoginScreen)
         self.RegisterpushButton.clicked.connect(MainWindow.close)
 
