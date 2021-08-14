@@ -171,7 +171,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "\n"
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
-        #Hasnain
+        #noor
         connectionString = MongoClient('mongodb://localhost:27017')
         mydb = connectionString['PSL']
         table = mydb.userRegistration
