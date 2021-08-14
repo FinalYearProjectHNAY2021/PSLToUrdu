@@ -171,21 +171,15 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "\n"
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
-        #noor
         connectionString = MongoClient('mongodb://localhost:27017')
         mydb = connectionString['PSL']
         table = mydb.userRegistration
-        FirstName = self.FirstNameLineEdit.text()
-        LastName = self.LastNamelineEdit.text()
-        Email = self.EmaillineEdit.text()
-        UserName = self.UserNamelineEdit.text()
-        Password = self.PasswordlineEdit.text()
         data = {
-                'FirstName' : str(FirstName),
-                'LastName' : str(LastName),
-                'Email' : str(Email),
-                'UserName' : str(UserName),
-                'Password' : str(Password),
+                'FirstName' 
+                'LastName'
+                'Email'  
+                'UserName'
+                'Password'
             }
         table.insert_one(data)
         self.RegisterpushButton.clicked.connect(self.LoginScreen)
