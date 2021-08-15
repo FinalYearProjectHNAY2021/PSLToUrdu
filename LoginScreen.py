@@ -8,6 +8,7 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 # from RegisterScreen import *
+from PyQt6.QtWidgets import QLineEdit
 
 
 class Ui_MainWindow1(object):
@@ -105,6 +106,7 @@ class Ui_MainWindow1(object):
 "}")
         self.UsernameLabel.setObjectName("UsernameLabel")
         self.PasswordLabel = QtWidgets.QLabel(self.centralwidget)
+
         self.PasswordLabel.setGeometry(QtCore.QRect(61, 444, 88, 22))
         self.PasswordLabel.setStyleSheet("#PasswordLabel{\n"
 "color: var(--unnamed-color-106a38);\n"
@@ -116,6 +118,7 @@ class Ui_MainWindow1(object):
 "}")
         self.PasswordLabel.setObjectName("PasswordLabel")
         self.PasswordLineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.PasswordLineEdit.setEchoMode(QLineEdit.EchoMode.Password)
         self.PasswordLineEdit.setGeometry(QtCore.QRect(61, 469, 285, 48))
         self.PasswordLineEdit.setStyleSheet("#PasswordLineEdit{\n"
 "border: 2px solid var(--unnamed-color-106a38);\n"

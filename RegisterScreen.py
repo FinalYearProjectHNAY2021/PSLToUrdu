@@ -8,12 +8,14 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
+from PyQt6.QtWidgets import QLineEdit
+
 from LoginScreen import Ui_MainWindow1
 from SplashScreen import *
 from pymongo import MongoClient
 
-class Ui_MainWindow_RegisterScreen(object):
 
+class Ui_MainWindow_RegisterScreen(object):
 
     # method fro opening login screen
     def LoginScreen(self):
@@ -70,6 +72,7 @@ class Ui_MainWindow_RegisterScreen(object):
         self.GotoMainBtn.clicked.connect(MainWindow.close)
 
         self.FirstNameLineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.FirstNameLineEdit.setPlaceholderText("First Name")
         self.FirstNameLineEdit.setGeometry(QtCore.QRect(64, 272, 282, 41))
         self.FirstNameLineEdit.setStyleSheet("#FirstNameLineEdit{\n"
                                              "border: 2px solid var(--unnamed-color-106a38);\n"
@@ -84,6 +87,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                              "}")
         self.FirstNameLineEdit.setObjectName("FirstNameLineEdit")
         self.LastNamelineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.LastNamelineEdit.setPlaceholderText("Last Name")
         self.LastNamelineEdit.setGeometry(QtCore.QRect(64, 336, 282, 41))
         self.LastNamelineEdit.setStyleSheet("#LastNamelineEdit{\n"
                                             "\n"
@@ -100,6 +104,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                             "}")
         self.LastNamelineEdit.setObjectName("LastNamelineEdit")
         self.EmaillineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.EmaillineEdit.setPlaceholderText("E-mail")
         self.EmaillineEdit.setGeometry(QtCore.QRect(64, 400, 282, 41))
         self.EmaillineEdit.setStyleSheet("#EmaillineEdit{\n"
                                          "\n"
@@ -117,6 +122,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                          "}")
         self.EmaillineEdit.setObjectName("EmaillineEdit")
         self.UserNamelineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.UserNamelineEdit.setPlaceholderText("Username")
         self.UserNamelineEdit.setGeometry(QtCore.QRect(64, 464, 282, 41))
         self.UserNamelineEdit.setStyleSheet("#UserNamelineEdit{\n"
                                             "border: 2px solid var(--unnamed-color-106a38);\n"
@@ -134,6 +140,8 @@ class Ui_MainWindow_RegisterScreen(object):
                                             "}")
         self.UserNamelineEdit.setObjectName("UserNamelineEdit")
         self.PasswordlineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.PasswordlineEdit.setEchoMode(QLineEdit.EchoMode.Password)
+        self.PasswordlineEdit.setPlaceholderText("Password")
         self.PasswordlineEdit.setGeometry(QtCore.QRect(64, 528, 282, 41))
         self.PasswordlineEdit.setStyleSheet("#PasswordlineEdit{\n"
                                             "border: 2px solid var(--unnamed-color-106a38);\n"
@@ -171,22 +179,30 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "\n"
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
+
+
         connectionString = MongoClient('mongodb://localhost:27017')
         mydb = connectionString['PSL']
         table = mydb.userRegistration
+
+
         data = {
-                'FirstName' 
-                'LastName'
-                'Email'  
-                'UserName'
-                'Password'
+                'FirstName': self.FirstNameLineEdit.text(),
+                'LastName': self.LastNamelineEdit.text(),
+                'Email': self.EmaillineEdit.text(),
+                'UserName': self.UserNamelineEdit.text(),
+                'Password': self.PasswordlineEdit.text()
             }
         table.insert_one(data)
+
+
+
+
         self.RegisterpushButton.clicked.connect(self.LoginScreen)
         self.RegisterpushButton.clicked.connect(MainWindow.close)
 
         self.AlreadyAUserpushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.AlreadyAUserpushButton.setGeometry(QtCore.QRect(137, 660, 117, 18))
+        self.AlreadyAUserpushButton.setGeometry(QtCore.QRect(137, 660, 125, 18))
         self.AlreadyAUserpushButton.setStyleSheet("#AlreadyAUserpushButton{\n"
                                                   "color: var(--unnamed-color-3cb44a);\n"
                                                   "font: 14px \"Montserrat\";\n"
@@ -226,11 +242,11 @@ class Ui_MainWindow_RegisterScreen(object):
         self.LoginBtnTop.clicked.connect(MainWindow.close)
 
         self.GotoMainBtn.setText(_translate("MainWindow", "Go to Main"))
-        self.FirstNameLineEdit.setText(_translate("MainWindow", "   First name"))
-        self.LastNamelineEdit.setText(_translate("MainWindow", "   Last name"))
-        self.EmaillineEdit.setText(_translate("MainWindow", "   E-mail"))
-        self.UserNamelineEdit.setText(_translate("MainWindow", "   User name"))
-        self.PasswordlineEdit.setText(_translate("MainWindow", "   Password"))
+        # self.FirstNameLineEdit.setText(_translate("MainWindow", "   First name"))
+        # self.LastNamelineEdit.setText(_translate("MainWindow", "   Last name"))
+        # self.EmaillineEdit.setText(_translate("MainWindow", "   E-mail"))
+        # self.UserNamelineEdit.setText(_translate("MainWindow", "   User name"))
+        # self.PasswordlineEdit.setText(_translate("MainWindow", "   Password"))
         self.RegisterpushButton.setText(_translate("MainWindow", "Register"))
         self.AlreadyAUserpushButton.setText(_translate("MainWindow", "Already A User ?"))
 
