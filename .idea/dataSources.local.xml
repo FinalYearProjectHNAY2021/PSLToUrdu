@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="PY-212.4746.96">
+    <data-source name="MongoDB - @localhost" uuid="6e3a406e-ccd9-4f5c-b6b3-1bb57628ca98">
+      <database-info product="Mongo DB" version="5.0.2" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.11" dbms="MONGO" exact-version="5.0.2" exact-driver-version="1.11" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>no-auth</auth-provider>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema" qname="PSL" />
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+  </component>
+</project>

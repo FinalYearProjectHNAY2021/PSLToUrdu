@@ -17,6 +17,20 @@ from pymongo import MongoClient
 
 class Ui_MainWindow_RegisterScreen(object):
 
+    def databaseMethod(self):
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        table = mydb.userRegistration
+
+        data = {
+            'FirstName': self.FirstNameLineEdit.text(),
+            'LastName': self.LastNamelineEdit.text(),
+            'Email': self.EmaillineEdit.text(),
+            'UserName': self.UserNamelineEdit.text(),
+            'Password': self.PasswordlineEdit.text()
+        }
+
+        table.insert_one(data)
     # method fro opening login screen
     def LoginScreen(self):
         self.window2 = QtWidgets.QMainWindow()
@@ -179,25 +193,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "\n"
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
-
-
-        connectionString = MongoClient('mongodb://localhost:27017')
-        mydb = connectionString['PSL']
-        table = mydb.userRegistration
-
-
-        data = {
-                'FirstName': self.FirstNameLineEdit.text(),
-                'LastName': self.LastNamelineEdit.text(),
-                'Email': self.EmaillineEdit.text(),
-                'UserName': self.UserNamelineEdit.text(),
-                'Password': self.PasswordlineEdit.text()
-            }
-        table.insert_one(data)
-
-
-
-
+        self.RegisterpushButton.clicked.connect(self.databaseMethod)
         self.RegisterpushButton.clicked.connect(self.LoginScreen)
         self.RegisterpushButton.clicked.connect(MainWindow.close)
 
