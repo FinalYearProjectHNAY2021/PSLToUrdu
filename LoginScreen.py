@@ -9,10 +9,30 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 # from RegisterScreen import *
 from PyQt6.QtWidgets import QLineEdit
-
+from pymongo import MongoClient
 
 class Ui_MainWindow1(object):
-
+    def LoginVerification(self):
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        table = mydb.userRegistration
+        userName = self.UsernameLineEdit.text()
+        password = self.PasswordLineEdit.text()
+        check  = table.find().count
+        corr_pass = ""
+        count = 0
+        for user in table.find():
+            count+=1
+            if user == userName['UserName']:
+                corectPassword = password['Password']
+                if corectPassword == password:
+                    self.LoginBtn.clicked.connect(self.Dashboard)
+                    self.LoginBtn.clicked.connect(MainWindow.close)
+                else:
+                    print("incorrect password")
+                break
+            if count == check :
+                print("user not found")
     def RegisterScreen(self):
         from RegisterScreen import Ui_MainWindow_RegisterScreen
         self.window2 = QtWidgets.QMainWindow()
@@ -133,8 +153,7 @@ class Ui_MainWindow1(object):
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(107, 560, 178, 44))
         # self.LoginBtn.clicked.connect(self.dataconnection)
-        self.LoginBtn.clicked.connect(self.Dashboard)
-        self.LoginBtn.clicked.connect(MainWindow.close)
+        self.LoginBtn.clicked.connect(self.LoginVerification)
 
         self.LoginBtn.setStyleSheet("#LoginBtn{\n"
         
