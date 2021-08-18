@@ -12,6 +12,7 @@ from PyQt6.QtWidgets import QLineEdit
 from pymongo import MongoClient
 
 
+
 class Ui_MainWindow1(object):
     def LoginVerification(self):
         connectionString = MongoClient('mongodb://localhost:27017')
