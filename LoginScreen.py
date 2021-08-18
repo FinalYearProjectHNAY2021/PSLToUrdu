@@ -11,6 +11,7 @@ from PyQt6.QtGui import QPixmap
 from PyQt6.QtWidgets import QLineEdit
 from pymongo import MongoClient
 
+
 class Ui_MainWindow1(object):
     def LoginVerification(self):
         connectionString = MongoClient('mongodb://localhost:27017')
@@ -18,21 +19,24 @@ class Ui_MainWindow1(object):
         table = mydb.userRegistration
         userName = self.UsernameLineEdit.text()
         password = self.PasswordLineEdit.text()
-        check  = table.find().count
+        check = table.find().count
         corr_pass = ""
         count = 0
         for user in table.find():
-            count+=1
-            if user == userName['UserName']:
-                corectPassword = password['Password']
-                if corectPassword == password:
+            count += 1
+            if user == table.find_one({'UserName': userName}):
+                correctPassword = table.find_one({'Password' : password})
+                print(correctPassword)
+                if correctPassword == password:
+                    print('Correct Password')
                     self.LoginBtn.clicked.connect(self.Dashboard)
                     self.LoginBtn.clicked.connect(MainWindow.close)
                 else:
                     print("incorrect password")
                 break
-            if count == check :
+            if count == check:
                 print("user not found")
+
     def RegisterScreen(self):
         from RegisterScreen import Ui_MainWindow_RegisterScreen
         self.window2 = QtWidgets.QMainWindow()
@@ -70,125 +74,125 @@ class Ui_MainWindow1(object):
         self.RegisterBtn = QtWidgets.QPushButton(self.centralwidget)
         self.RegisterBtn.setGeometry(QtCore.QRect(856, 13, 154, 38))
         self.RegisterBtn.setStyleSheet("#RegisterBtn{\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #39B54A;\n"
-"border-radius: 5px;\n"
-"opacity: 1;\n"
-"font: 18px \"Montserrat\";\n"
-"color: #106A38;\n"
-"}\n"
-"QPushButton#RegisterBtn:hover{\n"
-"background-color: #106A38;\n"
-"color: #ffffff;\n"
-"}")
+                                       "box-shadow: 0px 3px 6px #00000066;\n"
+                                       "border: 2px solid #39B54A;\n"
+                                       "border-radius: 5px;\n"
+                                       "opacity: 1;\n"
+                                       "font: 18px \"Montserrat\";\n"
+                                       "color: #106A38;\n"
+                                       "}\n"
+                                       "QPushButton#RegisterBtn:hover{\n"
+                                       "background-color: #106A38;\n"
+                                       "color: #ffffff;\n"
+                                       "}")
         self.RegisterBtn.setObjectName("RegisterBtn")
-
 
         self.GoToMainBtn = QtWidgets.QPushButton(self.centralwidget)
         self.GoToMainBtn.setGeometry(QtCore.QRect(726, 22, 81, 19))
         self.GoToMainBtn.setStyleSheet("#GoToMainBtn{\n"
-"background: transparent;\n"
-"color: #106A38;\n"
-"    font: 15px \"Montserrat\";\n"
-"}")
+                                       "background: transparent;\n"
+                                       "color: #106A38;\n"
+                                       "    font: 15px \"Montserrat\";\n"
+                                       "}")
         self.GoToMainBtn.setObjectName("GoToMainBtn")
         self.UserLabel = QtWidgets.QLabel(self.centralwidget)
         self.UserLabel.setGeometry(QtCore.QRect(61, 343, 100, 22))
         self.UserLabel.setStyleSheet("#UserLabel{\n"
-"color: var(--unnamed-color-106a38);\n"
-"text-align: left;\n"
-"font: 57 18px \"Montserrat Medium\";\n"
-"letter-spacing: 0px;\n"
-"color: #106A38;\n"
-"opacity: 1;\n"
-"\n"
-"}")
+                                     "color: var(--unnamed-color-106a38);\n"
+                                     "text-align: left;\n"
+                                     "font: 57 18px \"Montserrat Medium\";\n"
+                                     "letter-spacing: 0px;\n"
+                                     "color: #106A38;\n"
+                                     "opacity: 1;\n"
+                                     "\n"
+                                     "}")
         self.UserLabel.setObjectName("UserLabel")
         self.UsernameLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.UsernameLineEdit.setGeometry(QtCore.QRect(61, 368, 285, 48))
         self.UsernameLineEdit.setStyleSheet("#UsernameLineEdit{\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"}")
+                                            "border: 2px solid var(--unnamed-color-106a38);\n"
+                                            "box-shadow: 0px 3px 6px #00000066;\n"
+                                            "border: 2px solid #106A38;\n"
+                                            "border-radius: 6px;\n"
+                                            "opacity: 1;\n"
+                                            "}")
         self.UsernameLineEdit.setObjectName("UsernameLineEdit")
         self.UsernameLabel = QtWidgets.QLabel(self.centralwidget)
         self.UsernameLabel.setGeometry(QtCore.QRect(61, 343, 100, 22))
         self.UsernameLabel.setStyleSheet("#UsernameLabel{\n"
-"color: var(--unnamed-color-106a38);\n"
-"text-align: left;\n"
-"font: 57 18px \"Montserrat Medium\";\n"
-"letter-spacing: 0px;\n"
-"color: #106A38;\n"
-"opacity: 1;\n"
-"}")
+                                         "color: var(--unnamed-color-106a38);\n"
+                                         "text-align: left;\n"
+                                         "font: 57 18px \"Montserrat Medium\";\n"
+                                         "letter-spacing: 0px;\n"
+                                         "color: #106A38;\n"
+                                         "opacity: 1;\n"
+                                         "}")
         self.UsernameLabel.setObjectName("UsernameLabel")
         self.PasswordLabel = QtWidgets.QLabel(self.centralwidget)
 
         self.PasswordLabel.setGeometry(QtCore.QRect(61, 444, 88, 22))
         self.PasswordLabel.setStyleSheet("#PasswordLabel{\n"
-"color: var(--unnamed-color-106a38);\n"
-"text-align: left;\n"
-"font: 57 18px \"Montserrat Medium\";\n"
-"letter-spacing: 0px;\n"
-"color: #106A38;\n"
-"opacity: 1;\n"
-"}")
+                                         "color: var(--unnamed-color-106a38);\n"
+                                         "text-align: left;\n"
+                                         "font: 57 18px \"Montserrat Medium\";\n"
+                                         "letter-spacing: 0px;\n"
+                                         "color: #106A38;\n"
+                                         "opacity: 1;\n"
+                                         "}")
         self.PasswordLabel.setObjectName("PasswordLabel")
         self.PasswordLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.PasswordLineEdit.setEchoMode(QLineEdit.EchoMode.Password)
         self.PasswordLineEdit.setGeometry(QtCore.QRect(61, 469, 285, 48))
         self.PasswordLineEdit.setStyleSheet("#PasswordLineEdit{\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"\n"
-"}")
+                                            "border: 2px solid var(--unnamed-color-106a38);\n"
+                                            "box-shadow: 0px 3px 6px #00000066;\n"
+                                            "border: 2px solid #106A38;\n"
+                                            "border-radius: 6px;\n"
+                                            "opacity: 1;\n"
+                                            "\n"
+                                            "}")
 
         self.PasswordLineEdit.setObjectName("PasswordLineEdit")
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(107, 560, 178, 44))
         # self.LoginBtn.clicked.connect(self.dataconnection)
+
         self.LoginBtn.clicked.connect(self.LoginVerification)
 
         self.LoginBtn.setStyleSheet("#LoginBtn{\n"
-        
 
-"border-radius: 5px;\n"
-"box-shadow: 0px 3px 6px #000000;\n"
-"border: 2px solid #39B54A;\n"
-"opacity: 1;\n"
-"font-family: Montserrat;\n"
-"font-size: 21px;\n"
-"font-weight: 800;\n"
-"color: #106A38;\n"
-"}\n"
-"\n"
-"QPushButton#LoginBtn:hover{\n"
-"color: #FFFFFF ;\n"
-"background-color: #106A38;\n"
-"}\n"
-"")
+
+                                    "border-radius: 5px;\n"
+                                    "box-shadow: 0px 3px 6px #000000;\n"
+                                    "border: 2px solid #39B54A;\n"
+                                    "opacity: 1;\n"
+                                    "font-family: Montserrat;\n"
+                                    "font-size: 21px;\n"
+                                    "font-weight: 800;\n"
+                                    "color: #106A38;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton#LoginBtn:hover{\n"
+                                    "color: #FFFFFF ;\n"
+                                    "background-color: #106A38;\n"
+                                    "}\n"
+                                    "")
         self.LoginBtn.setObjectName("LoginBtn")
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
         self.CreateAnAccount.setGeometry(QtCore.QRect(111, 612, 134, 18))
         self.CreateAnAccount.setStyleSheet("#CreateAnAccount{\n"
-"color: var(--unnamed-color-3cb44a);\n"
-"font: normal normal bold 14px Montserrat;\n"
-"color: #3CB44A;\n"
-"opacity: 1;\n"
-"background-color: Transparent;\n"
-" background-repeat: no-repeat;\n"
-" border: none;\n"
-" cursor: pointer;\n"
-" overflow: hidden;\n"
-" outline: none;\n"
-"\n"
-"}")
+                                           "color: var(--unnamed-color-3cb44a);\n"
+                                           "font: normal normal bold 14px Montserrat;\n"
+                                           "color: #3CB44A;\n"
+                                           "opacity: 1;\n"
+                                           "background-color: Transparent;\n"
+                                           " background-repeat: no-repeat;\n"
+                                           " border: none;\n"
+                                           " cursor: pointer;\n"
+                                           " overflow: hidden;\n"
+                                           " outline: none;\n"
+                                           "\n"
+                                           "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
         self.CreateAnAccount.clicked.connect(self.RegisterScreen)
         self.CreateAnAccount.clicked.connect(MainWindow.close)
@@ -227,7 +231,6 @@ class Ui_MainWindow1(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.RegisterBtn.setText(_translate("MainWindow", "Register"))
 
-
         self.RegisterBtn.clicked.connect(self.RegisterScreen)
         self.RegisterBtn.clicked.connect(MainWindow.close)
 
@@ -241,29 +244,10 @@ class Ui_MainWindow1(object):
         self.LoginBtn.setText(_translate("MainWindow", "Login"))
         self.CreateAnAccount.setText(_translate("MainWindow", "Create an Account"))
 
-    # def dataconnection(self):
-    #     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-    #     mydb = myclient["mydatabase"]
-    #     mycl = mydb["signUpp"]
-    #     user = self.txt_user.get()
-    #     password = self.txt_pass.get()
-    #     corr_pass = ""
-    #     i = mycl.find().count()
-    #     j = 0
-    #     for a in mycl.find():
-    #         j += 1
-    #
-    #          if user == a['username']:
-    #              corr_pass = a['pass']
-    #              if corr_pass == password:
-    #         #         messagebox.showinfo('congratulations', 'login successfull', parent=self.root)
-    #         #     else:
-    #         #         messagebox.showerror("Error", "invalid password", parent=self.root)
-    #         #     break
-    #         # if j == i:
-    #         #     messagebox.showerror("Error", "user not found", parent=self.root)
+
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow1()
