@@ -22,11 +22,11 @@ class Ui_MainWindow1(object):
         check = table.find().count
         corr_pass = ""
         count = 0
+
         for user in table.find():
             count += 1
-            if user == table.find_one({'UserName': userName}):
-                correctPassword = table.find_one({'Password' : password})
-                print(correctPassword)
+            if user.get('UserName') == userName:
+                correctPassword = user.get('Password')
                 if correctPassword == password:
                     print('Correct Password')
                     self.LoginBtn.clicked.connect(self.Dashboard)
