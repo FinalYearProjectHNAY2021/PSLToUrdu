@@ -21,7 +21,6 @@ class Ui_MainWindow_AudiotoUrdu(object):
             audio = input.listen(source)
             print('Done!')
         text = input.recognize_google(audio, language='ur')
-
         self.textEdit.setText(text)
 
 
