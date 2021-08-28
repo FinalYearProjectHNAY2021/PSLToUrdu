@@ -39,6 +39,7 @@ class Ui_MainWindow1(object):
         self.ui = Ui_MainWindow_RegisterScreen()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
     # method fro opening splash screen
     def SplashScreen(self):
@@ -47,6 +48,7 @@ class Ui_MainWindow1(object):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
     # method fro opening dashboard screen
     def Dashboard(self):
@@ -55,6 +57,7 @@ class Ui_MainWindow1(object):
         self.ui = Ui_MainWindow_Dashboard()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -191,7 +194,7 @@ class Ui_MainWindow1(object):
                                            "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
         self.CreateAnAccount.clicked.connect(self.RegisterScreen)
-        self.CreateAnAccount.clicked.connect(MainWindow.close)
+        #self.CreateAnAccount.clicked.connect(MainWindow.close)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(267, 612, 18, 18))
@@ -228,11 +231,11 @@ class Ui_MainWindow1(object):
         self.RegisterBtn.setText(_translate("MainWindow", "Register"))
 
         self.RegisterBtn.clicked.connect(self.RegisterScreen)
-        self.RegisterBtn.clicked.connect(MainWindow.close)
+        #self.RegisterBtn.clicked.connect(MainWindow.close)
 
         self.GoToMainBtn.setText(_translate("MainWindow", "Go to Main"))
         self.GoToMainBtn.clicked.connect(self.SplashScreen)
-        self.GoToMainBtn.clicked.connect(MainWindow.close)
+        #self.GoToMainBtn.clicked.connect(MainWindow.close)
 
         self.UserLabel.setText(_translate("MainWindow", "Username"))
         self.UsernameLabel.setText(_translate("MainWindow", "Username"))

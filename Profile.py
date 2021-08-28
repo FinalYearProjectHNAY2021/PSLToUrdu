@@ -21,6 +21,7 @@ class Ui_MainWindow_Profile(object):
         self.ui = Ui_MainWindow_Menu()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -185,7 +186,7 @@ class Ui_MainWindow_Profile(object):
         self.Sidebar.setText("")
         self.Sidebar.setObjectName("Sidebar")
         self.Sidebar.clicked.connect(self.Menu)
-        self.Sidebar.clicked.connect(MainWindow.close)
+        #self.Sidebar.clicked.connect(MainWindow.close)
 
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 47))

@@ -19,6 +19,7 @@ class Ui_MainWindow_Menu(object):
         self.ui = Ui_MainWindow_Dashboard()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
         # method fro opening login screen
     def LoginScreen(self):
@@ -27,6 +28,7 @@ class Ui_MainWindow_Menu(object):
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
         # method fro opening PSLtoUrdu screen
     def PSLtoUrdu(self):
@@ -35,6 +37,7 @@ class Ui_MainWindow_Menu(object):
         self.ui = Ui_MainWindow_PSLtoUrdu()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
 
         # method fro opening AudioUrdu screen
@@ -44,6 +47,7 @@ class Ui_MainWindow_Menu(object):
         self.ui = Ui_MainWindow_AudiotoUrdu()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
         # method fro opening Profile screen
     def Profile(self):
@@ -52,6 +56,7 @@ class Ui_MainWindow_Menu(object):
         self.ui = Ui_MainWindow_Profile()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -93,7 +98,7 @@ class Ui_MainWindow_Menu(object):
         self.DashBoardBtn.setObjectName("DashBoardBtn")
 
         self.DashBoardBtn.clicked.connect(self.Dashboard)
-        self.DashBoardBtn.clicked.connect(MainWindow.close)
+        #self.DashBoardBtn.clicked.connect(MainWindow.close)
 
         self.PSLtoUrduBtn = QtWidgets.QPushButton(self.centralwidget)
         self.PSLtoUrduBtn.setGeometry(QtCore.QRect(383, 444, 126, 86))
@@ -111,7 +116,7 @@ class Ui_MainWindow_Menu(object):
         self.PSLtoUrduBtn.setText("")
         self.PSLtoUrduBtn.setObjectName("PSLtoUrduBtn")
         self.PSLtoUrduBtn.clicked.connect(self.PSLtoUrdu)
-        self.PSLtoUrduBtn.clicked.connect(MainWindow.close)
+        #self.PSLtoUrduBtn.clicked.connect(MainWindow.close)
 
         self.AudiotoUrduBtn = QtWidgets.QPushButton(self.centralwidget)
         self.AudiotoUrduBtn.setGeometry(QtCore.QRect(537, 450, 153, 78))
@@ -129,7 +134,7 @@ class Ui_MainWindow_Menu(object):
         self.AudiotoUrduBtn.setText("")
         self.AudiotoUrduBtn.setObjectName("AudiotoUrduBtn")
         self.AudiotoUrduBtn.clicked.connect(self.AudioToUrdu)
-        self.AudiotoUrduBtn.clicked.connect(MainWindow.close)
+        #self.AudiotoUrduBtn.clicked.connect(MainWindow.close)
 
         self.ProfileBtn = QtWidgets.QPushButton(self.centralwidget)
         self.ProfileBtn.setGeometry(QtCore.QRect(717, 455, 80, 72))
@@ -147,7 +152,7 @@ class Ui_MainWindow_Menu(object):
         self.ProfileBtn.setText("")
         self.ProfileBtn.setObjectName("ProfileBtn")
         self.ProfileBtn.clicked.connect(self.Profile)
-        self.ProfileBtn.clicked.connect(MainWindow.close)
+        #self.ProfileBtn.clicked.connect(MainWindow.close)
 
         self.LogoutBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LogoutBtn.setGeometry(QtCore.QRect(825, 640, 158, 46))
@@ -162,7 +167,7 @@ class Ui_MainWindow_Menu(object):
                                      "}")
         self.LogoutBtn.setObjectName("LogoutBtn")
         self.LogoutBtn.clicked.connect(self.LoginScreen)
-        self.LogoutBtn.clicked.connect(MainWindow.close)
+        #self.LogoutBtn.clicked.connect(MainWindow.close)
 
         self.BackBtn = QtWidgets.QPushButton(self.centralwidget)
         self.BackBtn.setGeometry(QtCore.QRect(40, 640, 158, 46))
@@ -176,7 +181,7 @@ class Ui_MainWindow_Menu(object):
                                    "}")
         self.BackBtn.setObjectName("BackBtn")
         self.BackBtn.clicked.connect(self.Dashboard)
-        self.BackBtn.clicked.connect(MainWindow.close)
+        #self.BackBtn.clicked.connect(MainWindow.close)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)

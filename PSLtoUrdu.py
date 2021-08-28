@@ -22,6 +22,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.ui = Ui_MainWindow_Menu()
         self.ui.setupUi(self.window2)
         self.window2.show()
+        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -217,7 +218,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.SideBar.setObjectName("SideBar")
 
         self.SideBar.clicked.connect(self.Menu)
-        self.SideBar.clicked.connect(MainWindow.close)
+        #self.SideBar.clicked.connect(MainWindow.close)
 
 
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
