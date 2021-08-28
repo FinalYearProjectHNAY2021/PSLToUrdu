@@ -17,10 +17,27 @@ from pymongo import MongoClient
 
 class Ui_MainWindow_RegisterScreen(object):
 
+    def check(self, e):
+        print(e)
+        regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+
+        if (re.search(regex, e)):
+            return True
+
+        else:
+            return False
+
     def databaseMethod(self):
-        connectionString = MongoClient('mongodb://localhost:27017')
-        mydb = connectionString['PSL']
-        table = mydb.userRegistration
+
+        if self.FirstNameLineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.UserNamelineEdit.text() == "" or self.PasswordlineEdit.text() == "":
+            print("All feild are required ")
+        elif self.check(self.EmaillineEdit.text()) == False:
+            print("Enter a valid email")
+        else:
+
+            connectionString = MongoClient('mongodb://localhost:27017')
+            mydb = connectionString['PSL']
+            table = mydb.userRegistration
 
         data = {
             'FirstName': self.FirstNameLineEdit.text(),
@@ -29,6 +46,8 @@ class Ui_MainWindow_RegisterScreen(object):
             'UserName': self.UserNamelineEdit.text(),
             'Password': self.PasswordlineEdit.text()
         }
+
+        table.insert_one(data)
 
         table.insert_one(data)
     # method fro opening login screen
