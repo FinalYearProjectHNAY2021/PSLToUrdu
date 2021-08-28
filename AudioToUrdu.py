@@ -7,11 +7,22 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
-from PyQt6.QtCore import QSize
+from PyQt6.QtCore import QSize, QTextStream
 from PyQt6.QtGui import QPixmap, QIcon
+import speech_recognition as sr
+
 
 
 class Ui_MainWindow_AudiotoUrdu(object):
+    def speechToText(self):
+        input = sr.Recognizer()
+        with sr.Microphone() as source:
+            print('Say Something:')
+            audio = input.listen(source)
+            print('Done!')
+        text = input.recognize_google(audio, language='ur')
+
+        self.textEdit.setText(text)
 
 
     # method for opening menu screen
@@ -165,6 +176,7 @@ class Ui_MainWindow_AudiotoUrdu(object):
         self.AudiopushButton.setObjectName("AudiopushButton")
         self.AudiopushButton.setIconSize(QSize(100,100))
         self.AudiopushButton.setIcon(QIcon("./Images/Icon open-audio-spectrum.png"))
+        self.AudiopushButton.clicked.connect(self.speechToText)
 
         self.TextIcon = QtWidgets.QLabel(self.centralwidget)
         self.TextIcon.setGeometry(QtCore.QRect(535, 210, 14, 14))
@@ -252,14 +264,6 @@ class Ui_MainWindow_AudiotoUrdu(object):
         self.AudiotoUrdulabel.setText(_translate("MainWindow", "AUDIO TO URDU"))
         self.Audiolabel.setText(_translate("MainWindow", "AUDIO"))
         self.TextLabel.setText(_translate("MainWindow", "TEXT"))
-        self.textEdit.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et</p></body></html>"))
 
 
 if __name__ == "__main__":

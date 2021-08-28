@@ -11,7 +11,9 @@ from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
 
 
+
 class Ui_MainWindow_PSLtoUrdu(object):
+
 
     # method for opening menu screen
     def Menu(self):

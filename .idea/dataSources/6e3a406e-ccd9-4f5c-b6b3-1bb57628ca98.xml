@@ -4,11 +4,11 @@
     <root id="1">
       <ServerVersion>5.0.2</ServerVersion>
     </root>
-    <schema id="2" parent="1" name="PSL"/>
-    <schema id="3" parent="1" name="admin"/>
-    <schema id="4" parent="1" name="config"/>
-    <schema id="5" parent="1" name="local"/>
-    <table id="6" parent="2" name="userRegistration"/>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="local"/>
+    <schema id="5" parent="1" name="PSL"/>
+    <table id="6" parent="5" name="userRegistration"/>
     <column id="7" parent="6" name="_id">
       <Position>1</Position>
       <DataType>ObjectId|12s</DataType>
