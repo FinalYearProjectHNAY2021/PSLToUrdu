@@ -44,7 +44,6 @@ class Ui_MainWindow_Dashboard(object):
         self.ui = Ui_MainWindow_Menu()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -415,7 +414,7 @@ class Ui_MainWindow_Dashboard(object):
         self.Sidebarpushbutton.setObjectName("Sidebarpushbutton")
 
         self.Sidebarpushbutton.clicked.connect(self.Menu)
-        # self.Sidebarpushbutton.clicked.connect(MainWindow.close)
+        self.Sidebarpushbutton.clicked.connect(MainWindow.close)
 
         self.Logolabel = QtWidgets.QLabel(self.centralwidget)
         self.Logolabel.setGeometry(QtCore.QRect(14, 30, 62, 48))

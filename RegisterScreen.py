@@ -56,7 +56,7 @@ class Ui_MainWindow_RegisterScreen(object):
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
+
 
     # method fro opening splash screen
     def SplashScreen(self):
@@ -64,7 +64,7 @@ class Ui_MainWindow_RegisterScreen(object):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
+
 
     def setupUi(self, MainWindow):
         global Password, Password, Email, Password, Password, Email
@@ -104,7 +104,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                        "}")
         self.GotoMainBtn.setObjectName("GotoMainBtn")
         self.GotoMainBtn.clicked.connect(self.SplashScreen)
-        #self.GotoMainBtn.clicked.connect(MainWindow.close)
+        self.GotoMainBtn.clicked.connect(MainWindow.close)
 
         self.FirstNameLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.FirstNameLineEdit.setPlaceholderText("First Name")
@@ -216,7 +216,7 @@ class Ui_MainWindow_RegisterScreen(object):
         self.RegisterpushButton.setObjectName("RegisterpushButton")
         self.RegisterpushButton.clicked.connect(self.databaseMethod)
         self.RegisterpushButton.clicked.connect(self.LoginScreen)
-        #self.RegisterpushButton.clicked.connect(MainWindow.close)
+        self.RegisterpushButton.clicked.connect(MainWindow.close)
 
         self.AlreadyAUserpushButton = QtWidgets.QPushButton(self.centralwidget)
         self.AlreadyAUserpushButton.setGeometry(QtCore.QRect(137, 660, 125, 18))
@@ -238,7 +238,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                                   "}")
         self.AlreadyAUserpushButton.setObjectName("AlreadyAUserpushButton")
         self.AlreadyAUserpushButton.clicked.connect(self.LoginScreen)
-        #self.AlreadyAUserpushButton.clicked.connect(MainWindow.close)
+        self.AlreadyAUserpushButton.clicked.connect(MainWindow.close)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
@@ -256,7 +256,7 @@ class Ui_MainWindow_RegisterScreen(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.LoginBtnTop.setText(_translate("MainWindow", "Login"))
         self.LoginBtnTop.clicked.connect(self.LoginScreen)
-        #self.LoginBtnTop.clicked.connect(MainWindow.close)
+        self.LoginBtnTop.clicked.connect(MainWindow.close)
 
         self.GotoMainBtn.setText(_translate("MainWindow", "Go to Main"))
         # self.FirstNameLineEdit.setText(_translate("MainWindow", "   First name"))

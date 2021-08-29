@@ -31,7 +31,6 @@ class Ui_MainWindow_AudiotoUrdu(object):
         self.ui = Ui_MainWindow_Menu()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -229,7 +228,7 @@ class Ui_MainWindow_AudiotoUrdu(object):
         self.SideBar.setText("")
         self.SideBar.setObjectName("SideBar")
         self.SideBar.clicked.connect(self.Menu)
-        #self.SideBar.clicked.connect(MainWindow.close)
+        self.SideBar.clicked.connect(MainWindow.close)
 
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(14, 40, 62, 47))

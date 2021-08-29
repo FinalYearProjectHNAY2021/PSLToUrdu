@@ -24,14 +24,15 @@ class Ui_MainWindow1(object):
 
                 correctPassword = user.get('Password')
                 if correctPassword == password:
-
-                    self.LoginBtn.clicked.connect(self.Dashboard)
-
+                    print('Correct Password')
+                    self.Dashboard()
                 else:
                     print("incorrect password")
                 break
             if count == check:
                 print("user not found")
+
+
 
     def RegisterScreen(self):
         from RegisterScreen import Ui_MainWindow_RegisterScreen
@@ -39,7 +40,7 @@ class Ui_MainWindow1(object):
         self.ui = Ui_MainWindow_RegisterScreen()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
+
 
     # method fro opening splash screen
     def SplashScreen(self):
@@ -48,7 +49,7 @@ class Ui_MainWindow1(object):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
+
 
     # method fro opening dashboard screen
     def Dashboard(self):
@@ -57,7 +58,7 @@ class Ui_MainWindow1(object):
         self.ui = Ui_MainWindow_Dashboard()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
+
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -154,9 +155,6 @@ class Ui_MainWindow1(object):
         self.PasswordLineEdit.setObjectName("PasswordLineEdit")
         self.LoginBtn = QtWidgets.QPushButton(self.centralwidget)
         self.LoginBtn.setGeometry(QtCore.QRect(107, 560, 178, 44))
-        # self.LoginBtn.clicked.connect(self.dataconnection)
-
-        self.LoginBtn.clicked.connect(self.LoginVerification)
 
         self.LoginBtn.setStyleSheet("#LoginBtn{\n"
 
@@ -177,6 +175,9 @@ class Ui_MainWindow1(object):
                                     "}\n"
                                     "")
         self.LoginBtn.setObjectName("LoginBtn")
+        self.LoginBtn.clicked.connect(self.LoginVerification)
+        self.LoginBtn.clicked.connect(MainWindow.close)
+
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
         self.CreateAnAccount.setGeometry(QtCore.QRect(111, 612, 134, 18))
         self.CreateAnAccount.setStyleSheet("#CreateAnAccount{\n"

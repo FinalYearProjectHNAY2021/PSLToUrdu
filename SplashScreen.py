@@ -25,7 +25,6 @@ class Ui_MainWindow(object):
         self.ui = Ui_MainWindow1()
         self.ui.setupUi(self.window2)
         self.window2.show()
-        MainWindow.hide()
         # Hasnain noor
         # method fro opening new window
     def RegisterScreen(self):
@@ -34,7 +33,6 @@ class Ui_MainWindow(object):
         self.ui = Ui_MainWindow_RegisterScreen()
         self.ui.setupUi(self.window3)
         self.window3.show()
-        MainWindow.hide()
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -69,7 +67,7 @@ class Ui_MainWindow(object):
         # button click method for screen change
 
         self.LoginBtn.clicked.connect(self.LoginScreen)
-        #self.LoginBtn.clicked.connect(MainWindow.close)
+        self.LoginBtn.clicked.connect(MainWindow.close)
         self.CreateAnAccount = QtWidgets.QPushButton(self.centralwidget)
         self.CreateAnAccount.setGeometry(QtCore.QRect(99, 623, 134, 18))
 
@@ -88,7 +86,7 @@ class Ui_MainWindow(object):
                                            "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
         self.CreateAnAccount.clicked.connect(self.RegisterScreen)
-        #self.CreateAnAccount.clicked.connect(MainWindow.close)
+        self.CreateAnAccount.clicked.connect(MainWindow.close)
 
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(255, 623, 18, 18))
