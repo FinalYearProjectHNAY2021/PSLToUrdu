@@ -195,7 +195,7 @@ class Ui_MainWindow1(object):
                                            "}")
         self.CreateAnAccount.setObjectName("CreateAnAccount")
         self.CreateAnAccount.clicked.connect(self.RegisterScreen)
-        #self.CreateAnAccount.clicked.connect(MainWindow.close)
+        self.CreateAnAccount.clicked.connect(MainWindow.close)
 
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(267, 612, 18, 18))
@@ -232,11 +232,11 @@ class Ui_MainWindow1(object):
         self.RegisterBtn.setText(_translate("MainWindow", "Register"))
 
         self.RegisterBtn.clicked.connect(self.RegisterScreen)
-        #self.RegisterBtn.clicked.connect(MainWindow.close)
+        self.RegisterBtn.clicked.connect(MainWindow.close)
 
         self.GoToMainBtn.setText(_translate("MainWindow", "Go to Main"))
         self.GoToMainBtn.clicked.connect(self.SplashScreen)
-        #self.GoToMainBtn.clicked.connect(MainWindow.close)
+        self.GoToMainBtn.clicked.connect(MainWindow.close)
 
         self.UserLabel.setText(_translate("MainWindow", "Username"))
         self.UsernameLabel.setText(_translate("MainWindow", "Username"))
