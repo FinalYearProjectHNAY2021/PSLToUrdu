@@ -9,8 +9,22 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
+from datetime import date, datetime
+from datetime import time
+
+from pymongo import MongoClient
+
 
 class Ui_MainWindow_Dashboard(object):
+
+    def databaseCountMethod(self):
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        num = mydb.userRegistration.count_documents({})
+        print(num)
+        return num
+
+        # table = mydb.userRegistration
 
     # method for opening menu screen
     def Menu(self):
@@ -45,6 +59,9 @@ class Ui_MainWindow_Dashboard(object):
                                              "\n"
                                              "}")
         self.ProfilepushButton.setText("")
+
+        # self.databaseCountMethod()
+
         self.ProfilepushButton.setObjectName("ProfilepushButton")
         self.ProfilepushButton.setIconSize(QSize(35, 35))
         self.ProfilepushButton.setIcon(QIcon("./Images/Path 206.png"))
@@ -84,11 +101,16 @@ class Ui_MainWindow_Dashboard(object):
                                       "\n"
                                       "}")
         self.DayandDate.setObjectName("DayandDate")
+        today = date.today()
+        d2 = today.strftime("%B %d, %Y")
+        # print("d2 =", d2)
+        self.DayandDate.setText(d2)
+        print(d2)
         self.Timelabel = QtWidgets.QLabel(self.centralwidget)
         self.Timelabel.setGeometry(QtCore.QRect(159, 52, 115, 52))
         self.Timelabel.setStyleSheet("#Timelabel{\n"
                                      "text-align: left;\n"
-                                     "letter-spacing: NaNpx;\n"
+                                     # "letter-spacing: NaNpx;\n"
                                      "color: #FFFFFF;\n"
                                      "opacity: 1;\n"
                                      "font: 28px \"Montserrat\";\n"
@@ -96,6 +118,11 @@ class Ui_MainWindow_Dashboard(object):
                                      "\n"
                                      "}")
         self.Timelabel.setObjectName("Timelabel")
+        now = datetime.now()
+        t = now.strftime("%H:%M")
+        self.Timelabel.setText(t)
+        print(t)
+
         self.DashboarLabel = QtWidgets.QLabel(self.centralwidget)
         self.DashboarLabel.setGeometry(QtCore.QRect(159, 155, 150, 27))
         self.DashboarLabel.setStyleSheet("#DashboarLabel{\n"
@@ -150,7 +177,7 @@ class Ui_MainWindow_Dashboard(object):
         self.NumLabel.setGeometry(QtCore.QRect(247, 273, 181, 57))
         self.NumLabel.setStyleSheet("#NumLabel{\n"
                                     "    font: 47px \"Montserrat\";\n"
-                                    "text-align: left;\n"
+                                    "text-align: AlignHCenter;\n"
                                     "letter-spacing: 0px;\n"
                                     "color: #FFFFFF;\n"
                                     "opacity: 1;\n"
@@ -158,6 +185,12 @@ class Ui_MainWindow_Dashboard(object):
                                     "\n"
                                     "}")
         self.NumLabel.setObjectName("NumLabel")
+        # self.NumLabel.setText(self.databaseCountMethod())
+        var =str(self.databaseCountMethod())
+        print(var)
+        self.NumLabel.setText(var)
+
+
         self.NumLabel_2 = QtWidgets.QLabel(self.centralwidget)
         self.NumLabel_2.setGeometry(QtCore.QRect(656, 273, 181, 57))
         self.NumLabel_2.setStyleSheet("#NumLabel_2{\n"
@@ -170,6 +203,9 @@ class Ui_MainWindow_Dashboard(object):
                                       "\n"
                                       "}")
         self.NumLabel_2.setObjectName("NumLabel_2")
+        # tot =self.databaseCountMethod()
+        self.NumLabel_2.setText(var)
+
         self.GraphLabel = QtWidgets.QLabel(self.centralwidget)
         self.GraphLabel.setGeometry(QtCore.QRect(614, 498, 299, 130))
         self.GraphLabel.setPixmap(QPixmap("./Images/Graph.png"))
@@ -326,7 +362,7 @@ class Ui_MainWindow_Dashboard(object):
         self.Sidebarpushbutton.setObjectName("Sidebarpushbutton")
 
         self.Sidebarpushbutton.clicked.connect(self.Menu)
-        #self.Sidebarpushbutton.clicked.connect(MainWindow.close)
+        # self.Sidebarpushbutton.clicked.connect(MainWindow.close)
 
         self.Logolabel = QtWidgets.QLabel(self.centralwidget)
         self.Logolabel.setGeometry(QtCore.QRect(14, 30, 62, 48))
@@ -387,8 +423,8 @@ class Ui_MainWindow_Dashboard(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.UsernameLabel.setText(_translate("MainWindow", "USERNAME"))
-        self.DayandDate.setText(_translate("MainWindow", "Thursday, 25.10"))
-        self.Timelabel.setText(_translate("MainWindow", "5:48 PM"))
+        # self.DayandDate.setText(_translate("MainWindow", "Thursday, 25.10"))
+        # self.Timelabel.setText(_translate("MainWindow", "5:48 PM"))
         self.DashboarLabel.setText(_translate("MainWindow", "DASHBOARD"))
         self.NumSIgnLanLabel.setText(_translate("MainWindow", "NUMBER OF PEOPLE USING \n"
                                                               "SIGN LANGUAGE"))
@@ -396,8 +432,8 @@ class Ui_MainWindow_Dashboard(object):
                                                              "USING AUDIO"))
         self.AvgSignLanLabel.setText(_translate("MainWindow", "AVERAGE SIGN LANGUAGE \n"
                                                               "USER"))
-        self.NumLabel.setText(_translate("MainWindow", "10,0000"))
-        self.NumLabel_2.setText(_translate("MainWindow", "10,0000"))
+        # self.NumLabel.setText(_translate("MainWindow", "10,0000"))
+        # self.NumLabel_2.setText(_translate("MainWindow", "10,0000"))
         self.DayLabel.setText(_translate("MainWindow", "TODAY"))
         self.DayLabel_2.setText(_translate("MainWindow", "TODAY"))
         self.ActiveUserCountlabel.setText(_translate("MainWindow", "10"))
