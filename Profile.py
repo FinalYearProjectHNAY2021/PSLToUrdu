@@ -194,6 +194,7 @@ class Ui_MainWindow_Profile(object):
 "\n"
 "\n"
 "}")
+
         self.Sidebar.setText("")
         self.Sidebar.setObjectName("Sidebar")
         self.Sidebar.clicked.connect(self.Menu)
