@@ -32,7 +32,7 @@ class Ui_MainWindow_Dashboard(object):
         connectionString = MongoClient('mongodb://localhost:27017')
         mydb = connectionString['PSL']
         record = mydb.userRegistration.find({},{"UserName":1})
-        print(record)
+        # print(record)
         for row in record:
             print(row.get('UserName'))
         return record
@@ -88,13 +88,13 @@ class Ui_MainWindow_Dashboard(object):
                                          "}")
         self.UsernameLabel.setObjectName("UsernameLabel")
         self.MsgLabel = QtWidgets.QLabel(self.centralwidget)
-        self.MsgLabel.setGeometry(QtCore.QRect(812, 27, 16, 20))
+        self.MsgLabel.setGeometry(QtCore.QRect(813, 25, 32, 22))
         self.MsgLabel.setPixmap(QPixmap("./Images/Icon feather-message-square.png"))
         # self.MsgLabel.setStyleSheet("image: url(:/newPrefix/Icon feather-message-square.png);")
         self.MsgLabel.setText("")
         self.MsgLabel.setObjectName("MsgLabel")
         self.NotiLabel = QtWidgets.QLabel(self.centralwidget)
-        self.NotiLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
+        self.NotiLabel.setGeometry(QtCore.QRect(764, 27, 19, 20))
         self.NotiLabel.setPixmap(QPixmap("./Images/Icon ionic-ios-notifications-outline.png"))
         # self.NotiLabel.setStyleSheet("image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);")
         self.NotiLabel.setText("")
@@ -197,9 +197,9 @@ class Ui_MainWindow_Dashboard(object):
                                     "}")
         self.NumLabel.setObjectName("NumLabel")
         # self.NumLabel.setText(self.databaseCountMethod())
-        var =str(self.databaseCountMethod())
-        print(var)
-        self.NumLabel.setText(var)
+        # var =str(self.databaseCountMethod())
+        # print(var)
+        # self.NumLabel.setText(var)
 
 
         self.NumLabel_2 = QtWidgets.QLabel(self.centralwidget)
@@ -215,7 +215,7 @@ class Ui_MainWindow_Dashboard(object):
                                       "}")
         self.NumLabel_2.setObjectName("NumLabel_2")
         # tot =self.databaseCountMethod()
-        self.NumLabel_2.setText(var)
+        # self.NumLabel_2.setText(var)
 
         self.GraphLabel = QtWidgets.QLabel(self.centralwidget)
         self.GraphLabel.setGeometry(QtCore.QRect(614, 498, 299, 130))
@@ -285,7 +285,7 @@ class Ui_MainWindow_Dashboard(object):
         self.LineLabel.setText("")
         self.LineLabel.setObjectName("LineLabel")
         self.ActiveUserCountlabel = QtWidgets.QLabel(self.centralwidget)
-        self.ActiveUserCountlabel.setGeometry(QtCore.QRect(370, 503, 57, 73))
+        self.ActiveUserCountlabel.setGeometry(QtCore.QRect(370, 503, 60, 73))
         self.ActiveUserCountlabel.setStyleSheet("#ActiveUserCountlabel{\n"
                                                 "\n"
                                                 "color: rgb(255, 255, 255);\n"
@@ -295,6 +295,11 @@ class Ui_MainWindow_Dashboard(object):
                                                 "\n"
                                                 "}")
         self.ActiveUserCountlabel.setObjectName("ActiveUserCountlabel")
+
+        var =str(self.databaseCountMethod())
+        print(var)
+        self.ActiveUserCountlabel.setText(var)
+
         self.ActiveUserlabel = QtWidgets.QLabel(self.centralwidget)
         self.ActiveUserlabel.setGeometry(QtCore.QRect(385, 566, 73, 13))
         self.ActiveUserlabel.setStyleSheet("#ActiveUserlabel{\n"
@@ -306,6 +311,9 @@ class Ui_MainWindow_Dashboard(object):
                                            "\n"
                                            "}")
         self.ActiveUserlabel.setObjectName("ActiveUserlabel")
+
+
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(445, 510, 18, 18))
         self.label.setPixmap(QPixmap("./Images/Group 269.png"))
@@ -347,14 +355,22 @@ class Ui_MainWindow_Dashboard(object):
         # self.NotiLabel.setObjectName("NewLabel")
 
 
+        username = self.databaseGetUserName()
         num = self.databaseCountMethod()
         for i in range(num):
             self.NewLabel = QtWidgets.QLabel(self.centralwidget)
             self.NewLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
             self.NewLabel.setPixmap(QPixmap("./Images/Path 206.png"))
             labelList.append(self.NewLabel)
-            buttonList.append(QPushButton("Click Me"))
+            self.NewLabel2 = QtWidgets.QLabel(self.centralwidget)
+            self.NewLabel2.setText("User "+str(i+1))
+            buttonList.append(self.NewLabel2)
             formLayout.addRow(labelList[i], buttonList[i])
+            # print()
+
+        #
+        # for row in self.databaseGetUserName():
+        #     buttonList.append(QPushButton(row))
 
         groupBox.setLayout(formLayout)
 
@@ -485,11 +501,11 @@ class Ui_MainWindow_Dashboard(object):
                                                              "USING AUDIO"))
         self.AvgSignLanLabel.setText(_translate("MainWindow", "AVERAGE SIGN LANGUAGE \n"
                                                               "USER"))
-        # self.NumLabel.setText(_translate("MainWindow", "10,0000"))
-        # self.NumLabel_2.setText(_translate("MainWindow", "10,0000"))
+        self.NumLabel.setText(_translate("MainWindow", "10,0000"))
+        self.NumLabel_2.setText(_translate("MainWindow", "10,0000"))
         self.DayLabel.setText(_translate("MainWindow", "TODAY"))
         self.DayLabel_2.setText(_translate("MainWindow", "TODAY"))
-        self.ActiveUserCountlabel.setText(_translate("MainWindow", "10"))
+        # self.ActiveUserCountlabel.setText(_translate("MainWindow", "10"))
         self.ActiveUserlabel.setText(_translate("MainWindow", "ACTIVE USER"))
         self.SeeAllBtn.setText(_translate("MainWindow", "SEE ALL"))
 
