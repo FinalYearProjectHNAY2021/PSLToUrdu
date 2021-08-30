@@ -230,6 +230,7 @@ class Ui_MainWindow_AudiotoUrdu(object):
         self.SideBar.clicked.connect(self.Menu)
         self.SideBar.clicked.connect(MainWindow.close)
 
+
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(14, 40, 62, 47))
         self.LogoLabel.setText("")
