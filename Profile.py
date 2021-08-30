@@ -203,6 +203,7 @@ class Ui_MainWindow_Profile(object):
         self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 47))
         self.LogoLabel.setText("")
         self.LogoLabel.setObjectName("LogoLabel")
+        self.LogoLabel.setPixmap(QPixmap("./Images/check.png"))
         self.profile.raise_()
         self.day.raise_()
         self.timelabel.raise_()
