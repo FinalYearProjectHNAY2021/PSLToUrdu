@@ -12,6 +12,7 @@ from PyQt6.QtGui import QPixmap, QIcon
 from datetime import date, datetime
 from datetime import time
 
+from PyQt6.QtWidgets import QFormLayout, QGroupBox, QLabel, QPushButton
 from pymongo import MongoClient
 
 
@@ -26,6 +27,16 @@ class Ui_MainWindow_Dashboard(object):
 
         # table = mydb.userRegistration
 
+
+    def databaseGetUserName(self):
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        record = mydb.userRegistration.find({},{"UserName":1})
+        print(record)
+        for row in record:
+            print(row.get('UserName'))
+        return record
+
     # method for opening menu screen
     def Menu(self):
         from Menu import Ui_MainWindow_Menu
@@ -38,6 +49,7 @@ class Ui_MainWindow_Dashboard(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
+        self.databaseGetUserName()
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.MainScreen = QtWidgets.QLabel(self.centralwidget)
@@ -318,15 +330,56 @@ class Ui_MainWindow_Dashboard(object):
         self.line.setFrameShape(QtWidgets.QFrame.Shape.VLine)
         self.line.setFrameShadow(QtWidgets.QFrame.Shadow.Sunken)
         self.line.setObjectName("line")
+
+        ############################################################################################################
+
+        formLayout = QFormLayout()
+        groupBox = QGroupBox("")
+
+
+        labelList = []
+        buttonList = []
+
+        # self.NewLabel = QtWidgets.QLabel(self.centralwidget)
+        # self.NewLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
+        # self.NewLabel.setPixmap(QPixmap("./Images/Path 206.png"))
+
+        # self.NotiLabel.setText("")
+        # self.NotiLabel.setObjectName("NewLabel")
+
+
+        num = self.databaseCountMethod()
+        for i in range(num):
+            self.NewLabel = QtWidgets.QLabel(self.centralwidget)
+            self.NewLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
+            self.NewLabel.setPixmap(QPixmap("./Images/Path 206.png"))
+            labelList.append(self.NewLabel)
+            buttonList.append(QPushButton("Click Me"))
+            formLayout.addRow(labelList[i], buttonList[i])
+
+        groupBox.setLayout(formLayout)
+
         self.scrollAreaActiveUser = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollAreaActiveUser.setGeometry(QtCore.QRect(161, 476, 164, 152))
-        self.scrollAreaActiveUser.setStyleSheet("")
+        # self.scrollAreaActiveUser.setStyleSheet("")
         self.scrollAreaActiveUser.setWidgetResizable(True)
         self.scrollAreaActiveUser.setObjectName("scrollAreaActiveUser")
+        self.scrollAreaActiveUser.setWidget(groupBox)
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 162, 150))
-        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.scrollAreaActiveUser.setWidget(self.scrollAreaWidgetContents)
+
+
+        self.scrollAreaActiveUser.setStyleSheet("#scrollAreaActiveUser{\n"
+                                
+                                             "background-color: rgb(0, 85, 255);\n"
+                                             "\n"
+                                             "}")
+        # self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        # self.scrollAreaActiveUser.setWidget(self.scrollAreaWidgetContents)
+
+
+
+        ###############################################################################################################
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(17, 262, 54, 30))
         self.label_2.setPixmap(QPixmap("./Images/Group 308.png"))
@@ -407,6 +460,7 @@ class Ui_MainWindow_Dashboard(object):
         self.label_4.raise_()
         self.label_5.raise_()
         self.Logolabel.raise_()
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
