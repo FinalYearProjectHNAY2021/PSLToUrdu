@@ -234,8 +234,9 @@ class Ui_MainWindow_PSLtoUrdu(object):
 
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
         self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 48))
-        self.LogoLabel.setPixmap(QPixmap("./Images/PSL TO URDU logo-02.png"))
-        # self.LogoLabel.setStyleSheet("image: url(:/newPrefix/PSL TO URDU logo-02.png);")
+        self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
+        self.LogoLabel.setGeometry(QtCore.QRect(14, 30, 62, 48))
+        self.LogoLabel.setPixmap(QPixmap("./Images/check.png"))
         self.LogoLabel.setText("")
         self.LogoLabel.setObjectName("LogoLabel")
         self.ProfileScreen.raise_()

@@ -234,6 +234,7 @@ class Ui_MainWindow_AudiotoUrdu(object):
         self.LogoLabel.setGeometry(QtCore.QRect(14, 40, 62, 47))
         self.LogoLabel.setText("")
         self.LogoLabel.setObjectName("LogoLabel")
+        self.LogoLabel.setPixmap(QPixmap("./Images/check.png"))
         self.AudioToUrdu.raise_()
         self.NotiIcon.raise_()
         self.MsgIcon.raise_()
