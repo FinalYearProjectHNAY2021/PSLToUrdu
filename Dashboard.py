@@ -360,7 +360,7 @@ class Ui_MainWindow_Dashboard(object):
         for i in range(num):
             self.NewLabel = QtWidgets.QLabel(self.centralwidget)
             self.NewLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
-            self.NewLabel.setPixmap(QPixmap("./Images/Path 206.png"))
+            self.NewLabel.setPixmap(QPixmap("./Images/Icon material-person"))
             labelList.append(self.NewLabel)
             self.NewLabel2 = QtWidgets.QLabel(self.centralwidget)
             self.NewLabel2.setText("User "+str(i+1))
@@ -434,6 +434,7 @@ class Ui_MainWindow_Dashboard(object):
 
         self.Logolabel = QtWidgets.QLabel(self.centralwidget)
         self.Logolabel.setGeometry(QtCore.QRect(14, 30, 62, 48))
+        self.Logolabel.setPixmap(QPixmap("./Images/check.png"))
         #
         #
         # self.Logolabel.setStyleSheet("#Logolabel{\n"
@@ -441,9 +442,11 @@ class Ui_MainWindow_Dashboard(object):
         # "image: url(:/newPrefix/PSL TO URDU logo-02.png);\n"
         # "\n"
         # "}")
-        self.Logolabel.setPixmap(QPixmap("./Images/PSL TO URDU logo-02.png"))
+        # self.Logolabel.setPixmap(QPixmap("./Images/PSL TO URDU logo-02.png"))
         self.Logolabel.setText("")
         self.Logolabel.setObjectName("Logolabel")
+
+
         self.MainScreen.raise_()
         self.ProfilepushButton.raise_()
         self.UsernameLabel.raise_()
