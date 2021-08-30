@@ -8,7 +8,7 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
-from PyQt6.QtWidgets import QLineEdit
+from PyQt6.QtWidgets import QLineEdit, QMessageBox
 
 from LoginScreen import Ui_MainWindow1
 from SplashScreen import *
@@ -16,6 +16,13 @@ from pymongo import MongoClient
 
 
 class Ui_MainWindow_RegisterScreen(object):
+
+    def showDialog(self):
+        msgBox = QMessageBox()
+        msgBox.setText("All the Fields Are Empty")
+        msgBox.setWindowTitle("Alert")
+        #msgBox.setStandardButtons(QMessageBox.Ok)
+        returnValue = msgBox.exec()
 
     def check(self, e):
         print(e)
@@ -30,7 +37,7 @@ class Ui_MainWindow_RegisterScreen(object):
     def databaseMethod(self):
 
         if self.FirstNameLineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.UserNamelineEdit.text() == "" or self.PasswordlineEdit.text() == "":
-            print("All feild are required ")
+            self.showDialog()
         elif self.check(self.EmaillineEdit.text()) == False:
             print("Enter a valid email")
         else:
@@ -65,6 +72,12 @@ class Ui_MainWindow_RegisterScreen(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
+    def RegisterScreen(self):
+        from RegisterScreen import Ui_MainWindow_RegisterScreen
+        self.window3 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_RegisterScreen()
+        self.ui.setupUi(self.window3)
+        self.window3.show()
 
     def setupUi(self, MainWindow):
         global Password, Password, Email, Password, Password, Email
