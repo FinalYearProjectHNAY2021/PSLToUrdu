@@ -215,6 +215,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "\n"
 "\n"
 "}")
+
         self.PsltoUrdulabel.setObjectName("PsltoUrdulabel")
         self.SideBar = QtWidgets.QPushButton(self.centralwidget)
         self.SideBar.setGeometry(QtCore.QRect(-10, -15, 96, 795))
