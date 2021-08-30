@@ -14,6 +14,7 @@ import speech_recognition as sr
 
 
 class Ui_MainWindow_AudiotoUrdu(object):
+
     def speechToText(self):
         input = sr.Recognizer()
         with sr.Microphone() as source:
