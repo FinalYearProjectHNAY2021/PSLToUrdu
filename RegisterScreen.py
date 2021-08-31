@@ -55,20 +55,6 @@ class Ui_MainWindow_RegisterScreen(object):
         #     print("Enter a valid email")
         else:
             self.insertData()
-        #     connectionString = MongoClient('mongodb://localhost:27017')
-        #     mydb = connectionString['PSL']
-        #     table = mydb.userRegistration
-        #
-        #     data = {
-        #         'FirstName': self.FirstNameLineEdit.text(),
-        #         'LastName': self.LastNamelineEdit.text(),
-        #         'Email': self.EmaillineEdit.text(),
-        #         'UserName': self.UserNamelineEdit.text(),
-        #         'Password': self.PasswordlineEdit.text()
-        #     }
-        #     table.insert_one(data)
-
-
 
         # table.insert_one(data)
     # method fro opening login screen
