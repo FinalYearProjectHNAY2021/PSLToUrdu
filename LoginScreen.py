@@ -2,12 +2,27 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
 # from RegisterScreen import *
-from PyQt6.QtWidgets import QLineEdit
+from PyQt6.QtWidgets import QLineEdit, QMessageBox
 from pymongo import MongoClient
 
 
 
 class Ui_MainWindow1(object):
+
+    def showMessagePassword(self):
+        msgBox = QMessageBox()
+        msgBox.setText("Invalid credentials")
+        msgBox.setWindowTitle("Alert")
+        #msgBox.setStandardButtons(QMessageBox.Ok)
+        returnValue = msgBox.exec()
+
+    def showMessageEmpty(self):
+        msgBox = QMessageBox()
+        msgBox.setText("Empty field")
+        msgBox.setWindowTitle("Alert")
+        #msgBox.setStandardButtons(QMessageBox.Ok)
+        returnValue = msgBox.exec()
+
     def LoginVerification(self):
         connectionString = MongoClient('mongodb://localhost:27017')
         mydb = connectionString['PSL']
@@ -18,8 +33,13 @@ class Ui_MainWindow1(object):
         corr_pass = ""
         count = 0
 
+        if userName == "" or password == "":
+            self.showMessageEmpty()
+            self.LogScreen()
+
         for user in table.find():
             count += 1
+
             if user.get('UserName') == userName:
 
                 correctPassword = user.get('Password')
@@ -28,10 +48,21 @@ class Ui_MainWindow1(object):
                     self.Dashboard()
                 else:
                     print("incorrect password")
+                    self.showMessagePassword()
+                    self.LogScreen()
+
                 break
             if count == check:
                 print("user not found")
 
+
+
+
+    def LogScreen(self):
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow1()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
 
 
     def RegisterScreen(self):
