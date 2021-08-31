@@ -24,27 +24,20 @@ class Ui_MainWindow_RegisterScreen(object):
         #msgBox.setStandardButtons(QMessageBox.Ok)
         returnValue = msgBox.exec()
 
-    def check(self, e):
-        print(e)
-        regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+    # def check(self, e):
+    #     print(e)
+    #     regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+    #
+    #     if (re.search(regex, e)):
+    #         return True
+    #
+    #     else:
+    #         return False
 
-        if (re.search(regex, e)):
-            return True
-
-        else:
-            return False
-
-    def databaseMethod(self):
-
-        if self.FirstNameLineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.UserNamelineEdit.text() == "" or self.PasswordlineEdit.text() == "":
-            self.showDialog()
-        elif self.check(self.EmaillineEdit.text()) == False:
-            print("Enter a valid email")
-        else:
-
-            connectionString = MongoClient('mongodb://localhost:27017')
-            mydb = connectionString['PSL']
-            table = mydb.userRegistration
+    def insertData(self):
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        table = mydb.userRegistration
 
         data = {
             'FirstName': self.FirstNameLineEdit.text(),
@@ -53,10 +46,31 @@ class Ui_MainWindow_RegisterScreen(object):
             'UserName': self.UserNamelineEdit.text(),
             'Password': self.PasswordlineEdit.text()
         }
-
         table.insert_one(data)
 
-        table.insert_one(data)
+    def databaseMethod(self):
+        if self.FirstNameLineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.UserNamelineEdit.text() == "" or self.PasswordlineEdit.text() == "":
+            self.showDialog()
+        # elif self.check(self.EmaillineEdit.text()) == False:
+        #     print("Enter a valid email")
+        else:
+            self.insertData()
+        #     connectionString = MongoClient('mongodb://localhost:27017')
+        #     mydb = connectionString['PSL']
+        #     table = mydb.userRegistration
+        #
+        #     data = {
+        #         'FirstName': self.FirstNameLineEdit.text(),
+        #         'LastName': self.LastNamelineEdit.text(),
+        #         'Email': self.EmaillineEdit.text(),
+        #         'UserName': self.UserNamelineEdit.text(),
+        #         'Password': self.PasswordlineEdit.text()
+        #     }
+        #     table.insert_one(data)
+
+
+
+        # table.insert_one(data)
     # method fro opening login screen
     def LoginScreen(self):
         self.window2 = QtWidgets.QMainWindow()
