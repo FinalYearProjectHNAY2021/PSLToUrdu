@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>../Images/Privacy and Policy.png</file>
+  </qresource>
+</RCC>

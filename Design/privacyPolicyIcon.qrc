@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>../Images/noun_privacy policy_3908089.png</file>
+  </qresource>
+</RCC>
