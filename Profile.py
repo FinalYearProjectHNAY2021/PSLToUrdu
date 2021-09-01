@@ -243,6 +243,7 @@ class Ui_MainWindow_Profile(object):
 "opacity: 1;\n"
 "    image: url(:/newPrefix/noun_privacy policy_3908089.png);\n"
 "}")
+
         self.privacyPolBtn.setText("")
         self.privacyPolBtn.setObjectName("privacyPolBtn")
         self.privacyPolBtn.clicked.connect(self.Privacy)
