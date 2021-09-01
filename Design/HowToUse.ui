@@ -50,30 +50,6 @@ opacity: 1;
      <string/>
     </property>
    </widget>
-   <widget class="QPlainTextEdit" name="plainTextEdit">
-    <property name="geometry">
-     <rect>
-      <x>421</x>
-      <y>28</y>
-      <width>191</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#plainTextEdit{
-font: 23px &quot;Montserrat&quot;;
-font-weight: bold;
-color: rgb(255, 255, 255);
-background: transparent;
-
-
-
-}</string>
-    </property>
-    <property name="plainText">
-     <string>HOW TO USE</string>
-    </property>
-   </widget>
    <widget class="QScrollArea" name="scrollAreahowtoUse">
     <property name="geometry">
      <rect>
@@ -149,6 +125,24 @@ background: transparent;
       </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QLabel" name="HowToUseLabel">
+    <property name="geometry">
+     <rect>
+      <x>421</x>
+      <y>28</y>
+      <width>161</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+font: 75 23px &quot;Montserrat&quot;;
+font-weight:Bold;</string>
+    </property>
+    <property name="text">
+     <string>HOW TO USE</string>
+    </property>
    </widget>
   </widget>
  </widget>
