@@ -116,7 +116,7 @@ class Ui_MainWindow_Dashboard(object):
         d2 = today.strftime("%B %d, %Y")
         # print("d2 =", d2)
         self.DayandDate.setText(d2)
-        print(d2)
+        # print(d2)
         self.Timelabel = QtWidgets.QLabel(self.centralwidget)
         self.Timelabel.setGeometry(QtCore.QRect(159, 52, 115, 52))
         self.Timelabel.setStyleSheet("#Timelabel{\n"
