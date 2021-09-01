@@ -52,6 +52,9 @@ class Ui_MainWindow_PrivacyPolicy(object):
 "}")
         self.BackpushButton.setText("")
         self.BackpushButton.setObjectName("BackpushButton")
+        self.BackpushButton.clicked.connect(self.Profile)
+        self.BackpushButton.clicked.connect(MainWindow.close)
+
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollArea.setGeometry(QtCore.QRect(35, 85, 342, 355))
         self.scrollArea.setMinimumSize(QtCore.QSize(342, 355))

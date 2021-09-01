@@ -40,6 +40,14 @@ class Ui_MainWindow_Profile(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
+    # method for opening howtouse scree
+    def HowToUse(self):
+        from HowToUse import Ui_MainWindow_HowtoUse
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_HowtoUse()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
 
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -235,6 +243,11 @@ class Ui_MainWindow_Profile(object):
 "}")
         self.howToUseBtn.setText("")
         self.howToUseBtn.setObjectName("howToUseBtn")
+
+        self.howToUseBtn.clicked.connect(self.HowToUse)
+        self.howToUseBtn.clicked.connect(MainWindow.close)
+
+
         self.privacyPolBtn = QtWidgets.QPushButton(self.centralwidget)
         self.privacyPolBtn.setGeometry(QtCore.QRect(502, 542, 79, 79))
         self.privacyPolBtn.setStyleSheet("#privacyPolBtn{\n"

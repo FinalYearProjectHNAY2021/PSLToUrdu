@@ -7,9 +7,21 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtCore import QSize
+from PyQt6.QtGui import QPixmap, QIcon
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_HowtoUse(object):
+
+    # method for profile screen
+    def Profile(self):
+        from Profile import Ui_MainWindow_Profile
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Profile()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -17,11 +29,15 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 1024, 768))
-        self.label.setStyleSheet("background-image: url(:/newPrefix/HowToUseBg.jpg);")
+        # self.label.setStyleSheet("background-image: url(:/newPrefix/HowToUseBg.jpg);")
+        self.label.setPixmap(QPixmap("./Images/HowToUseBg.jpg"))
         self.label.setText("")
         self.label.setObjectName("label")
         self.BackPushBtn = QtWidgets.QPushButton(self.centralwidget)
         self.BackPushBtn.setGeometry(QtCore.QRect(34, 32, 25, 19))
+
+        self.BackPushBtn.setIconSize(QSize(35, 35))
+        self.BackPushBtn.setIcon(QIcon("./Images/BackBtnIcon.png"))
         self.BackPushBtn.setStyleSheet("#BackPushBtn{\n"
 "image: url(:/newPrefix/BackBtnIcon.png);\n"
 "background: transparent;\n"
@@ -29,6 +45,9 @@ class Ui_MainWindow(object):
 "}")
         self.BackPushBtn.setText("")
         self.BackPushBtn.setObjectName("BackPushBtn")
+        self.BackPushBtn.clicked.connect(self.Profile)
+        self.BackPushBtn.clicked.connect(MainWindow.close)
+
         self.scrollAreahowtoUse = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollAreahowtoUse.setGeometry(QtCore.QRect(70, 90, 903, 586))
         self.scrollAreahowtoUse.setStyleSheet("background-color:transparent;")
@@ -41,18 +60,21 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.label_2 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_2.setMinimumSize(QtCore.QSize(511, 548))
-        self.label_2.setStyleSheet("background-image: url(:/newPrefix/PslToUrduHowToUse.jpg);")
+        self.label_2.setPixmap(QPixmap("./Images/PslToUrduHowToUse.jpg"))
+        # self.label_2.setStyleSheet("background-image: url(:/newPrefix/PslToUrduHowToUse.jpg);")
         self.label_2.setObjectName("label_2")
         self.horizontalLayout.addWidget(self.label_2)
         self.label_3 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_3.setMinimumSize(QtCore.QSize(511, 0))
-        self.label_3.setStyleSheet("background-image: url(:/newPrefix/AudioToUrduHowToUse.jpg);")
+        self.label_3.setPixmap(QPixmap("./Images/AudioToUrduHowToUse.jpg"))
+        # self.label_3.setStyleSheet("background-image: url(:/newPrefix/AudioToUrduHowToUse.jpg);")
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
         self.horizontalLayout.addWidget(self.label_3)
         self.label_4 = QtWidgets.QLabel(self.scrollAreaWidgetContents)
         self.label_4.setMinimumSize(QtCore.QSize(511, 0))
-        self.label_4.setStyleSheet("background-image: url(:/newPrefix/TextToAudioHowToUse.jpg);")
+        self.label_4.setPixmap(QPixmap("./Images/TextToAudioHowToUse.jpg"))
+        # self.label_4.setStyleSheet("background-image: url(:/newPrefix/TextToAudioHowToUse.jpg);")
         self.label_4.setText("")
         self.label_4.setObjectName("label_4")
         self.horizontalLayout.addWidget(self.label_4)
@@ -79,7 +101,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_HowtoUse()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
