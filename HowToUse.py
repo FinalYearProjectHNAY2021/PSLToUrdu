@@ -29,18 +29,6 @@ class Ui_MainWindow(object):
 "}")
         self.BackPushBtn.setText("")
         self.BackPushBtn.setObjectName("BackPushBtn")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(421, 28, 191, 51))
-        self.plainTextEdit.setStyleSheet("#plainTextEdit{\n"
-"font: 23px \"Montserrat\";\n"
-"font-weight: bold;\n"
-"color: rgb(255, 255, 255);\n"
-"background: transparent;\n"
-"\n"
-"\n"
-"\n"
-"}")
-        self.plainTextEdit.setObjectName("plainTextEdit")
         self.scrollAreahowtoUse = QtWidgets.QScrollArea(self.centralwidget)
         self.scrollAreahowtoUse.setGeometry(QtCore.QRect(70, 90, 903, 586))
         self.scrollAreahowtoUse.setStyleSheet("background-color:transparent;")
@@ -69,6 +57,12 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName("label_4")
         self.horizontalLayout.addWidget(self.label_4)
         self.scrollAreahowtoUse.setWidget(self.scrollAreaWidgetContents)
+        self.HowToUseLabel = QtWidgets.QLabel(self.centralwidget)
+        self.HowToUseLabel.setGeometry(QtCore.QRect(421, 28, 161, 28))
+        self.HowToUseLabel.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 75 23px \"Montserrat\";\n"
+"font-weight:Bold;")
+        self.HowToUseLabel.setObjectName("HowToUseLabel")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -77,8 +71,8 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.plainTextEdit.setPlainText(_translate("MainWindow", "HOW TO USE"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
+        self.HowToUseLabel.setText(_translate("MainWindow", "HOW TO USE"))
 
 
 if __name__ == "__main__":
