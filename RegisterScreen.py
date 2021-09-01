@@ -54,8 +54,9 @@ class Ui_MainWindow_RegisterScreen(object):
         #elif self.check(self.EmaillineEdit.text()) == False:
              #print("Enter a valid email")
         else:
-            self.insertData()
             self.RegisterpushButton.clicked.connect(self.LoginScreen)
+            self.insertData()
+
 
         # table.insert_one(data)
     # method fro opening login screen
