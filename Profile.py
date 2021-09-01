@@ -32,6 +32,15 @@ class Ui_MainWindow_Profile(object):
         self.window2.show()
 
 
+    # method for opening privacy and policy screen
+    def Privacy(self):
+        from Privacy import Ui_MainWindow_PrivacyPolicy
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_PrivacyPolicy()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -236,6 +245,9 @@ class Ui_MainWindow_Profile(object):
 "}")
         self.privacyPolBtn.setText("")
         self.privacyPolBtn.setObjectName("privacyPolBtn")
+        self.privacyPolBtn.clicked.connect(self.Privacy)
+        self.privacyPolBtn.clicked.connect(MainWindow.close)
+
         self.editProfileBtn = QtWidgets.QPushButton(self.centralwidget)
         self.editProfileBtn.setGeometry(QtCore.QRect(635, 542, 79, 79))
         self.editProfileBtn.setStyleSheet("#editProfileBtn{\n"
