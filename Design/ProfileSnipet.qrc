@@ -1,5 +1,5 @@
 <RCC>
   <qresource prefix="newPrefix">
-    <file>noun_Edit Profile_934563.png</file>
+    <file>ProfileSnippetIcon.png</file>
   </qresource>
 </RCC>

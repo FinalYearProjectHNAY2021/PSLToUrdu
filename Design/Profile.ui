@@ -288,22 +288,6 @@ background-color: Transparent;
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="profileBox">
-    <property name="geometry">
-     <rect>
-      <x>328</x>
-      <y>165</y>
-      <width>431</width>
-      <height>533</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: url(:/newPrefix/Images/profile1.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QPushButton" name="ProfBoxPicpushBtn">
     <property name="geometry">
      <rect>
@@ -340,41 +324,19 @@ background-color: Transparent;
     </property>
     <property name="styleSheet">
      <string notr="true">#usernameLabel{
+color: rgb(0, 0, 0);
 text-align: center;
-font: normal normal 600 20px/24px Montserrat;
+font: 20px Montserrat;
+font-weight:600;
 letter-spacing: 0px;
-color: #707070;
 opacity: 1;
 }</string>
     </property>
     <property name="text">
-     <string notr="true"> username</string>
+     <string notr="true">USERNAME</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="profileTextLabel">
-    <property name="geometry">
-     <rect>
-      <x>424</x>
-      <y>430</y>
-      <width>239</width>
-      <height>43</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">#profileTextLabel{
-
-text-align: center;
-font: normal normal normal 14px/18px Montserrat;
-letter-spacing: 0px;
-color: #000000;
-opacity: 1;
-}</string>
-    </property>
-    <property name="text">
-     <string>But I must explain to you how all this mistaken idea of </string>
     </property>
    </widget>
    <widget class="QLabel" name="linelabel">
@@ -387,7 +349,8 @@ opacity: 1;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/newPrefix/Images/profile5.png);</string>
+     <string notr="true">image: url(:/newPrefix/Images/profile5.png);
+</string>
     </property>
     <property name="text">
      <string/>
@@ -397,22 +360,17 @@ opacity: 1;
     <property name="geometry">
      <rect>
       <x>369</x>
-      <y>546</y>
+      <y>544</y>
       <width>79</width>
       <height>79</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">#howToUseBtn{
-image: url(:/newPrefix/Images/noun_Curious_3194465.png);
-
 border-radius: 39px;
 background-color: #00A65A;
-
 opacity: 1;
-
-
-
+	image: url(:/newPrefix/noun_Curious_3194465.png);
 }</string>
     </property>
     <property name="text">
@@ -423,21 +381,17 @@ opacity: 1;
     <property name="geometry">
      <rect>
       <x>502</x>
-      <y>546</y>
+      <y>542</y>
       <width>79</width>
       <height>79</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">#privacyPolBtn{
-image: url(:/newPrefix/Images/noun_privacy policy_3908089.png);
 border-radius: 39px;
 background-color: #00A65A;
-
 opacity: 1;
-
-
-
+	image: url(:/newPrefix/noun_privacy policy_3908089.png);
 }</string>
     </property>
     <property name="text">
@@ -448,20 +402,17 @@ opacity: 1;
     <property name="geometry">
      <rect>
       <x>635</x>
-      <y>550</y>
+      <y>542</y>
       <width>79</width>
       <height>79</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">#editProfileBtn{
-	image: url(:/newPrefix/Images/noun_Edit Profile_934563.png);
+	image: url(:/newPrefix/noun_Edit Profile_934563.png);
 border-radius: 39px;
 background-color: #00A65A;
-
 opacity: 1;
-
-
 
 }</string>
     </property>
@@ -469,26 +420,181 @@ opacity: 1;
      <string/>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>328</x>
+      <y>198</y>
+      <width>431</width>
+      <height>533</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>424</x>
+      <y>430</y>
+      <width>239</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#plainTextEdit{
+font: 14px Montserrat;
+letter-spacing: 0px;
+color: #000000;
+opacity: 1;
+border:none;
+
+}</string>
+    </property>
+    <property name="plainText">
+     <string>But I must explain to you how all this mistaken  explain to you</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="HowtoUseLabel">
+    <property name="geometry">
+     <rect>
+      <x>361</x>
+      <y>636</y>
+      <width>101</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#HowtoUseLabel{
+color: rgb(0, 0, 0);
+font: 16px &quot;Montserrat&quot;;
+font-weight:600;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>How To Use</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="PrivacyPolicyLabel">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>636</y>
+      <width>141</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#PrivacyPolicyLabel{
+color: rgb(0, 0, 0);
+font: 16px &quot;Montserrat&quot;;
+font-weight:600;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Privacy &amp; Policy</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="EditProfileLabel">
+    <property name="geometry">
+     <rect>
+      <x>631</x>
+      <y>636</y>
+      <width>98</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#EditProfileLabel{
+color: rgb(0, 0, 0);
+font: 16px &quot;Montserrat&quot;;
+font-weight:600;
+
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string>Edit Profile</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ProfileLabel">
+    <property name="geometry">
+     <rect>
+      <x>466</x>
+      <y>224</y>
+      <width>156</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">image: url(:/newPrefix/ProfileSnippetIcon.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label</zorder>
+   <zorder>SideBarBtn</zorder>
+   <zorder>dasboardicon</zorder>
+   <zorder>psltorduicon</zorder>
+   <zorder>audiotoUrduicon</zorder>
+   <zorder>profileicon</zorder>
+   <zorder>LogoLabel</zorder>
+   <zorder>day</zorder>
+   <zorder>timelabel</zorder>
+   <zorder>profilelabel</zorder>
+   <zorder>NotiLabel</zorder>
+   <zorder>MsgLabel</zorder>
+   <zorder>UsernameLabel</zorder>
+   <zorder>ProfilepushButton</zorder>
+   <zorder>ProfBoxPicpushBtn</zorder>
+   <zorder>label_2</zorder>
+   <zorder>linelabel</zorder>
+   <zorder>usernameLabel</zorder>
+   <zorder>privacyPolBtn</zorder>
+   <zorder>howToUseBtn</zorder>
+   <zorder>editProfileBtn</zorder>
+   <zorder>plainTextEdit</zorder>
+   <zorder>HowtoUseLabel</zorder>
+   <zorder>PrivacyPolicyLabel</zorder>
+   <zorder>EditProfileLabel</zorder>
+   <zorder>ProfileLabel</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/profileBack.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/editProfile.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/privacyPolicyIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/UseIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/circleProfileBg.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/profileLine.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/ProfileLargePic.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/profileBox.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/MesIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/NotiIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/sidebarlogo.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/ProfileIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/ProfileImg.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/AudiotoUrduIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/PsltoUrduIcon.qrc"/>
-  <include location="../../../PycharmProjects/PSLToUrdu/Design/dasboardIcon.qrc"/>
+  <include location="profileBack.qrc"/>
+  <include location="HowtoUseIcon.qrc"/>
+  <include location="ProfileSnipet.qrc"/>
+  <include location="editProfile.qrc"/>
+  <include location="privacyPolicyIcon.qrc"/>
+  <include location="UseIcon.qrc"/>
+  <include location="circleProfileBg.qrc"/>
+  <include location="profileLine.qrc"/>
+  <include location="ProfileLargePic.qrc"/>
+  <include location="profileBox.qrc"/>
+  <include location="MesIcon.qrc"/>
+  <include location="NotiIcon.qrc"/>
+  <include location="sidebarlogo.qrc"/>
+  <include location="ProfileIcon.qrc"/>
+  <include location="ProfileImg.qrc"/>
+  <include location="AudiotoUrduIcon.qrc"/>
+  <include location="PsltoUrduIcon.qrc"/>
+  <include location="dasboardIcon.qrc"/>
  </resources>
  <connections/>
 </ui>
