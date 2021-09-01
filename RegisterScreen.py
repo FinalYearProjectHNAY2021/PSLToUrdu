@@ -51,10 +51,11 @@ class Ui_MainWindow_RegisterScreen(object):
     def databaseMethod(self):
         if self.FirstNameLineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.LastNamelineEdit.text() == "" or self.UserNamelineEdit.text() == "" or self.PasswordlineEdit.text() == "":
             self.showDialog()
-        # elif self.check(self.EmaillineEdit.text()) == False:
-        #     print("Enter a valid email")
+        #elif self.check(self.EmaillineEdit.text()) == False:
+             #print("Enter a valid email")
         else:
             self.insertData()
+            self.RegisterpushButton.clicked.connect(self.LoginScreen)
 
         # table.insert_one(data)
     # method fro opening login screen
@@ -228,7 +229,6 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
         self.RegisterpushButton.clicked.connect(self.databaseMethod)
-        self.RegisterpushButton.clicked.connect(self.LoginScreen)
         self.RegisterpushButton.clicked.connect(MainWindow.close)
 
         self.AlreadyAUserpushButton = QtWidgets.QPushButton(self.centralwidget)
