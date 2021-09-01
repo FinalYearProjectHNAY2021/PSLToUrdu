@@ -23,6 +23,15 @@ class Ui_MainWindow_Profile(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
+    # method for opening edit profile screen
+    def EditProfile(self):
+        from EditProfile import Ui_MainWindow_EditProfile
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_EditProfile()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -238,6 +247,9 @@ class Ui_MainWindow_Profile(object):
 "}")
         self.editProfileBtn.setText("")
         self.editProfileBtn.setObjectName("editProfileBtn")
+        self.editProfileBtn.clicked.connect(self.EditProfile)
+        self.editProfileBtn.clicked.connect(MainWindow.close)
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(328, 198, 431, 533))
         self.label_2.setStyleSheet("background-color: rgb(255, 255, 255);")

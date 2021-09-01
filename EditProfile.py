@@ -7,9 +7,21 @@
 
 
 from PyQt6 import QtCore, QtGui, QtWidgets
+from PyQt6.QtGui import QPixmap
 
 
-class Ui_MainWindow(object):
+class Ui_MainWindow_EditProfile(object):
+
+
+    # method for profile screen
+    def Profile(self):
+        from Profile import Ui_MainWindow_Profile
+        self.window2 = QtWidgets.QMainWindow()
+        self.ui = Ui_MainWindow_Profile()
+        self.ui.setupUi(self.window2)
+        self.window2.show()
+
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(400, 768)
@@ -17,7 +29,8 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName("centralwidget")
         self.EditProfilebg = QtWidgets.QLabel(self.centralwidget)
         self.EditProfilebg.setGeometry(QtCore.QRect(0, 0, 400, 768))
-        self.EditProfilebg.setStyleSheet("background-image: url(:/newPrefix/Images/Edit Profile.png);")
+        # self.EditProfilebg.setStyleSheet("background-image: url(:/newPrefix/Images/Edit Profile.png);")
+        self.EditProfilebg.setPixmap(QPixmap("./Images/Edit Profile.png"))
         self.EditProfilebg.setText("")
         self.EditProfilebg.setObjectName("EditProfilebg")
         self.bgframe = QtWidgets.QFrame(self.centralwidget)
@@ -32,7 +45,8 @@ class Ui_MainWindow(object):
         self.bgframe.setObjectName("bgframe")
         self.profilepic = QtWidgets.QLabel(self.bgframe)
         self.profilepic.setGeometry(QtCore.QRect(120, 20, 100, 104))
-        self.profilepic.setStyleSheet("image: url(:/newPrefix/Ellipse 33.png);")
+        self.profilepic.setPixmap(QPixmap("./Images/ProfileSnippetIcon.png"))
+        # self.profilepic.setStyleSheet("image: url(:/newPrefix/Ellipse 33.png);")
         self.profilepic.setText("")
         self.profilepic.setObjectName("profilepic")
         self.uploadPicBtn = QtWidgets.QPushButton(self.bgframe)
@@ -204,6 +218,10 @@ class Ui_MainWindow(object):
 "\n"
 "}")
         self.cancelBtn.setObjectName("cancelBtn")
+
+        self.cancelBtn.clicked.connect(self.Profile)
+        self.cancelBtn.clicked.connect(MainWindow.close)
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -230,7 +248,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
+    ui = Ui_MainWindow_EditProfile()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec())
