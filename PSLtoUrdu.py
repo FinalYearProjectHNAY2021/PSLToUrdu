@@ -11,8 +11,8 @@ from PyQt6.QtCore import QSize
 from PyQt6.QtGui import QPixmap, QIcon
 
 
-
 class Ui_MainWindow_PSLtoUrdu(object):
+
 
 
     # method for opening menu screen
@@ -24,6 +24,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.window2.show()
 
 
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 764)
@@ -31,9 +32,9 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.ProfileScreen = QtWidgets.QLabel(self.centralwidget)
-        self.ProfileScreen.setGeometry(QtCore.QRect(0, 0, 1024, 768))
-        self.ProfileScreen.setPixmap(QPixmap("./Images/PSL To Urdu.png"))
+        self.ProfileScreen.setGeometry(QtCore.QRect(10, 0, 1024, 768))
         # self.ProfileScreen.setStyleSheet("background-image: url(:/newPrefix/PSLToUrdu.png);")
+        self.ProfileScreen.setPixmap(QPixmap("./Images/PSL To Urdu.png"))
         self.ProfileScreen.setText("")
         self.ProfileScreen.setObjectName("ProfileScreen")
         self.DashboardIcon = QtWidgets.QLabel(self.centralwidget)
@@ -67,7 +68,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.NotiLabel.setText("")
         self.NotiLabel.setObjectName("NotiLabel")
         self.MsgIcon = QtWidgets.QLabel(self.centralwidget)
-        self.MsgIcon.setGeometry(QtCore.QRect(800, 30, 47, 13))
+        self.MsgIcon.setGeometry(QtCore.QRect(800, 30, 47, 15))
         self.MsgIcon.setPixmap(QPixmap("./Images/Icon feather-message-square.png"))
         # self.MsgIcon.setStyleSheet("Image:url(:/newPrefix/Icon feather-message-square.png)")
         self.MsgIcon.setText("")
@@ -96,7 +97,6 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.ProfilepushButton.setObjectName("ProfilepushButton")
         self.ProfilepushButton.setIconSize(QSize(35, 35))
         self.ProfilepushButton.setIcon(QIcon("./Images/Path 206.png"))
-
         self.Cameralabel = QtWidgets.QLabel(self.centralwidget)
         self.Cameralabel.setGeometry(QtCore.QRect(159, 215, 49, 13))
         self.Cameralabel.setStyleSheet("#Cameralabel{\n"
@@ -154,7 +154,6 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.AudiopushButton.setObjectName("AudiopushButton")
         self.AudiopushButton.setIconSize(QSize(100, 100))
         self.AudiopushButton.setIcon(QIcon("./Images/Icon open-audio-spectrum.png"))
-
         self.DayandDateLabel = QtWidgets.QLabel(self.centralwidget)
         self.DayandDateLabel.setGeometry(QtCore.QRect(159, 37, 123, 19))
         self.DayandDateLabel.setStyleSheet("#DayandDateLabel{\n"
@@ -167,12 +166,14 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "\n"
 "\n"
 "}")
+
+
         self.DayandDateLabel.setObjectName("DayandDateLabel")
         today = date.today()
         d2 = today.strftime("%B %d, %Y")
         # print("d2 =", d2)
         self.DayandDateLabel.setText(d2)
-        print(d2)
+
 
         self.TimeLabel = QtWidgets.QLabel(self.centralwidget)
         self.TimeLabel.setGeometry(QtCore.QRect(159, 52, 115, 52))
@@ -190,6 +191,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
         t = now.strftime("%H:%M")
         self.TimeLabel.setText(t)
         print(t)
+
 
         self.textEdit = QtWidgets.QTextEdit(self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(700, 240, 281, 171))
@@ -215,7 +217,6 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "\n"
 "\n"
 "}")
-
         self.PsltoUrdulabel.setObjectName("PsltoUrdulabel")
         self.SideBar = QtWidgets.QPushButton(self.centralwidget)
         self.SideBar.setGeometry(QtCore.QRect(-10, -15, 96, 795))
@@ -228,17 +229,45 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "}")
         self.SideBar.setText("")
         self.SideBar.setObjectName("SideBar")
-
         self.SideBar.clicked.connect(self.Menu)
         self.SideBar.clicked.connect(MainWindow.close)
 
         self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
-        # self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 48))
-        self.LogoLabel = QtWidgets.QLabel(self.centralwidget)
-        self.LogoLabel.setGeometry(QtCore.QRect(14, 30, 62, 48))
-        self.LogoLabel.setPixmap(QPixmap("./Images/check.png"))
+        self.LogoLabel.setGeometry(QtCore.QRect(14, 41, 62, 48))
+        self.LogoLabel.setStyleSheet("image: url(:/newPrefix/PSL TO URDU logo-02.png);")
         self.LogoLabel.setText("")
         self.LogoLabel.setObjectName("LogoLabel")
+        self.staticMotionBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.staticMotionBtn.setGeometry(QtCore.QRect(160, 280, 114, 26))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(-1)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(50)
+        self.staticMotionBtn.setFont(font)
+        self.staticMotionBtn.setStyleSheet("#staticMotionBtn{\n"
+"border-radius: 5px;\n"
+"opacity: 1;\n"
+"font: 15px \"Montserrat\";\n"
+"color: rgb(16, 106, 56);\n"
+"background-color: rgb(40, 232, 144);\n"
+"\n"
+"\n"
+"}")
+        self.staticMotionBtn.setObjectName("staticMotionBtn")
+        self.dynamiMotionBtn = QtWidgets.QPushButton(self.centralwidget)
+        self.dynamiMotionBtn.setGeometry(QtCore.QRect(290, 280, 114, 26))
+        self.dynamiMotionBtn.setStyleSheet("#dynamiMotionBtn{\n"
+"border-radius: 5px;\n"
+"opacity: 1;\n"
+"font: 15px \"Montserrat\";\n"
+"color: rgb(16, 106, 56);\n"
+"background-color: rgb(40, 232, 144);\n"
+"\n"
+"\n"
+"}")
+        self.dynamiMotionBtn.setObjectName("dynamiMotionBtn")
         self.ProfileScreen.raise_()
         self.NotiLabel.raise_()
         self.MsgIcon.raise_()
@@ -261,9 +290,11 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.PsltoUrdulabel.raise_()
         self.AudioToUrduIcon.raise_()
         self.LogoLabel.raise_()
+        self.staticMotionBtn.raise_()
+        self.dynamiMotionBtn.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -288,6 +319,8 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:11px; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:8.25pt;\">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam</span></p></body></html>"))
         self.PsltoUrdulabel.setText(_translate("MainWindow", "PSL TO URDU"))
+        self.staticMotionBtn.setText(_translate("MainWindow", "Static Motion"))
+        self.dynamiMotionBtn.setText(_translate("MainWindow", "Dynamic Motion"))
 
 
 if __name__ == "__main__":

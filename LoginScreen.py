@@ -45,7 +45,7 @@ class Ui_MainWindow1(object):
                 correctPassword = user.get('Password')
                 if correctPassword == password:
                     print('Correct Password')
-                    self.Dashboard()
+                    self.Dashboard(userName)
                 else:
                     print("incorrect password")
                     self.showMessagePassword()
@@ -83,11 +83,11 @@ class Ui_MainWindow1(object):
 
 
     # method fro opening dashboard screen
-    def Dashboard(self):
+    def Dashboard(self,username):
         from Dashboard import Ui_MainWindow_Dashboard
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_Dashboard()
-        self.ui.setupUi(self.window2)
+        self.ui.setupUi(self.window2,username)
         self.window2.show()
 
 

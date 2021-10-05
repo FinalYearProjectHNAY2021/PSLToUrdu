@@ -53,10 +53,11 @@ class Ui_MainWindow_RegisterScreen(object):
             self.showDialog()
         #elif self.check(self.EmaillineEdit.text()) == False:
              #print("Enter a valid email")
+
         else:
             self.RegisterpushButton.clicked.connect(self.LoginScreen)
             self.insertData()
-
+            self.mainwindow.close
 
         # table.insert_one(data)
     # method fro opening login screen
@@ -82,6 +83,7 @@ class Ui_MainWindow_RegisterScreen(object):
         self.window3.show()
 
     def setupUi(self, MainWindow):
+        self.mainwindow = MainWindow
         global Password, Password, Email, Password, Password, Email
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
@@ -230,7 +232,7 @@ class Ui_MainWindow_RegisterScreen(object):
                                               "}")
         self.RegisterpushButton.setObjectName("RegisterpushButton")
         self.RegisterpushButton.clicked.connect(self.databaseMethod)
-        self.RegisterpushButton.clicked.connect(MainWindow.close)
+        #self.RegisterpushButton.clicked.connect(MainWindow.close)
 
         self.AlreadyAUserpushButton = QtWidgets.QPushButton(self.centralwidget)
         self.AlreadyAUserpushButton.setGeometry(QtCore.QRect(137, 660, 125, 18))

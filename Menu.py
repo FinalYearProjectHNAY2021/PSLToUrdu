@@ -50,10 +50,11 @@ class Ui_MainWindow_Menu(object):
         from Profile import Ui_MainWindow_Profile
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_Profile()
-        self.ui.setupUi(self.window2)
+        self.ui.setupUi(self.window2,self.username)
         self.window2.show()
 
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow,user):
+        self.username=user
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
         self.centralwidget = QtWidgets.QWidget(MainWindow)

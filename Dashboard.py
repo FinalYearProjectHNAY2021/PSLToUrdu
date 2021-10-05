@@ -27,11 +27,10 @@ class Ui_MainWindow_Dashboard(object):
 
         # table = mydb.userRegistration
 
-
     def databaseGetUserName(self):
         connectionString = MongoClient('mongodb://localhost:27017')
         mydb = connectionString['PSL']
-        record = mydb.userRegistration.find({},{"UserName":1})
+        record = mydb.userRegistration.find({}, {"UserName": 1})
         # print(record)
         for row in record:
             print(row.get('UserName'))
@@ -42,10 +41,11 @@ class Ui_MainWindow_Dashboard(object):
         from Menu import Ui_MainWindow_Menu
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_Menu()
-        self.ui.setupUi(self.window2)
+        self.ui.setupUi(self.window2, self.username)
         self.window2.show()
 
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow, username="0"):
+        self.username = username
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
         self.databaseGetUserName()
@@ -87,6 +87,8 @@ class Ui_MainWindow_Dashboard(object):
                                          "\n"
                                          "}")
         self.UsernameLabel.setObjectName("UsernameLabel")
+        self.UsernameLabel.setText(username)
+        print(username)
         self.MsgLabel = QtWidgets.QLabel(self.centralwidget)
         self.MsgLabel.setGeometry(QtCore.QRect(813, 25, 32, 22))
         self.MsgLabel.setPixmap(QPixmap("./Images/Icon feather-message-square.png"))
@@ -132,7 +134,6 @@ class Ui_MainWindow_Dashboard(object):
         now = datetime.now()
         t = now.strftime("%H:%M")
         self.Timelabel.setText(t)
-        print(t)
 
         self.DashboarLabel = QtWidgets.QLabel(self.centralwidget)
         self.DashboarLabel.setGeometry(QtCore.QRect(159, 155, 150, 27))
@@ -200,7 +201,6 @@ class Ui_MainWindow_Dashboard(object):
         # var =str(self.databaseCountMethod())
         # print(var)
         # self.NumLabel.setText(var)
-
 
         self.NumLabel_2 = QtWidgets.QLabel(self.centralwidget)
         self.NumLabel_2.setGeometry(QtCore.QRect(656, 273, 181, 57))
@@ -296,8 +296,7 @@ class Ui_MainWindow_Dashboard(object):
                                                 "}")
         self.ActiveUserCountlabel.setObjectName("ActiveUserCountlabel")
 
-        var =str(self.databaseCountMethod())
-        print(var)
+        var = str(self.databaseCountMethod())
         self.ActiveUserCountlabel.setText(var)
 
         self.ActiveUserlabel = QtWidgets.QLabel(self.centralwidget)
@@ -311,8 +310,6 @@ class Ui_MainWindow_Dashboard(object):
                                            "\n"
                                            "}")
         self.ActiveUserlabel.setObjectName("ActiveUserlabel")
-
-
 
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(445, 510, 18, 18))
@@ -343,7 +340,6 @@ class Ui_MainWindow_Dashboard(object):
         formLayout = QFormLayout()
         groupBox = QGroupBox("")
 
-
         labelList = []
         buttonList = []
 
@@ -354,7 +350,6 @@ class Ui_MainWindow_Dashboard(object):
         # self.NotiLabel.setText("")
         # self.NotiLabel.setObjectName("NewLabel")
 
-
         username = self.databaseGetUserName()
         num = self.databaseCountMethod()
         for i in range(num):
@@ -363,7 +358,7 @@ class Ui_MainWindow_Dashboard(object):
             self.NewLabel.setPixmap(QPixmap("./Images/Icon material-person"))
             labelList.append(self.NewLabel)
             self.NewLabel2 = QtWidgets.QLabel(self.centralwidget)
-            self.NewLabel2.setText("User "+str(i+1))
+            self.NewLabel2.setText("User " + str(i + 1))
             buttonList.append(self.NewLabel2)
             formLayout.addRow(labelList[i], buttonList[i])
             # print()
@@ -383,16 +378,13 @@ class Ui_MainWindow_Dashboard(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 162, 150))
 
-
         self.scrollAreaActiveUser.setStyleSheet("#scrollAreaActiveUser{\n"
-                                
-                                             "background-color: rgb(0, 85, 255);\n"
-                                             "\n"
-                                             "}")
+
+                                                "background-color: rgb(0, 85, 255);\n"
+                                                "\n"
+                                                "}")
         # self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         # self.scrollAreaActiveUser.setWidget(self.scrollAreaWidgetContents)
-
-
 
         ###############################################################################################################
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
@@ -446,7 +438,6 @@ class Ui_MainWindow_Dashboard(object):
         self.Logolabel.setText("")
         self.Logolabel.setObjectName("Logolabel")
 
-
         self.MainScreen.raise_()
         self.ProfilepushButton.raise_()
         self.UsernameLabel.raise_()
@@ -494,7 +485,7 @@ class Ui_MainWindow_Dashboard(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.UsernameLabel.setText(_translate("MainWindow", "USERNAME"))
+        # self.UsernameLabel.setText(_translate("MainWindow", "USERNAME"))
         # self.DayandDate.setText(_translate("MainWindow", "Thursday, 25.10"))
         # self.Timelabel.setText(_translate("MainWindow", "5:48 PM"))
         self.DashboarLabel.setText(_translate("MainWindow", "DASHBOARD"))

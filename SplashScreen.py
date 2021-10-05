@@ -128,7 +128,7 @@ class Ui_MainWindow(object):
         self.LoginBtn.setText(_translate("MainWindow", "Login"))
         self.CreateAnAccount.setText(_translate("MainWindow", "Create an account"))
         self.plainTextEdit.setPlainText(_translate("MainWindow",
-                                                   "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. "))
+                                                   "An interpreter for the Pakistani deaf and dumb society utilizing Pakistani Sign Language principles. Pakistan Sign Language to Urdu translator will permit hearing impaired and dumb individuals to utilize communication through signing. "))
 
 
 if __name__ == "__main__":

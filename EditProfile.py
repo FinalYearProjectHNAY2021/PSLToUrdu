@@ -8,21 +8,45 @@
 
 from PyQt6 import QtCore, QtGui, QtWidgets
 from PyQt6.QtGui import QPixmap
+from pymongo import MongoClient
 
 
 class Ui_MainWindow_EditProfile(object):
-
 
     # method for profile screen
     def Profile(self):
         from Profile import Ui_MainWindow_Profile
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_Profile()
-        self.ui.setupUi(self.window2)
+        self.ui.setupUi(self.window2, self.username)
         self.window2.show()
 
+    def update(self):
 
-    def setupUi(self, MainWindow):
+        f = self.FirstNameLineEdit.text()
+        l = self.LastNamelineEdit.text()
+        e = self.EmaillineEdit.text()
+        user = self.UserNamelineEdit.text()
+
+        connectionString = MongoClient("mongodb://localhost:27017")
+        mydb = connectionString['PSL']
+        table = mydb.userRegistration
+
+        myquery = {"UserName": user}
+
+        newvalues = {"$set": {"FirstName": f}}
+        table.update_one(myquery, newvalues)
+
+        newvalues = {"$set": {"LastName": l}}
+        table.update_one(myquery, newvalues)
+
+        newvalues = {"$set": {"Email": e}}
+        table.update_one(myquery, newvalues)
+
+        self.Profile()
+
+    def setupUi(self, MainWindow, user):
+        self.username = user
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(400, 768)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -36,10 +60,10 @@ class Ui_MainWindow_EditProfile(object):
         self.bgframe = QtWidgets.QFrame(self.centralwidget)
         self.bgframe.setGeometry(QtCore.QRect(40, 78, 332, 211))
         self.bgframe.setStyleSheet("#bgframe{background-color: rgb(16, 106, 56);\n"
-"border: 1px solid #707070;\n"
-"border-radius: 14px;\n"
-"opacity: \n"
-"}")
+                                   "border: 1px solid #707070;\n"
+                                   "border-radius: 14px;\n"
+                                   "opacity: \n"
+                                   "}")
         self.bgframe.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.bgframe.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.bgframe.setObjectName("bgframe")
@@ -52,180 +76,199 @@ class Ui_MainWindow_EditProfile(object):
         self.uploadPicBtn = QtWidgets.QPushButton(self.bgframe)
         self.uploadPicBtn.setGeometry(QtCore.QRect(40, 150, 126, 32))
         self.uploadPicBtn.setStyleSheet("#uploadPicBtn{\n"
-"border-radius: 5px;\n"
-"box-shadow: 0px 3px 6px #000000;\n"
-"border: 2px solid #39B54A;\n"
-"opacity: 1;\n"
-"font-family: Montserrat;\n"
-"font-size: 14px;\n"
-"font-weight: 600;\n"
-"color: #00000;\n"
-"background-color: rgb(40, 232, 144);\n"
-"}\n"
-"\n"
-"QPushButton#RegisterpushButton:hover{\n"
-"\n"
-"color: #FFFFFF ;\n"
-"background-color: #28E890;\n"
-"\n"
-"\n"
-"}")
+                                        "border-radius: 5px;\n"
+                                        "box-shadow: 0px 3px 6px #000000;\n"
+                                        "border: 2px solid #39B54A;\n"
+                                        "opacity: 1;\n"
+                                        "font-family: Montserrat;\n"
+                                        "font-size: 14px;\n"
+                                        "font-weight: 600;\n"
+                                        "color: #00000;\n"
+                                        "background-color: rgb(40, 232, 144);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton#RegisterpushButton:hover{\n"
+                                        "\n"
+                                        "color: #FFFFFF ;\n"
+                                        "background-color: #28E890;\n"
+                                        "\n"
+                                        "\n"
+                                        "}")
         self.uploadPicBtn.setObjectName("uploadPicBtn")
         self.capturePicBtn = QtWidgets.QPushButton(self.bgframe)
         self.capturePicBtn.setGeometry(QtCore.QRect(180, 150, 131, 32))
         self.capturePicBtn.setStyleSheet("#capturePicBtn{\n"
-"border-radius: 5px;\n"
-"box-shadow: 0px 3px 6px #000000;\n"
-"border: 2px solid #39B54A;\n"
-"opacity: 1;\n"
-"font-family: Montserrat;\n"
-"font-size: 14px;\n"
-"font-weight: 600;\n"
-"color: #00000;\n"
-"background-color: rgb(40, 232, 144);\n"
-"}\n"
-"\n"
-"QPushButton#RegisterpushButton:hover{\n"
-"\n"
-"color: #FFFFFF ;\n"
-"background-color: #28E890;\n"
-"\n"
-"\n"
-"}")
+                                         "border-radius: 5px;\n"
+                                         "box-shadow: 0px 3px 6px #000000;\n"
+                                         "border: 2px solid #39B54A;\n"
+                                         "opacity: 1;\n"
+                                         "font-family: Montserrat;\n"
+                                         "font-size: 14px;\n"
+                                         "font-weight: 600;\n"
+                                         "color: #00000;\n"
+                                         "background-color: rgb(40, 232, 144);\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton#RegisterpushButton:hover{\n"
+                                         "\n"
+                                         "color: #FFFFFF ;\n"
+                                         "background-color: #28E890;\n"
+                                         "\n"
+                                         "\n"
+                                         "}")
         self.capturePicBtn.setObjectName("capturePicBtn")
         self.FirstNameLineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.FirstNameLineEdit.setGeometry(QtCore.QRect(59, 329, 282, 41))
         self.FirstNameLineEdit.setStyleSheet("#FirstNameLineEdit{\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"font: 15px \"Montserrat\";\n"
-"color: #39B54A;\n"
-"text-align: left;\n"
-"\n"
-"}")
+                                             "border: 2px solid var(--unnamed-color-106a38);\n"
+                                             "box-shadow: 0px 3px 6px #00000066;\n"
+                                             "border: 2px solid #106A38;\n"
+                                             "border-radius: 6px;\n"
+                                             "opacity: 1;\n"
+                                             "font: 15px \"Montserrat\";\n"
+                                             "color: #39B54A;\n"
+                                             "text-align: left;\n"
+                                             "\n"
+                                             "}")
         self.FirstNameLineEdit.setObjectName("FirstNameLineEdit")
         self.LastNamelineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.LastNamelineEdit.setGeometry(QtCore.QRect(59, 393, 282, 41))
         self.LastNamelineEdit.setStyleSheet("#LastNamelineEdit{\n"
-"\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"font: 15px \"Montserrat\";\n"
-"color: #39B54A;\n"
-"text-align: left;\n"
-"\n"
-"\n"
-"}")
+                                            "\n"
+                                            "border: 2px solid var(--unnamed-color-106a38);\n"
+                                            "box-shadow: 0px 3px 6px #00000066;\n"
+                                            "border: 2px solid #106A38;\n"
+                                            "border-radius: 6px;\n"
+                                            "opacity: 1;\n"
+                                            "font: 15px \"Montserrat\";\n"
+                                            "color: #39B54A;\n"
+                                            "text-align: left;\n"
+                                            "\n"
+                                            "\n"
+                                            "}")
         self.LastNamelineEdit.setObjectName("LastNamelineEdit")
         self.EmaillineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.EmaillineEdit.setGeometry(QtCore.QRect(59, 457, 282, 41))
         self.EmaillineEdit.setStyleSheet("#EmaillineEdit{\n"
-"\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"font: 15px \"Montserrat\";\n"
-"color: #39B54A;\n"
-"text-align: left;\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                         "\n"
+                                         "border: 2px solid var(--unnamed-color-106a38);\n"
+                                         "box-shadow: 0px 3px 6px #00000066;\n"
+                                         "border: 2px solid #106A38;\n"
+                                         "border-radius: 6px;\n"
+                                         "opacity: 1;\n"
+                                         "font: 15px \"Montserrat\";\n"
+                                         "color: #39B54A;\n"
+                                         "text-align: left;\n"
+                                         "\n"
+                                         "\n"
+                                         "\n"
+                                         "}")
         self.EmaillineEdit.setObjectName("EmaillineEdit")
         self.UserNamelineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.UserNamelineEdit.setGeometry(QtCore.QRect(59, 521, 282, 41))
         self.UserNamelineEdit.setStyleSheet("#UserNamelineEdit{\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"font: 15px \"Montserrat\";\n"
-"color: #39B54A;\n"
-"text-align: left;\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                            "border: 2px solid var(--unnamed-color-106a38);\n"
+                                            "box-shadow: 0px 3px 6px #00000066;\n"
+                                            "border: 2px solid #106A38;\n"
+                                            "border-radius: 6px;\n"
+                                            "opacity: 1;\n"
+                                            "font: 15px \"Montserrat\";\n"
+                                            "color: #39B54A;\n"
+                                            "text-align: left;\n"
+                                            "\n"
+                                            "\n"
+                                            "\n"
+                                            "\n"
+                                            "}")
         self.UserNamelineEdit.setObjectName("UserNamelineEdit")
         self.PasswordlineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.PasswordlineEdit.setGeometry(QtCore.QRect(59, 585, 282, 41))
         self.PasswordlineEdit.setStyleSheet("#PasswordlineEdit{\n"
-"border: 2px solid var(--unnamed-color-106a38);\n"
-"box-shadow: 0px 3px 6px #00000066;\n"
-"border: 2px solid #106A38;\n"
-"border-radius: 6px;\n"
-"opacity: 1;\n"
-"font: 15px \"Montserrat\";\n"
-"color: #39B54A;\n"
-"text-align: left;\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                            "border: 2px solid var(--unnamed-color-106a38);\n"
+                                            "box-shadow: 0px 3px 6px #00000066;\n"
+                                            "border: 2px solid #106A38;\n"
+                                            "border-radius: 6px;\n"
+                                            "opacity: 1;\n"
+                                            "font: 15px \"Montserrat\";\n"
+                                            "color: #39B54A;\n"
+                                            "text-align: left;\n"
+                                            "\n"
+                                            "\n"
+                                            "\n"
+                                            "\n"
+                                            "}")
         self.PasswordlineEdit.setObjectName("PasswordlineEdit")
         self.saveBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.saveBtn.setGeometry(QtCore.QRect(74, 697, 115, 32))
+        self.saveBtn.setGeometry(QtCore.QRect(74, 640, 115, 32))
         self.saveBtn.setStyleSheet("#saveBtn{\n"
-"border-radius: 5px;\n"
-"box-shadow: 0px 3px 6px #000000;\n"
-"border: 2px solid #39B54A;\n"
-"opacity: 1;\n"
-"font-family: Montserrat;\n"
-"font-size: 14px;\n"
-"font-weight: 600;\n"
-"color: #00000;\n"
-"background-color: rgb(40, 232, 144);\n"
-"}\n"
-"\n"
-"QPushButton#RegisterpushButton:hover{\n"
-"\n"
-"color: #FFFFFF ;\n"
-"background-color: #28E890;\n"
-"\n"
-"\n"
-"}")
+                                   "border-radius: 5px;\n"
+                                   "box-shadow: 0px 3px 6px #000000;\n"
+                                   "border: 2px solid #39B54A;\n"
+                                   "opacity: 1;\n"
+                                   "font-family: Montserrat;\n"
+                                   "font-size: 14px;\n"
+                                   "font-weight: 600;\n"
+                                   "color: #00000;\n"
+                                   "background-color: rgb(40, 232, 144);\n"
+                                   "}\n"
+                                   "\n"
+                                   "QPushButton#RegisterpushButton:hover{\n"
+                                   "\n"
+                                   "color: #FFFFFF ;\n"
+                                   "background-color: #28E890;\n"
+                                   "\n"
+                                   "\n"
+                                   "}")
+        ##(219, 697, 115, 32)
         self.saveBtn.setObjectName("saveBtn")
         self.cancelBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.cancelBtn.setGeometry(QtCore.QRect(219, 697, 115, 32))
+        self.cancelBtn.setGeometry(QtCore.QRect(219, 640, 115, 32))
         self.cancelBtn.setStyleSheet("#cancelBtn{\n"
-"border-radius: 5px;\n"
-"box-shadow: 0px 3px 6px #000000;\n"
-"border: 2px solid #39B54A;\n"
-"opacity: 1;\n"
-"font-family: Montserrat;\n"
-"font-size: 14px;\n"
-"font-weight: 600;\n"
-"    color: rgb(255, 255, 255);\n"
-"background-color: transparent;\n"
-"}\n"
-"\n"
-"QPushButton#RegisterpushButton:hover{\n"
-"\n"
-"color: #FFFFFF ;\n"
-"background-color: #28E890;\n"
-"\n"
-"\n"
-"}")
+                                     "border-radius: 5px;\n"
+                                     "box-shadow: 0px 3px 6px #000000;\n"
+                                     "border: 2px solid #39B54A;\n"
+                                     "opacity: 1;\n"
+                                     "font-family: Montserrat;\n"
+                                     "font-size: 14px;\n"
+                                     "font-weight: 600;\n"
+                                     "    color: rgb(255, 255, 255);\n"
+                                     "background-color: transparent;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton#RegisterpushButton:hover{\n"
+                                     "\n"
+                                     "color: #FFFFFF ;\n"
+                                     "background-color: #28E890;\n"
+                                     "\n"
+                                     "\n"
+                                     "}")
         self.cancelBtn.setObjectName("cancelBtn")
 
         self.cancelBtn.clicked.connect(self.Profile)
         self.cancelBtn.clicked.connect(MainWindow.close)
+        self.saveBtn.clicked.connect(self.update)
+        self.saveBtn.clicked.connect(MainWindow.close)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+
+        connectionString = MongoClient('mongodb://localhost:27017')
+        mydb = connectionString['PSL']
+        table = mydb.userRegistration
+
+        for user in table.find():
+            if user.get('UserName') == self.username:
+                first = user.get('FirstName')
+                last = user.get('LastName')
+                email = user.get('Email')
+                Usern = user.get('UserName')
+
+        self.FirstNameLineEdit.setText(first)
+        self.LastNamelineEdit.setText(last)
+        self.EmaillineEdit.setText(email)
+        self.UserNamelineEdit.setText(Usern)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -235,17 +278,18 @@ class Ui_MainWindow_EditProfile(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.uploadPicBtn.setText(_translate("MainWindow", "Upload Picture"))
         self.capturePicBtn.setText(_translate("MainWindow", "Capture Picture"))
-        self.FirstNameLineEdit.setText(_translate("MainWindow", "   First name"))
-        self.LastNamelineEdit.setText(_translate("MainWindow", "   Second name"))
-        self.EmaillineEdit.setText(_translate("MainWindow", "   E-mail"))
-        self.UserNamelineEdit.setText(_translate("MainWindow", "   User name"))
-        self.PasswordlineEdit.setText(_translate("MainWindow", "   Password"))
+        # self.FirstNameLineEdit.setText(_translate("MainWindow", "   First name"))
+        # self.LastNamelineEdit.setText(_translate("MainWindow", "   Second name"))
+        # self.EmaillineEdit.setText(_translate("MainWindow", "   E-mail"))
+        # self.UserNamelineEdit.setText(_translate("MainWindow", "   User name"))
+        self.PasswordlineEdit.setText(_translate("MainWindow", "   New Password"))
         self.saveBtn.setText(_translate("MainWindow", "save"))
         self.cancelBtn.setText(_translate("MainWindow", "cancel"))
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow_EditProfile()

@@ -13,8 +13,6 @@ from PyQt6.QtGui import QPixmap, QIcon
 
 class Ui_MainWindow_Profile(object):
 
-
-
     # method for opening menu screen
     def Menu(self):
         from Menu import Ui_MainWindow_Menu
@@ -28,9 +26,8 @@ class Ui_MainWindow_Profile(object):
         from EditProfile import Ui_MainWindow_EditProfile
         self.window2 = QtWidgets.QMainWindow()
         self.ui = Ui_MainWindow_EditProfile()
-        self.ui.setupUi(self.window2)
+        self.ui.setupUi(self.window2, self.username)
         self.window2.show()
-
 
     # method for opening privacy and policy screen
     def Privacy(self):
@@ -48,28 +45,28 @@ class Ui_MainWindow_Profile(object):
         self.ui.setupUi(self.window2)
         self.window2.show()
 
-
-    def setupUi(self, MainWindow):
+    def setupUi(self, MainWindow, username):
+        self.username = username
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1024, 768)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(0, 0, 1024, 768))
-#         self.label.setStyleSheet("\n"
-# "background-image: url(:/newPrefix/Images/Profile.png);")
+        #         self.label.setStyleSheet("\n"
+        # "background-image: url(:/newPrefix/Images/Profile.png);")
         self.label.setPixmap(QPixmap("./Images/Profile.png"))
         self.label.setText("")
         self.label.setObjectName("label")
         self.SideBarBtn = QtWidgets.QPushButton(self.centralwidget)
         self.SideBarBtn.setGeometry(QtCore.QRect(-10, -15, 96, 785))
         self.SideBarBtn.setStyleSheet("#SideBarBtn{\n"
-"\n"
-"border-radius: 2px;\n"
-"background-color: rgb(0, 166, 90);\n"
-"\n"
-"\n"
-"}")
+                                      "\n"
+                                      "border-radius: 2px;\n"
+                                      "background-color: rgb(0, 166, 90);\n"
+                                      "\n"
+                                      "\n"
+                                      "}")
         self.SideBarBtn.setText("")
 
         self.SideBarBtn.setIcon(QIcon("./Images/Side Bar.jpg"))
@@ -110,31 +107,30 @@ class Ui_MainWindow_Profile(object):
         self.day = QtWidgets.QLabel(self.centralwidget)
         self.day.setGeometry(QtCore.QRect(159, 37, 153, 19))
         self.day.setStyleSheet("#day{\n"
-"font: 16px \"Montserrat\";\n"
-"text-align: left;\n"
-# "letter-spacing: 0px;\n"
-"color: #FFFFFF;\n"
-"opacity: 1;\n"
-"\n"
-"}")
+                               "font: 16px \"Montserrat\";\n"
+                               "text-align: left;\n"
+                               # "letter-spacing: 0px;\n"
+                               "color: #FFFFFF;\n"
+                               "opacity: 1;\n"
+                               "\n"
+                               "}")
         self.day.setObjectName("day")
         today = date.today()
         d2 = today.strftime("%B %d, %Y")
         # print("d2 =", d2)
         self.day.setText(d2)
 
-
         self.timelabel = QtWidgets.QLabel(self.centralwidget)
         self.timelabel.setGeometry(QtCore.QRect(159, 52, 115, 52))
         self.timelabel.setStyleSheet("#timelabel{\n"
-"text-align: left;\n"
-# "letter-spacing: NaNpx;\n"
-"color: #FFFFFF;\n"
-"opacity: 1;\n"
-"font: 28px \"Montserrat\";\n"
-"\n"
-"\n"
-"}")
+                                     "text-align: left;\n"
+                                     # "letter-spacing: NaNpx;\n"
+                                     "color: #FFFFFF;\n"
+                                     "opacity: 1;\n"
+                                     "font: 28px \"Montserrat\";\n"
+                                     "\n"
+                                     "\n"
+                                     "}")
         self.timelabel.setObjectName("timelabel")
 
         now = datetime.now()
@@ -144,21 +140,21 @@ class Ui_MainWindow_Profile(object):
         self.profilelabel = QtWidgets.QLabel(self.centralwidget)
         self.profilelabel.setGeometry(QtCore.QRect(160, 135, 98, 27))
         self.profilelabel.setStyleSheet("#profilelabel{\n"
-"text-align: left;\n"
-"font: 22px \"Montserrat\";\n"
-"letter-spacing: 0px;\n"
-"color: #FFFFFF;\n"
-"opacity: 1;\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                        "text-align: left;\n"
+                                        "font: 22px \"Montserrat\";\n"
+                                        "letter-spacing: 0px;\n"
+                                        "color: #FFFFFF;\n"
+                                        "opacity: 1;\n"
+                                        "\n"
+                                        "\n"
+                                        "\n"
+                                        "\n"
+                                        "}")
         self.profilelabel.setObjectName("profilelabel")
         self.NotiLabel = QtWidgets.QLabel(self.centralwidget)
         self.NotiLabel.setGeometry(QtCore.QRect(764, 27, 16, 20))
-#         self.NotiLabel.setStyleSheet("\n"
-# "background-image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);")
+        #         self.NotiLabel.setStyleSheet("\n"
+        # "background-image: url(:/newPrefix/Icon ionic-ios-notifications-outline.png);")
         self.NotiLabel.setText("")
         self.NotiLabel.setObjectName("NotiLabel")
         self.NotiLabel.setPixmap(QPixmap("./Images/Icon ionic-ios-notifications-outline.png"))
@@ -172,27 +168,28 @@ class Ui_MainWindow_Profile(object):
         self.UsernameLabel = QtWidgets.QLabel(self.centralwidget)
         self.UsernameLabel.setGeometry(QtCore.QRect(863, 30, 72, 14))
         self.UsernameLabel.setStyleSheet("#UsernameLabel{\n"
-"font: 11px \"Montserrat\";\n"
-"color: #FFFFFF;\n"
-"opacity: 1;\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                         "font: 11px \"Montserrat\";\n"
+                                         "color: #FFFFFF;\n"
+                                         "opacity: 1;\n"
+                                         "\n"
+                                         "\n"
+                                         "\n"
+                                         "}")
         self.UsernameLabel.setObjectName("UsernameLabel")
+        self.UsernameLabel.setText(self.username)
         self.ProfilepushButton = QtWidgets.QPushButton(self.centralwidget)
         self.ProfilepushButton.setGeometry(QtCore.QRect(947, 15, 44, 44))
         self.ProfilepushButton.setStyleSheet("#ProfilepushButton{\n"
-"\n"
-"    background-image: url(:/newPrefix/Path 206.png);\n"
-"border: 1px solid #00A65A;\n"
-"border-radius: 22px;\n"
-"background-color: Transparent;\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                             "\n"
+                                             "    background-image: url(:/newPrefix/Path 206.png);\n"
+                                             "border: 1px solid #00A65A;\n"
+                                             "border-radius: 22px;\n"
+                                             "background-color: Transparent;\n"
+                                             "\n"
+                                             "\n"
+                                             "\n"
+                                             "\n"
+                                             "}")
         self.ProfilepushButton.setText("")
         self.ProfilepushButton.setObjectName("ProfilepushButton")
         self.ProfilepushButton.setIconSize(QSize(35, 35))
@@ -201,61 +198,61 @@ class Ui_MainWindow_Profile(object):
         self.ProfBoxPicpushBtn = QtWidgets.QPushButton(self.centralwidget)
         self.ProfBoxPicpushBtn.setGeometry(QtCore.QRect(466, 200, 156, 160))
         self.ProfBoxPicpushBtn.setStyleSheet("#ProfBoxPicpushBtn{\n"
-"image: url(:/newPrefix/Ellipse 33.png);\n"
-"\n"
-"border-radius: 100px;\n"
-"background-color: Transparent;\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                             "image: url(:/newPrefix/Ellipse 33.png);\n"
+                                             "\n"
+                                             "border-radius: 100px;\n"
+                                             "background-color: Transparent;\n"
+                                             "\n"
+                                             "\n"
+                                             "\n"
+                                             "\n"
+                                             "}")
         self.ProfBoxPicpushBtn.setText("")
         self.ProfBoxPicpushBtn.setObjectName("ProfBoxPicpushBtn")
-
 
         self.usernameLabel = QtWidgets.QLabel(self.centralwidget)
         self.usernameLabel.setGeometry(QtCore.QRect(453, 399, 183, 24))
         self.usernameLabel.setStyleSheet("#usernameLabel{\n"
-"color: rgb(0, 0, 0);\n"
-"text-align: center;\n"
-"font: 20px Montserrat;\n"
-"font-weight:600;\n"
-"letter-spacing: 0px;\n"
-"opacity: 1;\n"
-"}")
+                                         "color: rgb(0, 0, 0);\n"
+                                         "text-align: center;\n"
+                                         "font: 20px Montserrat;\n"
+                                         "font-weight:600;\n"
+                                         "letter-spacing: 0px;\n"
+                                         "opacity: 1;\n"
+                                         "}")
         self.usernameLabel.setText("USERNAME")
         self.usernameLabel.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.usernameLabel.setObjectName("usernameLabel")
+        self.usernameLabel.setText(self.username)
+
         self.linelabel = QtWidgets.QLabel(self.centralwidget)
         self.linelabel.setGeometry(QtCore.QRect(362, 500, 364, 16))
         self.linelabel.setStyleSheet("image: url(:/newPrefix/Images/profile5.png);\n"
-"")
+                                     "")
         self.linelabel.setText("")
         self.linelabel.setObjectName("linelabel")
         self.howToUseBtn = QtWidgets.QPushButton(self.centralwidget)
         self.howToUseBtn.setGeometry(QtCore.QRect(369, 544, 79, 79))
         self.howToUseBtn.setStyleSheet("#howToUseBtn{\n"
-"border-radius: 39px;\n"
-"background-color: #00A65A;\n"
-"opacity: 1;\n"
-"    image: url(:/newPrefix/noun_Curious_3194465.png);\n"
-"}")
+                                       "border-radius: 39px;\n"
+                                       "background-color: #00A65A;\n"
+                                       "opacity: 1;\n"
+                                       "    image: url(:/newPrefix/noun_Curious_3194465.png);\n"
+                                       "}")
         self.howToUseBtn.setText("")
         self.howToUseBtn.setObjectName("howToUseBtn")
 
         self.howToUseBtn.clicked.connect(self.HowToUse)
         self.howToUseBtn.clicked.connect(MainWindow.close)
 
-
         self.privacyPolBtn = QtWidgets.QPushButton(self.centralwidget)
         self.privacyPolBtn.setGeometry(QtCore.QRect(502, 542, 79, 79))
         self.privacyPolBtn.setStyleSheet("#privacyPolBtn{\n"
-"border-radius: 39px;\n"
-"background-color: #00A65A;\n"
-"opacity: 1;\n"
-"    image: url(:/newPrefix/noun_privacy policy_3908089.png);\n"
-"}")
+                                         "border-radius: 39px;\n"
+                                         "background-color: #00A65A;\n"
+                                         "opacity: 1;\n"
+                                         "    image: url(:/newPrefix/noun_privacy policy_3908089.png);\n"
+                                         "}")
 
         self.privacyPolBtn.setText("")
         self.privacyPolBtn.setObjectName("privacyPolBtn")
@@ -265,12 +262,12 @@ class Ui_MainWindow_Profile(object):
         self.editProfileBtn = QtWidgets.QPushButton(self.centralwidget)
         self.editProfileBtn.setGeometry(QtCore.QRect(635, 542, 79, 79))
         self.editProfileBtn.setStyleSheet("#editProfileBtn{\n"
-"    image: url(:/newPrefix/noun_Edit Profile_934563.png);\n"
-"border-radius: 39px;\n"
-"background-color: #00A65A;\n"
-"opacity: 1;\n"
-"\n"
-"}")
+                                          "    image: url(:/newPrefix/noun_Edit Profile_934563.png);\n"
+                                          "border-radius: 39px;\n"
+                                          "background-color: #00A65A;\n"
+                                          "opacity: 1;\n"
+                                          "\n"
+                                          "}")
         self.editProfileBtn.setText("")
         self.editProfileBtn.setObjectName("editProfileBtn")
         self.editProfileBtn.clicked.connect(self.EditProfile)
@@ -285,24 +282,24 @@ class Ui_MainWindow_Profile(object):
         self.plainTextEdit.setEnabled(True)
         self.plainTextEdit.setGeometry(QtCore.QRect(424, 430, 239, 51))
         self.plainTextEdit.setStyleSheet("#plainTextEdit{\n"
-"font: 14px Montserrat;\n"
-"letter-spacing: 0px;\n"
-"color: #000000;\n"
-"opacity: 1;\n"
-"border:none;\n"
-"\n"
-"}")
+                                         "font: 14px Montserrat;\n"
+                                         "letter-spacing: 0px;\n"
+                                         "color: #000000;\n"
+                                         "opacity: 1;\n"
+                                         "border:none;\n"
+                                         "\n"
+                                         "}")
         self.plainTextEdit.setObjectName("plainTextEdit")
         self.HowtoUseLabel = QtWidgets.QLabel(self.centralwidget)
         self.HowtoUseLabel.setGeometry(QtCore.QRect(361, 636, 101, 19))
         self.HowtoUseLabel.setStyleSheet("#HowtoUseLabel{\n"
-"color: rgb(0, 0, 0);\n"
-"font: 16px \"Montserrat\";\n"
-"font-weight:600;\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                         "color: rgb(0, 0, 0);\n"
+                                         "font: 16px \"Montserrat\";\n"
+                                         "font-weight:600;\n"
+                                         "\n"
+                                         "\n"
+                                         "\n"
+                                         "}")
         self.HowtoUseLabel.setObjectName("HowtoUseLabel")
         self.howToUseBtn.setIconSize(QSize(35, 35))
         self.howToUseBtn.setIcon(QIcon("./Images/noun_Curious_3194465.png"))
@@ -310,33 +307,31 @@ class Ui_MainWindow_Profile(object):
         self.PrivacyPolicyLabel = QtWidgets.QLabel(self.centralwidget)
         self.PrivacyPolicyLabel.setGeometry(QtCore.QRect(480, 636, 141, 19))
         self.PrivacyPolicyLabel.setStyleSheet("#PrivacyPolicyLabel{\n"
-"color: rgb(0, 0, 0);\n"
-"font: 16px \"Montserrat\";\n"
-"font-weight:600;\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                              "color: rgb(0, 0, 0);\n"
+                                              "font: 16px \"Montserrat\";\n"
+                                              "font-weight:600;\n"
+                                              "\n"
+                                              "\n"
+                                              "\n"
+                                              "}")
         self.PrivacyPolicyLabel.setObjectName("PrivacyPolicyLabel")
         self.privacyPolBtn.setIconSize(QSize(35, 35))
         self.privacyPolBtn.setIcon(QIcon("./Images/noun_privacy policy_3908089.png"))
 
-
         self.EditProfileLabel = QtWidgets.QLabel(self.centralwidget)
         self.EditProfileLabel.setGeometry(QtCore.QRect(631, 636, 98, 19))
         self.EditProfileLabel.setStyleSheet("#EditProfileLabel{\n"
-"color: rgb(0, 0, 0);\n"
-"font: 16px \"Montserrat\";\n"
-"font-weight:600;\n"
+                                            "color: rgb(0, 0, 0);\n"
+                                            "font: 16px \"Montserrat\";\n"
+                                            "font-weight:600;\n"
                                             "border-radius: 88px;\n"
-"\n"
-"\n"
-"\n"
-"}")
+                                            "\n"
+                                            "\n"
+                                            "\n"
+                                            "}")
         self.EditProfileLabel.setObjectName("EditProfileLabel")
         self.editProfileBtn.setIconSize(QSize(35, 35))
         self.editProfileBtn.setIcon(QIcon("./Images/noun_Edit Profile_934563.png"))
-
 
         self.ProfileLabel = QtWidgets.QLabel(self.centralwidget)
         self.ProfileLabel.setGeometry(QtCore.QRect(466, 224, 156, 160))
@@ -385,8 +380,9 @@ class Ui_MainWindow_Profile(object):
         # self.day.setText(_translate("MainWindow", "Thursday, 25.10 "))
         # self.timelabel.setText(_translate("MainWindow", "5:48 PM"))
         self.profilelabel.setText(_translate("MainWindow", "PROFILE"))
-        self.UsernameLabel.setText(_translate("MainWindow", "USERNAME"))
-        self.plainTextEdit.setPlainText(_translate("MainWindow", "But I must explain to you how all this mistaken  explain to you"))
+        # self.UsernameLabel.setText(_translate("MainWindow", "USERNAME"))
+        self.plainTextEdit.setPlainText(
+            _translate("MainWindow", "But I must explain to you how all this mistaken  explain to you"))
         self.HowtoUseLabel.setText(_translate("MainWindow", "How To Use"))
         self.PrivacyPolicyLabel.setText(_translate("MainWindow", "Privacy & Policy"))
         self.EditProfileLabel.setText(_translate("MainWindow", "Edit Profile"))
@@ -394,6 +390,7 @@ class Ui_MainWindow_Profile(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow_Profile()
