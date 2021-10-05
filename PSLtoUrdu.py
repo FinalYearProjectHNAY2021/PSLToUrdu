@@ -14,7 +14,221 @@ from PyQt6.QtGui import QPixmap, QIcon
 class Ui_MainWindow_PSLtoUrdu(object):
 
 
+    def dynamic_Sign_Language(self):
+        import cv2
+        import numpy as np
+        import os
+        from matplotlib import pyplot as plt
+        import time
+        import mediapipe as mp
+        from scipy import stats
+        from tensorflow.keras.models import Sequential
+        from tensorflow.keras.layers import LSTM, Dense
+        from tensorflow.keras.callbacks import TensorBoard
 
+        actions = np.array(['خوبصورت', 'چھت کا پنکھا', 'بجلی کی استری', 'ائرکنڈیشنر'])
+
+        mp_holistic = mp.solutions.holistic  # Holistic model
+        mp_drawing = mp.solutions.drawing_utils  # Drawing utilities
+
+        def mediapipe_detection(image, model):
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # COLOR CONVERSION BGR 2 RGB
+            image.flags.writeable = False  # Image is no longer writeable
+            results = model.process(image)  # Make prediction
+            image.flags.writeable = True  # Image is now writeable
+            image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)  # COLOR COVERSION RGB 2 BGR
+            return image, results
+
+        def draw_landmarks(image, results):
+            mp_drawing.draw_landmarks(image, results.face_landmarks,
+                                      mp_holistic.FACEMESH_CONTOURS)  # Draw face connections
+            mp_drawing.draw_landmarks(image, results.pose_landmarks,
+                                      mp_holistic.POSE_CONNECTIONS)  # Draw pose connections
+            mp_drawing.draw_landmarks(image, results.left_hand_landmarks,
+                                      mp_holistic.HAND_CONNECTIONS)  # Draw left hand connections
+            mp_drawing.draw_landmarks(image, results.right_hand_landmarks,
+                                      mp_holistic.HAND_CONNECTIONS)  # Draw right hand connections
+
+        def draw_styled_landmarks(image, results):
+            # Draw face connections
+            mp_drawing.draw_landmarks(image, results.face_landmarks, mp_holistic.FACEMESH_CONTOURS,
+                                      mp_drawing.DrawingSpec(color=(80, 110, 10), thickness=1, circle_radius=1),
+                                      mp_drawing.DrawingSpec(color=(80, 256, 121), thickness=1, circle_radius=1)
+                                      )
+            # Draw pose connections
+            mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_holistic.POSE_CONNECTIONS,
+                                      mp_drawing.DrawingSpec(color=(80, 22, 10), thickness=2, circle_radius=4),
+                                      mp_drawing.DrawingSpec(color=(80, 44, 121), thickness=2, circle_radius=2)
+                                      )
+            # Draw left hand connections
+            mp_drawing.draw_landmarks(image, results.left_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
+                                      mp_drawing.DrawingSpec(color=(121, 22, 76), thickness=2, circle_radius=4),
+                                      mp_drawing.DrawingSpec(color=(121, 44, 250), thickness=2, circle_radius=2)
+                                      )
+            # Draw right hand connections
+            mp_drawing.draw_landmarks(image, results.right_hand_landmarks, mp_holistic.HAND_CONNECTIONS,
+                                      mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=2, circle_radius=4),
+                                      mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=2, circle_radius=2)
+                                      )
+
+        def extract_keypoints(results):
+            pose = np.array([[res.x, res.y, res.z, res.visibility] for res in
+                             results.pose_landmarks.landmark]).flatten() if results.pose_landmarks else np.zeros(33 * 4)
+            face = np.array([[res.x, res.y, res.z] for res in
+                             results.face_landmarks.landmark]).flatten() if results.face_landmarks else np.zeros(
+                468 * 3)
+            lh = np.array([[res.x, res.y, res.z] for res in
+                           results.left_hand_landmarks.landmark]).flatten() if results.left_hand_landmarks else np.zeros(
+                21 * 3)
+            rh = np.array([[res.x, res.y, res.z] for res in
+                           results.right_hand_landmarks.landmark]).flatten() if results.right_hand_landmarks else np.zeros(
+                21 * 3)
+            return np.concatenate([pose, face, lh, rh])
+
+        colors = [(245, 117, 16), (117, 245, 16), (16, 117, 245)]
+
+        model = Sequential()
+        model = Sequential()
+        model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=(40, 1662)))
+        model.add(LSTM(128, return_sequences=True, activation='relu'))
+        model.add(LSTM(64, return_sequences=False, activation='relu'))
+        model.add(Dense(64, activation='relu'))
+        model.add(Dense(32, activation='relu'))
+        model.add(Dense(actions.shape[0], activation='softmax'))
+
+        model.save('action.h5')
+        model.load_weights('action.h5')
+        sequence = []
+        sentence = []
+        predictions = []
+        threshold = 0.5
+
+        cap = cv2.VideoCapture(0)
+        # Set mediapipe model
+        with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=0.5) as holistic:
+            while cap.isOpened():
+
+                # Read feed
+                ret, frame = cap.read()
+
+                # Make detections
+                image, results = mediapipe_detection(frame, holistic)
+                print(results)
+
+                # Draw landmarks
+                draw_styled_landmarks(image, results)
+
+                # 2. Prediction logic
+                keypoints = extract_keypoints(results)
+                sequence.append(keypoints)
+                sequence = sequence[-30:]
+
+                if len(sequence) == 30:
+                    res = model.predict(np.expand_dims(sequence, axis=0))[0]
+                    print(actions[np.argmax(res)])
+                    predictions.append(np.argmax(res))
+
+                    # 3. Viz logic
+                    if np.unique(predictions[-10:])[0] == np.argmax(res):
+                        if res[np.argmax(res)] > threshold:
+
+                            if len(sentence) > 0:
+                                if actions[np.argmax(res)] != sentence[-1]:
+                                    sentence.append(actions[np.argmax(res)])
+                            else:
+                                sentence.append(actions[np.argmax(res)])
+
+                    if len(sentence) > 5:
+                        sentence = sentence[-5:]
+
+                # Show to screen
+                cv2.imshow('OpenCV Feed', image)
+
+                # Break gracefully
+                if cv2.waitKey(10) & 0xFF == ord('q'):
+                    break
+            cap.release()
+            cv2.destroyAllWindows()
+
+    def static_Sign_Language(self):
+        import cv2
+        import numpy as np
+        import os
+        from object_detection.utils import label_map_util
+        from object_detection.utils import visualization_utils as viz_utils
+        from object_detection.builders import model_builder
+        import tensorflow as tf
+        from object_detection.utils import config_util
+        from object_detection.protos import pipeline_pb2
+        from google.protobuf import text_format
+
+        WORKSPACE_PATH = 'Tensorflow/workspace'
+        SCRIPTS_PATH = 'Tensorflow/scripts'
+        APIMODEL_PATH = 'Tensorflow/models'
+        ANNOTATION_PATH = WORKSPACE_PATH + '/annotations'
+        IMAGE_PATH = WORKSPACE_PATH + '/images'
+        MODEL_PATH = WORKSPACE_PATH + '/models'
+        PRETRAINED_MODEL_PATH = WORKSPACE_PATH + '/pre-trained-models'
+        CONFIG_PATH = MODEL_PATH + '/my_ssd_mobnet/pipeline.config'
+        CHECKPOINT_PATH = MODEL_PATH + '/my_ssd_mobnet/'
+
+        # Load pipeline config and build a detection model
+        configs = config_util.get_configs_from_pipeline_file(CONFIG_PATH)
+        detection_model = model_builder.build(model_config=configs['model'], is_training=False)
+
+        # Restore checkpoint
+        ckpt = tf.compat.v2.train.Checkpoint(model=detection_model)
+        ckpt.restore(os.path.join(CHECKPOINT_PATH, 'ckpt-6')).expect_partial()
+
+        @tf.function
+        def detect_fn(image):
+            image, shapes = detection_model.preprocess(image)
+            prediction_dict = detection_model.predict(image, shapes)
+            detections = detection_model.postprocess(prediction_dict, shapes)
+            return detections
+
+        category_index = label_map_util.create_category_index_from_labelmap(ANNOTATION_PATH + '/label_map.pbtxt')
+
+        cap = cv2.VideoCapture(0)
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+
+        while True:
+            ret, frame = cap.read()
+            image_np = np.array(frame)
+
+            input_tensor = tf.convert_to_tensor(np.expand_dims(image_np, 0), dtype=tf.float32)
+            detections = detect_fn(input_tensor)
+
+            num_detections = int(detections.pop('num_detections'))
+            detections = {key: value[0, :num_detections].numpy()
+                          for key, value in detections.items()}
+            detections['num_detections'] = num_detections
+
+            # detection_classes should be ints.
+            detections['detection_classes'] = detections['detection_classes'].astype(np.int64)
+
+            label_id_offset = 1
+            image_np_with_detections = image_np.copy()
+
+            viz_utils.visualize_boxes_and_labels_on_image_array(
+                image_np_with_detections,
+                detections['detection_boxes'],
+                detections['detection_classes'] + label_id_offset,
+                detections['detection_scores'],
+                category_index,
+                use_normalized_coordinates=True,
+                max_boxes_to_draw=5,
+                min_score_thresh=.5,
+                agnostic_mode=False)
+
+            cv2.imshow('object detection', cv2.resize(image_np_with_detections, (800, 600)))
+
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                cap.release()
+                break
+
+        detections = detect_fn(input_tensor)
     # method for opening menu screen
     def Menu(self):
         from Menu import Ui_MainWindow_Menu
@@ -239,6 +453,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
         self.LogoLabel.setObjectName("LogoLabel")
         self.staticMotionBtn = QtWidgets.QPushButton(self.centralwidget)
         self.staticMotionBtn.setGeometry(QtCore.QRect(160, 280, 114, 26))
+        self.staticMotionBtn.clicked.connect(self.static_Sign_Language)
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(-1)
@@ -257,7 +472,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "}")
         self.staticMotionBtn.setObjectName("staticMotionBtn")
         self.dynamiMotionBtn = QtWidgets.QPushButton(self.centralwidget)
-        self.dynamiMotionBtn.setGeometry(QtCore.QRect(290, 280, 114, 26))
+        self.dynamiMotionBtn.setGeometry(QtCore.QRect(290, 280, 150, 26))
         self.dynamiMotionBtn.setStyleSheet("#dynamiMotionBtn{\n"
 "border-radius: 5px;\n"
 "opacity: 1;\n"
@@ -268,6 +483,7 @@ class Ui_MainWindow_PSLtoUrdu(object):
 "\n"
 "}")
         self.dynamiMotionBtn.setObjectName("dynamiMotionBtn")
+        self.dynamiMotionBtn.clicked.connect(self.dynamic_Sign_Language)
         self.ProfileScreen.raise_()
         self.NotiLabel.raise_()
         self.MsgIcon.raise_()
