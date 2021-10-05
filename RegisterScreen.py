@@ -13,7 +13,7 @@ from PyQt6.QtWidgets import QLineEdit, QMessageBox
 from LoginScreen import Ui_MainWindow1
 from SplashScreen import *
 from pymongo import MongoClient
-##
+
 
 class Ui_MainWindow_RegisterScreen(object):
 

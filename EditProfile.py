@@ -219,7 +219,6 @@ class Ui_MainWindow_EditProfile(object):
                                    "\n"
                                    "\n"
                                    "}")
-        ##(219, 697, 115, 32)
         self.saveBtn.setObjectName("saveBtn")
         self.cancelBtn = QtWidgets.QPushButton(self.centralwidget)
         self.cancelBtn.setGeometry(QtCore.QRect(219, 640, 115, 32))
@@ -286,7 +285,7 @@ class Ui_MainWindow_EditProfile(object):
         self.saveBtn.setText(_translate("MainWindow", "save"))
         self.cancelBtn.setText(_translate("MainWindow", "cancel"))
 
-##
+
 if __name__ == "__main__":
     import sys
 

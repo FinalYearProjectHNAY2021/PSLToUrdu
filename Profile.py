@@ -386,7 +386,7 @@ class Ui_MainWindow_Profile(object):
         self.HowtoUseLabel.setText(_translate("MainWindow", "How To Use"))
         self.PrivacyPolicyLabel.setText(_translate("MainWindow", "Privacy & Policy"))
         self.EditProfileLabel.setText(_translate("MainWindow", "Edit Profile"))
-##
+
 
 if __name__ == "__main__":
     import sys

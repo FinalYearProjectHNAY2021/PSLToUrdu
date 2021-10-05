@@ -15,7 +15,7 @@ from datetime import time
 from PyQt6.QtWidgets import QFormLayout, QGroupBox, QLabel, QPushButton
 from pymongo import MongoClient
 
-##
+
 class Ui_MainWindow_Dashboard(object):
 
     def databaseCountMethod(self):
