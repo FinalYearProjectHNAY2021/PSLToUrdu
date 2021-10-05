@@ -6,7 +6,7 @@ from PyQt6.QtWidgets import QLineEdit, QMessageBox
 from pymongo import MongoClient
 
 
-
+##
 class Ui_MainWindow1(object):
 
     def showMessagePassword(self):

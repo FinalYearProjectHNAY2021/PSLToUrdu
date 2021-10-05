@@ -286,7 +286,7 @@ class Ui_MainWindow_EditProfile(object):
         self.saveBtn.setText(_translate("MainWindow", "save"))
         self.cancelBtn.setText(_translate("MainWindow", "cancel"))
 
-
+##
 if __name__ == "__main__":
     import sys
 
